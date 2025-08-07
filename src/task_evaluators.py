@@ -630,9 +630,9 @@ Carefully examine the plot and count each point where the function changes direc
 
 
 class ScienceTaskEvaluator(IsoBenchTaskEvaluator):
-    """Evaluator for science tasks (chemistry, medical)"""
+    """Evaluator for science tasks (chemistry, physics)"""
 
-    def create_text_prompt(self, sample: Dict[str, Any]) -> str:
+    def _create_short_text_prompt(self, sample: Dict[str, Any]) -> str:
         """Create science-specific text prompt"""
         if "question" in sample:
             prompt = sample["question"]
@@ -641,18 +641,112 @@ class ScienceTaskEvaluator(IsoBenchTaskEvaluator):
             return prompt
         return "Please analyze the given scientific problem and provide your answer."
 
-    def create_image_prompt(self, sample: Dict[str, Any]) -> str:
+    def _create_short_image_prompt(self, sample: Dict[str, Any]) -> str:
         """Create science-specific image prompt"""
         if "question" in sample:
             return sample["question"]
         return "Please analyze the scientific diagram/image and answer the question."
 
+    def _create_long_text_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create long science-specific text prompt - based on paper appendix style"""
+        base_prompt = ""
+
+        if self.task_name == "chemistry":
+            base_prompt = """You are presented with a chemistry problem that requires careful analysis.
+
+Please read the problem statement and any provided context carefully. Use your knowledge of chemical principles, molecular structure, chemical reactions, and laboratory procedures to solve the problem.
+
+Consider the following when analyzing:
+- Molecular structures and bonding
+- Chemical properties and reactions
+- Stoichiometry and chemical equations
+- Laboratory techniques and measurements
+- Physical and chemical changes
+
+Problem: """
+
+        elif self.task_name == "physics":
+            base_prompt = """You are presented with a physics problem that requires systematic analysis.
+
+Please read the problem statement and any provided context carefully. Use your knowledge of physical principles, mathematical relationships, and scientific reasoning to solve the problem.
+
+Consider the following when analyzing:
+- Physical laws and principles
+- Mathematical relationships and equations
+- Units and dimensional analysis
+- Graphical representations
+- Experimental setup and measurements
+
+Problem: """
+
+        if "question" in sample:
+            base_prompt += sample["question"]
+            if "description" in sample:
+                base_prompt += f"\n\nAdditional Context: {sample['description']}"
+
+        base_prompt += "\n\nPlease think through the problem step by step and provide your answer with clear reasoning."
+
+        return base_prompt
+
+    def _create_long_image_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create long science-specific image prompt - based on paper appendix style"""
+        base_prompt = ""
+
+        if self.task_name == "chemistry":
+            base_prompt = """You are shown a chemistry diagram, molecular structure, experimental setup, or chemical representation.
+
+Your task is to carefully analyze the visual information and answer the associated question.
+
+When examining the image, consider:
+- Molecular structures, bonds, and geometry
+- Chemical symbols, formulas, and notation
+- Laboratory equipment and experimental setups
+- Reaction mechanisms and pathways
+- Physical and chemical properties
+- Measurements, graphs, and data representations
+
+Look carefully at all visual elements including:
+- Colors, shapes, and symbols
+- Labels, numbers, and text
+- Spatial relationships and arrangements
+- Any legends, keys, or reference information
+
+"""
+
+        elif self.task_name == "physics":
+            base_prompt = """You are shown a physics diagram, experimental setup, graph, or physical representation.
+
+Your task is to carefully analyze the visual information and answer the associated question.
+
+When examining the image, consider:
+- Physical systems and their components
+- Forces, motion, and energy relationships
+- Graphs, charts, and data representations
+- Experimental apparatus and measurements
+- Geometric relationships and spatial arrangements
+- Physical quantities and their units
+
+Look carefully at all visual elements including:
+- Shapes, directions, and orientations
+- Numbers, scales, and measurements
+- Labels, symbols, and notation
+- Any legends, axes, or reference information
+
+"""
+
+        if "question" in sample:
+            base_prompt += f"Question: {sample['question']}"
+
+        base_prompt += "\n\nAnalyze the image systematically and provide your answer with clear reasoning based on what you observe."
+
+        return base_prompt
+
 
 class AlgorithmTaskEvaluator(IsoBenchTaskEvaluator):
-    """Evaluator for algorithm tasks (path, search, sort, connectivity)"""
+    """Evaluator for algorithm tasks (graph connectivity, maxflow, isomorphism)"""
 
-    def create_text_prompt(self, sample: Dict[str, Any]) -> str:
-        """Create algorithm-specific text prompt"""
+    def _create_short_text_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create short algorithm-specific text prompt"""
         base_prompt = ""
 
         if self.task_name == "graph_connectivity":
@@ -674,8 +768,8 @@ class AlgorithmTaskEvaluator(IsoBenchTaskEvaluator):
 
         return base_prompt
 
-    def create_image_prompt(self, sample: Dict[str, Any]) -> str:
-        """Create algorithm-specific image prompt"""
+    def _create_short_image_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create short algorithm-specific image prompt"""
         if self.task_name == "graph_connectivity":
             node1 = sample.get("query_node_1", "")
             node2 = sample.get("query_node_2", "")
@@ -689,19 +783,235 @@ class AlgorithmTaskEvaluator(IsoBenchTaskEvaluator):
 
         return "Please analyze the graph(s) shown in the image."
 
+    def _create_long_text_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create long algorithm-specific text prompt - based on paper appendix style"""
+        base_prompt = ""
+
+        if self.task_name == "graph_connectivity":
+            adj_matrix = sample.get("adjacency_matrix", "")
+            node1 = sample.get("query_node_1", "")
+            node2 = sample.get("query_node_2", "")
+
+            base_prompt = f"""You are given a graph connectivity problem.
+
+You need to determine whether two specific nodes in a graph are connected (i.e., there exists a path between them).
+
+Graph representation: The graph is represented as an adjacency matrix:
+{adj_matrix}
+
+In this matrix:
+- Entry (i,j) = 1 means there is an edge from node i to node j
+- Entry (i,j) = 0 means there is no direct edge from node i to node j
+- The graph may be directed or undirected
+
+Query: Determine if node {node1} and node {node2} are connected.
+
+Two nodes are connected if there exists a path (sequence of edges) that connects them, either directly or through intermediate nodes.
+
+Analyze the adjacency matrix systematically to trace possible paths between the query nodes."""
+
+        elif self.task_name == "graph_maxflow":
+            adj_matrix = sample.get("adjacency_matrix", "")
+            source = sample.get("source_node", "")
+            sink = sample.get("sink_node", "")
+
+            base_prompt = f"""You are given a maximum flow problem in a flow network.
+
+You need to find the maximum amount of flow that can be sent from a source node to a sink node.
+
+Network representation: The flow network is represented as a capacity matrix:
+{adj_matrix}
+
+In this matrix:
+- Entry (i,j) represents the maximum capacity of the edge from node i to node j
+- Entry (i,j) = 0 means there is no edge from node i to node j
+
+Source node: {source}
+Sink node: {sink}
+
+Your task is to find the maximum flow from the source to the sink.
+
+Consider using algorithms like Ford-Fulkerson, and think about:
+- Finding augmenting paths from source to sink
+- The bottleneck capacity along each path
+- The total maximum flow possible"""
+
+        elif self.task_name == "graph_isomorphism":
+            adj_g = sample.get("adjacency_matrix_G", "")
+            adj_h = sample.get("adjacency_matrix_H", "")
+
+            base_prompt = f"""You are given a graph isomorphism problem.
+
+You need to determine whether two graphs are isomorphic (structurally identical).
+
+Graph G adjacency matrix:
+{adj_g}
+
+Graph H adjacency matrix:
+{adj_h}
+
+Two graphs are isomorphic if:
+- They have the same number of vertices and edges
+- There exists a bijection (one-to-one mapping) between their vertices that preserves adjacency relationships
+- In other words, you can relabel the vertices of one graph to make it identical to the other
+
+When checking for isomorphism, consider:
+- Degree sequences (must be identical)
+- Number of vertices and edges
+- Structural properties like cycles, paths, connectivity
+- Try to find a vertex mapping that preserves all edge relationships"""
+
+        base_prompt += "\n\nAnalyze the problem systematically and provide your answer with clear reasoning."
+        return base_prompt
+
+    def _create_long_image_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create long algorithm-specific image prompt - based on paper appendix style"""
+        base_prompt = ""
+
+        if self.task_name == "graph_connectivity":
+            node1 = sample.get("query_node_1", "")
+            node2 = sample.get("query_node_2", "")
+
+            base_prompt = f"""You are shown a graph visualization.
+
+Your task is to determine whether two specific nodes are connected by analyzing the visual representation.
+
+Query nodes: {node1} and {node2}
+
+When examining the graph:
+- Look for direct edges between the query nodes
+- Trace possible paths through intermediate nodes
+- Pay attention to node labels and colors
+- Consider that connections might be through multiple hops
+
+Two nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.
+
+Carefully trace the graph structure to determine connectivity."""
+
+        elif self.task_name == "graph_maxflow":
+            base_prompt = """You are shown a flow network diagram.
+
+Your task is to determine the maximum flow from the source to the sink by analyzing the visual representation.
+
+When examining the network:
+- Identify the source node (usually specially marked or colored)
+- Identify the sink node (usually specially marked or colored)  
+- Look at edge capacities (numbers on edges)
+- Consider multiple paths from source to sink
+- The maximum flow is limited by bottleneck edges
+
+Find all possible paths from source to sink and determine the maximum total flow that can be achieved. Remember that the flow through any edge cannot exceed its capacity.
+
+Analyze the network systematically to find the maximum flow value."""
+
+        elif self.task_name == "graph_isomorphism":
+            base_prompt = """You are shown two graph visualizations.
+
+Your task is to determine whether these two graphs are isomorphic (structurally identical) by analyzing their visual representations.
+
+Two graphs are isomorphic if:
+- They have the same number of vertices and edges
+- You can relabel the vertices of one graph to make it look identical to the other
+- They have the same structural properties
+
+When comparing the graphs:
+- Count vertices and edges in both graphs
+- Compare degree sequences (how many edges each vertex has)
+- Look for similar structural patterns
+- Check if vertices with the same degree have the same connectivity patterns
+- Try to mentally map vertices from one graph to the other
+
+Examine both graphs carefully and determine if they represent the same underlying structure."""
+
+        base_prompt += "\n\nLook carefully at the visual representation and provide your answer based on systematic analysis."
+        return base_prompt
+
 
 class GameTaskEvaluator(IsoBenchTaskEvaluator):
     """Evaluator for game tasks"""
 
-    def create_text_prompt(self, sample: Dict[str, Any]) -> str:
-        """Create game-specific text prompt"""
-        # Implementation depends on specific game tasks
+    def _create_short_text_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create short game-specific text prompt"""
         if "question" in sample:
             return sample["question"]
         return "Please analyze the game situation and provide your answer."
 
-    def create_image_prompt(self, sample: Dict[str, Any]) -> str:
-        """Create game-specific image prompt"""
+    def _create_short_image_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create short game-specific image prompt"""
         if "question" in sample:
             return sample["question"]
         return "Please analyze the game board/situation shown in the image."
+
+    def _create_long_text_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create long game-specific text prompt - based on paper appendix style"""
+        base_prompt = ""
+
+        if self.task_name == "winner_id":
+            base_prompt = """You are presented with a game scenario that requires strategic analysis.
+
+Your task is to analyze the game state and determine the winner or optimal outcome.
+
+When analyzing the game:
+- Consider the rules and objectives
+- Evaluate the current positions and advantages
+- Think about possible moves and strategies
+- Determine who has the winning position or advantage
+
+Game scenario: """
+
+        elif self.task_name == "puzzle":
+            base_prompt = """You are presented with a puzzle that requires logical reasoning and problem-solving.
+
+Your task is to analyze the puzzle systematically and find the correct solution.
+
+When solving the puzzle:
+- Identify the constraints and rules
+- Look for patterns and relationships
+- Consider different approaches and strategies
+- Apply logical reasoning step by step
+
+Puzzle: """
+
+        if "question" in sample:
+            base_prompt += sample["question"]
+
+        base_prompt += "\n\nAnalyze the problem carefully and provide your answer with clear reasoning."
+        return base_prompt
+
+    def _create_long_image_prompt(self, sample: Dict[str, Any]) -> str:
+        """Create long game-specific image prompt - based on paper appendix style"""
+        base_prompt = ""
+
+        if self.task_name == "winner_id":
+            base_prompt = """You are shown a game board or game situation.
+
+Your task is to analyze the visual game state and determine the winner or optimal outcome.
+
+When examining the game image:
+- Identify the game type and rules
+- Analyze piece positions and player advantages
+- Consider possible moves and strategies
+- Look for winning conditions or decisive positions
+- Pay attention to any highlighted or special elements
+
+"""
+
+        elif self.task_name == "puzzle":
+            base_prompt = """You are shown a visual puzzle that requires logical analysis.
+
+Your task is to examine the puzzle image carefully and find the correct solution.
+
+When analyzing the puzzle image:
+- Identify all visual elements and their relationships
+- Look for patterns, sequences, or logical connections  
+- Consider spatial arrangements and orientations
+- Apply systematic reasoning to find the solution
+- Pay attention to colors, shapes, numbers, or symbols
+
+"""
+
+        if "question" in sample:
+            base_prompt += f"Question: {sample['question']}"
+
+        base_prompt += "\n\nExamine the image systematically and provide your solution with clear reasoning."
+        return base_prompt
