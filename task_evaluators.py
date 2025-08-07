@@ -172,6 +172,44 @@ class IsoBenchTaskEvaluator:
             f"Saved detailed log for {self.task_name} sample {sample_idx} to {log_file}"
         )
 
+    def _load_cached_results(
+        self, model_name: str, output_dir: Path
+    ) -> Dict[int, Dict]:
+        """Load cached results for a specific model and task"""
+        model_dir = output_dir / model_name.replace("/", "_")
+        log_file = model_dir / f"{self.task_name}.json"
+
+        if not log_file.exists():
+            return {}
+
+        try:
+            with open(log_file, "r", encoding="utf-8") as f:
+                log_data = json.load(f)
+
+            # Create a mapping from (sample_index, modality) to cached result
+            cached = {}
+            for entry in log_data:
+                key = (entry["sample_index"], entry["modality"])
+                cached[key] = entry
+
+            logger.info(f"Loaded {len(log_data)} cached results for {self.task_name}")
+            return cached
+
+        except (json.JSONDecodeError, KeyError) as e:
+            logger.warning(f"Error loading cached results from {log_file}: {e}")
+            return {}
+
+    def _clear_cache_if_fresh_start(
+        self, model_name: str, output_dir: Path, resume: bool
+    ):
+        """Clear cache file if not resuming"""
+        if not resume:
+            model_dir = output_dir / model_name.replace("/", "_")
+            log_file = model_dir / f"{self.task_name}.json"
+            if log_file.exists():
+                log_file.unlink()
+                logger.info(f"Cleared cached results for {self.task_name}")
+
     def get_choices(self, sample: Dict[str, Any]) -> Optional[List[str]]:
         """Extract choices from sample if available"""
         # First try to get choices from explicit 'choices' field
@@ -254,6 +292,7 @@ class IsoBenchTaskEvaluator:
         modality: str,
         max_samples: int = None,
         output_dir: Path = None,
+        resume: bool = True,
     ) -> EvaluationResult:
         """Evaluate model on specific modality"""
         if not self.dataset:
@@ -267,11 +306,47 @@ class IsoBenchTaskEvaluator:
         if max_samples:
             samples = samples[:max_samples]
 
+        # Handle caching
+        cached_results = {}
+        if resume and output_dir:
+            cached_results = self._load_cached_results(model.model_name, output_dir)
+        elif output_dir:
+            self._clear_cache_if_fresh_start(model.model_name, output_dir, resume)
+
         logger.info(
             f"Evaluating {model.model_name} on {self.task_name} - {modality} modality ({len(samples)} samples)"
         )
+        if cached_results:
+            cached_count = sum(
+                1 for i in range(len(samples)) if (i, modality) in cached_results
+            )
+            logger.info(
+                f"Found {cached_count} cached results, will evaluate {len(samples) - cached_count} new samples"
+            )
 
         for i, sample in enumerate(samples):
+            # Check if this sample is already cached
+            cache_key = (i, modality)
+            if cache_key in cached_results:
+                # Load from cache
+                cached_entry = cached_results[cache_key]
+                cached_eval = cached_entry["evaluation"]
+
+                prediction = cached_eval["parsed_prediction"]
+                gt = cached_eval["ground_truth"]
+                is_correct = cached_eval["is_correct"]
+
+                predictions.append(prediction)
+                ground_truth.append(gt)
+                if is_correct:
+                    correct_count += 1
+
+                logger.debug(
+                    f"Sample {i}: Loaded from cache - prediction: {prediction}, ground_truth: {gt}, correct: {is_correct}"
+                )
+                continue
+
+            # Evaluate new sample
             try:
                 choices = self.get_choices(sample)
                 logger.debug(

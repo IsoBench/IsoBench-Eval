@@ -62,7 +62,7 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Run full evaluation with GPT-5 (default)
+  # Run full evaluation with GPT-5 (default, with resume)
   python eval.py
 
   # Evaluate specific tasks with custom model
@@ -76,6 +76,12 @@ Examples:
 
   # Save detailed results to JSON
   python eval.py --save-detailed-results
+
+  # Start fresh evaluation (override cache)
+  python eval.py --fresh-start
+
+  # Disable resume (but don't clear cache)
+  python eval.py --no-resume
 
 Available tasks:
   Math: math_parity, math_convexity, math_breakpoint
@@ -142,6 +148,27 @@ Available tasks:
         help="Save detailed results to JSON file (default: False)",
     )
 
+    parser.add_argument(
+        "--resume",
+        dest="resume",
+        action="store_true",
+        default=True,
+        help="Resume from cached results if available (default: True)",
+    )
+
+    parser.add_argument(
+        "--no-resume",
+        dest="resume",
+        action="store_false",
+        help="Don't resume from cached results",
+    )
+
+    parser.add_argument(
+        "--fresh-start",
+        action="store_true",
+        help="Override cached results and start fresh evaluation (default: False)",
+    )
+
     return parser.parse_args()
 
 
@@ -161,6 +188,17 @@ def main():
     logger.info(f"Output directory: {args.output_dir}")
     logger.info(f"Long prompts: {args.long_prompts}")
 
+    # Handle fresh-start vs resume
+    if args.fresh_start:
+        resume = False
+        logger.info("Fresh start mode: Will override any cached results")
+    else:
+        resume = args.resume
+        if resume:
+            logger.info("Resume mode: Will use cached results when available")
+        else:
+            logger.info("No resume: Will evaluate all samples")
+
     try:
         # Create model instance
         logger.info("Initializing model...")
@@ -175,7 +213,9 @@ def main():
 
         # Run evaluation
         logger.info("Starting evaluation...")
-        evaluator.evaluate_model(model, use_long_prompts=args.long_prompts)
+        evaluator.evaluate_model(
+            model, use_long_prompts=args.long_prompts, resume=resume
+        )
 
         # Create evaluation summary for the model
         evaluator.create_evaluation_summary(model.model_name)

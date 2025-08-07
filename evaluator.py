@@ -74,6 +74,7 @@ class IsoBenchEvaluator:
         modalities: List[str] = None,
         max_samples_per_task: int = None,
         use_long_prompts: bool = False,
+        resume: bool = True,
     ) -> List[EvaluationResult]:
         """Evaluate model on specified tasks and modalities"""
         if tasks is None:
@@ -96,6 +97,7 @@ class IsoBenchEvaluator:
                         modality,
                         max_samples_per_task,
                         output_dir=self.output_dir,
+                        resume=resume,
                     )
                     model_results.append(result)
                     self.results.append(result)
