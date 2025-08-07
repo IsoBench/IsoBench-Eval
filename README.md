@@ -20,6 +20,10 @@ IsoBench is a benchmark dataset designed to evaluate multimodal reasoning capabi
 - ✅ **Flexible Configuration**: Command-line arguments for customization
 - ✅ **Results Export**: JSON and CSV output formats
 - ✅ **Table 1 Reproduction**: Generate reports similar to the original paper
+- ✅ **Resume Functionality**: Skip completed evaluations with intelligent caching
+- ✅ **Comprehensive Logging**: Detailed JSON logs with full evaluation traces
+- ✅ **Multi-Model Aggregation**: Compare multiple models with dedicated aggregation script
+- ✅ **Long Prompt Support**: Use detailed prompts from paper appendix for better results
 
 ## Installation
 
@@ -105,14 +109,19 @@ python eval.py --modalities text --output-dir text_only_results
 python eval.py --long-prompts
 ```
 
-6. **Combine multiple options**:
+6. **Resume previous evaluation**:
 ```bash
-python eval.py --model claude-3-opus-20240229 --tasks math_parity graph_connectivity --long-prompts --max-samples 100
+python eval.py --model gpt-4 --resume
 ```
 
-5. **Custom model with verbose output**:
+7. **Fresh start (clear cache)**:
 ```bash
-python eval.py --model claude-3-opus --verbose --output-dir claude_results
+python eval.py --model gpt-4 --fresh-start
+```
+
+8. **Combine multiple options**:
+```bash
+python eval.py --model claude-3-opus-20240229 --tasks math_parity graph_connectivity --long-prompts --max-samples 100 --verbose
 ```
 
 ## Available Tasks
@@ -168,37 +177,65 @@ Recall the definitions:
 
 ```
 IsoBench-Eval/
-├── eval.py                 # Main evaluation script
-├── src/                    # Source package
-│   ├── __init__.py        # Package initialization
-│   ├── models.py          # Model implementations (OpenAI, Gemini, Claude)
-│   ├── evaluator.py       # Main evaluator class and result aggregation  
-│   ├── task_evaluators.py # Task-specific evaluation logic
-│   └── data_structures.py # Data classes for results
-├── test_scripts/          # Test and validation scripts
-├── requirements.txt       # Python dependencies
-├── README.md             # This file
-└── LICENSE               # License information
+├── eval.py                    # Main evaluation script and CLI
+├── aggregate_results.py       # Multi-model results aggregation  
+├── src/                       # Core evaluation package
+│   ├── __init__.py           # Package exports and initialization
+│   ├── models.py             # Model implementations (OpenAI, Gemini, Claude)
+│   ├── evaluator.py          # Main evaluator and result aggregation  
+│   ├── task_evaluators.py    # Task-specific evaluation logic with caching
+│   └── data_structures.py    # Data classes for structured results
+├── isobench_results/          # Default output directory
+│   └── model_name/           # Per-model results and logs
+├── requirements.txt          # Python dependencies
+├── README.md                # This documentation
+└── LICENSE                  # License information
 ```
 
 ### Module Descriptions
 
-- **`eval.py`**: Main entry point with command-line interface and orchestration
-- **`src/models.py`**: Abstract base class and concrete implementations for each foundation model
-- **`src/evaluator.py`**: Core evaluation logic, result aggregation, and report generation
-- **`src/task_evaluators.py`**: Specialized evaluators for different task categories
-- **`src/data_structures.py`**: Data classes for structured result storage
-- **`test_scripts/`**: Development and testing utilities
+- **`eval.py`**: Main entry point with comprehensive CLI and evaluation orchestration
+- **`aggregate_results.py`**: Aggregates individual model results into comparative reports
+- **`src/models.py`**: Abstract base class and model implementations with intelligent response parsing
+- **`src/evaluator.py`**: Core evaluation logic, result aggregation, and report generation with resume support
+- **`src/task_evaluators.py`**: Specialized evaluators for different task categories with caching and detailed logging
+- **`src/data_structures.py`**: Data classes for structured result storage and type safety
 
-## Output
+## Output Structure
 
-The framework generates several output files in the specified output directory:
+The framework generates a structured output directory with comprehensive logging and reporting:
+
+```
+isobench_results/
+├── model_name/                    # e.g., gpt-5, gpt-4, gemini-1.5-pro
+│   ├── math_parity.json          # Detailed task logs with predictions
+│   ├── math_convexity.json       # Full evaluation data per task
+│   ├── chemistry.json            
+│   ├── ...                       # One JSON file per evaluated task
+│   ├── evaluation_summary.json   # Aggregated statistics and accuracies
+│   └── individual_report.csv     # Table 1 format for this model only
+├── table1_report.csv             # Combined report (multi-model only)
+├── table1_comprehensive_report.csv # Detailed aggregation (via aggregate script)
+├── task_breakdown_report.csv     # Task-by-task analysis (via aggregate script)  
+└── isobench_evaluation.log       # Execution log
+```
 
 ### Files Generated
 
-1. **`detailed_results.json`**: Complete evaluation results with predictions and ground truth
-2. **`table1_report.csv`**: Summary report similar to Table 1 in the original paper
-3. **`isobench_evaluation.log`**: Detailed execution log
+1. **Task-level JSON logs** (`{task_name}.json`): Complete evaluation results with:
+   - Dataset samples and ground truth
+   - Model inputs and outputs  
+   - Parsing results and correctness
+   - Timestamps and metadata
+
+2. **Evaluation summary** (`evaluation_summary.json`): Statistical summary with:
+   - Overall and per-task accuracies
+   - Text vs image modality breakdown
+   - Sample counts and performance metrics
+
+3. **Individual model report** (`individual_report.csv`): Table 1 format for single model
+4. **Combined reports**: Multi-model Table 1 comparison (when applicable)
+5. **Execution log** (`isobench_evaluation.log`): Detailed run information
 
 ### Result Format
 
@@ -265,6 +302,45 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 
 The framework includes built-in rate limiting (1 second delay between API calls) to respect API limits. Modify `rate_limit_delay` in model classes if needed.
 
+## Multi-Model Analysis
+
+### Aggregating Results from Multiple Models
+
+When you've evaluated multiple models separately, use the aggregation script to combine results:
+
+```bash
+# Aggregate all models in the output directory
+python aggregate_results.py --output-dir isobench_results
+
+# Aggregate specific models only  
+python aggregate_results.py --models gpt-5 gpt-4 gemini-1.5-pro
+
+# Include detailed task-by-task breakdown
+python aggregate_results.py --include-task-breakdown --verbose
+```
+
+This generates:
+- **`table1_comprehensive_report.csv`**: Full comparison with sample counts
+- **`table1_report.csv`**: Clean summary (Model, Text Accuracy, Image Accuracy, Gap)  
+- **`task_breakdown_report.csv`**: Per-task performance analysis (optional)
+
+### Resume Functionality
+
+The framework supports resuming interrupted evaluations:
+
+```bash
+# Resume from where you left off (default behavior)
+python eval.py --model gpt-4 --resume
+
+# Start completely fresh (clear all cache)  
+python eval.py --model gpt-4 --fresh-start
+
+# Disable resume but keep existing cache
+python eval.py --model gpt-4 --no-resume
+```
+
+The system automatically detects completed task-modality combinations and skips them unless specified otherwise.
+
 ## Performance Tips
 
 1. **Start Small**: Use `--max-samples` for initial testing
@@ -300,6 +376,46 @@ python eval.py --verbose
 ```
 
 Check the log file `isobench_evaluation.log` for complete execution details.
+
+### Detailed Evaluation Logs
+
+Each task generates comprehensive JSON logs containing:
+
+- **Dataset samples**: Original problem data with LaTeX, code, images
+- **Model inputs**: Complete prompts sent to the model  
+- **Model outputs**: Raw responses before parsing
+- **Evaluation details**: Parsed predictions, ground truth, correctness
+- **Metadata**: Timestamps, task names, modalities, prompt types
+
+Example log entry structure:
+```json
+{
+  "sample_index": 0,
+  "task_name": "math_parity", 
+  "modality": "text",
+  "timestamp": "2025-08-07T13:40:52.805620",
+  "dataset_sample": {
+    "label": "odd",
+    "latex": "$$f(x) = -\\frac{2x^5}{...}$$",
+    "code": "f(x) = -2*x**5/(...)",
+    "image_available": true
+  },
+  "evaluation": {
+    "input_prompt": "You are given a mathematical function...",
+    "model_response": "Answer: odd\n\nReasoning: ...",
+    "parsed_prediction": "odd", 
+    "ground_truth": "odd",
+    "is_correct": true,
+    "prompt_type": "long"
+  }
+}
+```
+
+This detailed logging enables:
+- **Debugging model errors** by examining exact inputs/outputs
+- **Analyzing prompt effectiveness** across different formulations  
+- **Understanding failure modes** through response patterns
+- **Reproducing specific results** with complete evaluation traces
 
 ## Contributing
 

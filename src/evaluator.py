@@ -195,8 +195,15 @@ class IsoBenchEvaluator:
 
         df = pd.DataFrame(report_data)
 
-        # Save report
-        report_file = self.output_dir / "table1_report.csv"
+        # Save report to model-specific directory for single model evaluations
+        if len(models) == 1:
+            model_dir = self.output_dir / models[0].replace("/", "_")
+            model_dir.mkdir(parents=True, exist_ok=True)
+            report_file = model_dir / "individual_report.csv"
+        else:
+            # Save to main output directory for multi-model reports
+            report_file = self.output_dir / "table1_report.csv"
+
         df.to_csv(report_file, index=False)
         logger.info(f"Table 1 report saved to: {report_file}")
 
