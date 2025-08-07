@@ -74,6 +74,9 @@ Examples:
   # Text modality only
   python eval.py --modalities text --output-dir text_only_results
 
+  # Save detailed results to JSON
+  python eval.py --save-detailed-results
+
 Available tasks:
   Math: math_parity, math_convexity, math_breakpoint
   Science: chemistry, physics  
@@ -86,7 +89,7 @@ Available tasks:
         "--model",
         type=str,
         default="gpt-5",
-        help="Model to evaluate (default: gpt-5). Options: gpt-5, gpt-4, gemini-2.0-flash-exp, gemini-1.5-pro, claude-3-opus",
+        help="Model to evaluate (default: gpt-5). Options: gpt-5, gpt-4, gpt-3.5-turbo, gemini-2.0-flash-exp, gemini-1.5-pro, claude-3-opus",
     )
 
     parser.add_argument(
@@ -133,6 +136,12 @@ Available tasks:
 
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
 
+    parser.add_argument(
+        "--save-detailed-results",
+        action="store_true",
+        help="Save detailed results to JSON file (default: False)",
+    )
+
     return parser.parse_args()
 
 
@@ -166,10 +175,10 @@ def main():
 
         # Run evaluation
         logger.info("Starting evaluation...")
-        evaluator.evaluate_model(args.model, use_long_prompts=args.long_prompts)
+        evaluator.evaluate_model(model, use_long_prompts=args.long_prompts)
 
         # Create evaluation summary for the model
-        evaluator.create_evaluation_summary(args.model)
+        evaluator.create_evaluation_summary(model.model_name)
 
         # Generate report
         if args.save_detailed_results:

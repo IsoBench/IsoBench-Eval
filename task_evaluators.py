@@ -149,11 +149,24 @@ class IsoBenchTaskEvaluator:
         }
 
         # Save to task-specific file
-        log_file = model_dir / f"{self.task_name}.jsonl"
+        log_file = model_dir / f"{self.task_name}.json"
 
-        # Append to JSONL file (one JSON object per line)
-        with open(log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+        # Load existing data or create new list
+        if log_file.exists():
+            with open(log_file, "r", encoding="utf-8") as f:
+                try:
+                    log_data = json.load(f)
+                except json.JSONDecodeError:
+                    log_data = []
+        else:
+            log_data = []
+
+        # Append new entry
+        log_data.append(log_entry)
+
+        # Save back to JSON file with indent=2
+        with open(log_file, "w", encoding="utf-8") as f:
+            json.dump(log_data, f, indent=2, ensure_ascii=False)
 
         logger.debug(
             f"Saved detailed log for {self.task_name} sample {sample_idx} to {log_file}"

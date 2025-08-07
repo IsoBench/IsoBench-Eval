@@ -160,7 +160,7 @@ class OpenAIModel(BaseModel):
         """Make prediction with text input"""
         try:
             if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease respond with only the letter (A, B, C, D) or number (0, 1, 2, 3) of your choice."
+                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.chat.completions.create(
                 model=self.model_name,
@@ -191,7 +191,7 @@ class OpenAIModel(BaseModel):
             img_str = base64.b64encode(buffered.getvalue()).decode()
 
             if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease respond with only the letter (A, B, C, D) or number (0, 1, 2, 3) of your choice."
+                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.chat.completions.create(
                 model=self.model_name,
@@ -256,7 +256,7 @@ class GeminiModel(BaseModel):
         """Make prediction with text input"""
         try:
             if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease respond with only the letter (A, B, C, D) or number (0, 1, 2, 3) of your choice."
+                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.gemini_client.models.generate_content(
                 model=self.model_name, contents=prompt, config=self.config
@@ -292,7 +292,7 @@ class GeminiModel(BaseModel):
         """Make prediction with image + text input"""
         try:
             if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease respond with only the letter (A, B, C, D) or number (0, 1, 2, 3) of your choice."
+                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             # Convert PIL image to format Gemini expects
             buffered = io.BytesIO()
@@ -352,11 +352,11 @@ class ClaudeModel(BaseModel):
         """Make prediction with text input"""
         try:
             if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease respond with only the letter (A, B, C, D) or number (0, 1, 2, 3) of your choice."
+                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.messages.create(
                 model=self.model_name,
-                max_tokens=100,
+                max_tokens=1000,  # Increased for detailed responses
                 temperature=0.0,
                 messages=[{"role": "user", "content": prompt}],
             )
@@ -384,11 +384,11 @@ class ClaudeModel(BaseModel):
             img_str = base64.b64encode(buffered.getvalue()).decode()
 
             if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease respond with only the letter (A, B, C, D) or number (0, 1, 2, 3) of your choice."
+                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.messages.create(
                 model=self.model_name,
-                max_tokens=100,
+                max_tokens=1000,  # Increased for detailed responses
                 temperature=0.0,
                 messages=[
                     {

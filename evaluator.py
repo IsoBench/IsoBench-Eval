@@ -73,6 +73,7 @@ class IsoBenchEvaluator:
         tasks: List[str] = None,
         modalities: List[str] = None,
         max_samples_per_task: int = None,
+        use_long_prompts: bool = False,
     ) -> List[EvaluationResult]:
         """Evaluate model on specified tasks and modalities"""
         if tasks is None:
@@ -216,7 +217,7 @@ class IsoBenchEvaluator:
         }
 
         # Process each task log file
-        for log_file in model_dir.glob("*.jsonl"):
+        for log_file in model_dir.glob("*.json"):
             task_name = log_file.stem
 
             # Read and analyze the log file
@@ -226,24 +227,22 @@ class IsoBenchEvaluator:
 
             try:
                 with open(log_file, "r", encoding="utf-8") as f:
-                    for line in f:
-                        try:
-                            entry = json.loads(line.strip())
-                            total_samples += 1
+                    log_data = json.load(f)
 
-                            if entry.get("evaluation", {}).get("is_correct", False):
-                                correct_samples += 1
+                    # Process each entry in the JSON array
+                    for entry in log_data:
+                        total_samples += 1
 
-                            # Track modality stats
-                            modality = entry.get("modality", "unknown")
-                            if modality not in modality_stats:
-                                modality_stats[modality] = {"total": 0, "correct": 0}
-                            modality_stats[modality]["total"] += 1
-                            if entry.get("evaluation", {}).get("is_correct", False):
-                                modality_stats[modality]["correct"] += 1
+                        if entry.get("evaluation", {}).get("is_correct", False):
+                            correct_samples += 1
 
-                        except json.JSONDecodeError:
-                            continue
+                        # Track modality stats
+                        modality = entry.get("modality", "unknown")
+                        if modality not in modality_stats:
+                            modality_stats[modality] = {"total": 0, "correct": 0}
+                        modality_stats[modality]["total"] += 1
+                        if entry.get("evaluation", {}).get("is_correct", False):
+                            modality_stats[modality]["correct"] += 1
 
                 # Calculate accuracies
                 overall_accuracy = (
