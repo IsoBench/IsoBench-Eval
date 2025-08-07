@@ -878,14 +878,15 @@ When checking for isomorphism, consider:
         base_prompt = ""
 
         if self.task_name == "graph_connectivity":
-            node1 = sample.get("query_node_1", "")
-            node2 = sample.get("query_node_2", "")
+            # node1 = sample.get("query_node_1", "")
+            # node2 = sample.get("query_node_2", "")
+            node_color = sample.get("query_nodes_color", "black")
 
             base_prompt = f"""You are shown a graph visualization.
 
 Your task is to determine whether two specific nodes are connected by analyzing the visual representation.
 
-Query nodes: {node1} and {node2}
+Query nodes are colored {node_color}.
 Note: Node indexing starts from 0.
 
 When examining the graph:
