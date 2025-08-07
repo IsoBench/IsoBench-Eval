@@ -1,0 +1,15 @@
+# Core dependencies
+datasets>=2.0.0
+pandas>=1.5.0
+numpy>=1.21.0
+pillow>=9.0.0
+
+# Model APIs
+openai>=1.0.0
+google-genai>=1.29.0
+anthropic>=0.7.0
+
+# Optional dependencies for enhanced functionality
+tqdm>=4.64.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
