@@ -214,7 +214,12 @@ def main():
         # Run evaluation
         logger.info("Starting evaluation...")
         evaluator.evaluate_model(
-            model, use_long_prompts=args.long_prompts, resume=resume
+            model,
+            tasks=args.tasks,
+            modalities=args.modalities,
+            max_samples_per_task=args.max_samples,
+            use_long_prompts=args.long_prompts,
+            resume=resume,
         )
 
         # Create evaluation summary for the model
