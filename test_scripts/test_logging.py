@@ -7,8 +7,8 @@ import logging
 import tempfile
 from pathlib import Path
 
-from models import create_model
-from evaluator import IsoBenchEvaluator
+from src.models import create_model
+from src.evaluator import IsoBenchEvaluator
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -44,7 +44,7 @@ def test_logging():
 
             def limited_evaluate(model_name, use_long_prompts=False):
                 # Just evaluate one task with few samples
-                from task_evaluators import IsoBenchTaskEvaluator
+                from src.task_evaluators import IsoBenchTaskEvaluator
 
                 # Test with math_geometry task and only 2 samples
                 task = "math_geometry"

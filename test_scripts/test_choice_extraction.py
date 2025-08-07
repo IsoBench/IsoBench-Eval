@@ -10,7 +10,7 @@ from pathlib import Path
 # Add the current directory to Python path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from task_evaluators import AlgorithmTaskEvaluator
+from src.task_evaluators import AlgorithmTaskEvaluator
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)

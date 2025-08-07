@@ -46,7 +46,7 @@ def test_framework():
         return False
 
     try:
-        from models import BaseModel, OpenAIModel, GeminiModel, ClaudeModel
+        from src.models import BaseModel, OpenAIModel, GeminiModel, ClaudeModel
 
         print("✅ models")
     except ImportError as e:
@@ -54,7 +54,7 @@ def test_framework():
         return False
 
     try:
-        from task_evaluators import IsoBenchTaskEvaluator, MathTaskEvaluator
+        from src.task_evaluators import IsoBenchTaskEvaluator, MathTaskEvaluator
 
         print("✅ task_evaluators")
     except ImportError as e:
@@ -62,7 +62,7 @@ def test_framework():
         return False
 
     try:
-        from evaluator import IsoBenchEvaluator
+        from src.evaluator import IsoBenchEvaluator
 
         print("✅ evaluator")
     except ImportError as e:

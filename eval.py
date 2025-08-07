@@ -12,7 +12,7 @@ Usage:
     python eval.py --model gemini-pro --modalities text --output-dir results/
     python eval.py --model claude-3-opus --help
 
-Author: AI Assistant
+Author: Deqing Fu
 """
 
 import argparse
@@ -22,8 +22,8 @@ import sys
 from pathlib import Path
 from typing import List, Optional
 
-from models import OpenAIModel, GeminiModel, ClaudeModel
-from evaluator import IsoBenchEvaluator
+from src.models import OpenAIModel, GeminiModel, ClaudeModel
+from src.evaluator import IsoBenchEvaluator
 
 # Configure logging
 logging.basicConfig(

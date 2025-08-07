@@ -169,10 +169,13 @@ Recall the definitions:
 ```
 IsoBench-Eval/
 ├── eval.py                 # Main evaluation script
-├── models.py              # Model implementations (OpenAI, Gemini, Claude)
-├── evaluator.py           # Main evaluator class and result aggregation
-├── task_evaluators.py     # Task-specific evaluation logic
-├── data_structures.py     # Data classes for results
+├── src/                    # Source package
+│   ├── __init__.py        # Package initialization
+│   ├── models.py          # Model implementations (OpenAI, Gemini, Claude)
+│   ├── evaluator.py       # Main evaluator class and result aggregation  
+│   ├── task_evaluators.py # Task-specific evaluation logic
+│   └── data_structures.py # Data classes for results
+├── test_scripts/          # Test and validation scripts
 ├── requirements.txt       # Python dependencies
 ├── README.md             # This file
 └── LICENSE               # License information
@@ -181,10 +184,11 @@ IsoBench-Eval/
 ### Module Descriptions
 
 - **`eval.py`**: Main entry point with command-line interface and orchestration
-- **`models.py`**: Abstract base class and concrete implementations for each foundation model
-- **`evaluator.py`**: Core evaluation logic, result aggregation, and report generation
-- **`task_evaluators.py`**: Specialized evaluators for different task categories
-- **`data_structures.py`**: Data classes for structured result storage
+- **`src/models.py`**: Abstract base class and concrete implementations for each foundation model
+- **`src/evaluator.py`**: Core evaluation logic, result aggregation, and report generation
+- **`src/task_evaluators.py`**: Specialized evaluators for different task categories
+- **`src/data_structures.py`**: Data classes for structured result storage
+- **`test_scripts/`**: Development and testing utilities
 
 ## Output
 
@@ -331,11 +335,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you use this evaluation framework, please cite:
 
 ```bibtex
-@software{isobench_eval_framework,
-  title={IsoBench Evaluation Framework},
-  author={AI Assistant},
-  year={2025},
-  url={https://github.com/your-repo/IsoBench-Eval}
+@inproceedings{fu2024isobench,
+      title={{I}so{B}ench: Benchmarking Multimodal Foundation Models on Isomorphic Representations}, 
+      author={Deqing Fu and Ruohao Guo and Ghazal Khalighinejad and Ollie Liu and Bhuwan Dhingra and Dani Yogatama and Robin Jia and Willie Neiswanger},
+      booktitle={First Conference on Language Modeling (COLM)},
+      year={2024}
 }
 ```
 

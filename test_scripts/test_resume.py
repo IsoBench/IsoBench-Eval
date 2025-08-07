@@ -22,8 +22,8 @@ def test_resume_functionality():
         logger.info(f"Testing resume functionality with output directory: {output_dir}")
 
         try:
-            from models import OpenAIModel
-            from evaluator import IsoBenchEvaluator
+            from src.models import OpenAIModel
+            from src.evaluator import IsoBenchEvaluator
 
             # Create model (using gpt-3.5-turbo for faster testing)
             model = OpenAIModel("gpt-3.5-turbo")

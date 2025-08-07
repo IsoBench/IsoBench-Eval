@@ -13,7 +13,7 @@ Features:
 - Detailed per-task and aggregate reporting
 - Results aggregation similar to Table 1 in the paper
 
-Author: AI Assistant
+Author: Deqing Fu
 """
 
 import os

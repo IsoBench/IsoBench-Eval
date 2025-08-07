@@ -3058,5 +3058,1805 @@
       "is_correct": true,
       "prompt_type": "long"
     }
+  },
+  {
+    "sample_index": 85,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:04.230250",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.25 x} + e^{0.9 x} + 19.51$$",
+      "code": "f(x) = exp(0.25*x) + exp(0.9*x) + 19.51",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.25 x} + e^{0.9 x} + 19.51$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- The function is f(x) = e^{0.25x} + e^{0.9x} + 19.51.\n- For each term, the second derivative is positive: (d^2/dx^2) e^{ax} = a^2 e^{ax} > 0.\n- Therefore f''(x) = (0.25)^2 e^{0.25x} + (0.9)^2 e^{0.9x} > 0 for all x. The constant 19.51 contributes nothing to the second derivative.\n\nConclusion: the function is convex.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 86,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:11.381450",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 3.08 \\left|{x}\\right| - 7.3$$",
+      "code": "f(x) = 3.08*Abs(x) - 7.3",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 3.08 \\left|{x}\\right| - 7.3$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- f(x) = 3.08 |x| - 7.3.\n- For x > 0: f'(x) = 3.08; for x < 0: f'(x) = -3.08. At x = 0, f' is not defined (cusp).\n- For x ≠ 0: f''(x) = 0 (since f' is constant on each side).\n- At x = 0, the second derivative does not exist due to the cusp, but the function is the sum of a linear term and a convex absolute value, hence it is convex.\n\nConclusion:\n- The second derivative is 0 for x ≠ 0 (nonnegative where defined), and the function is convex overall (the cusp does not violate convexity).\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 87,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:18.328527",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.56 \\left|{x}\\right| - 16.66$$",
+      "code": "f(x) = 0.56*Abs(x) - 16.66",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.56 \\left|{x}\\right| - 16.66$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = 0.56 |x| - 16.66.\n- For x ≠ 0, |x| has derivative d|x|/dx = sign(x), so f'(x) = 0.56 sign(x). The second derivative for x ≠ 0 is f''(x) = 0.\n- At x = 0, f is not twice differentiable (a cusp), so f'' is not defined there. However, convexity can still hold even if f'' is undefined at a point.\n- Since 0.56 > 0, a positive scalar multiple of the convex function |x| is convex, and subtracting a constant (-16.66) does not affect convexity. Therefore f is convex.\n- Intuitively, the graph is a V-shaped function with nondecreasing slopes (from -0.56 to +0.56), which is characteristic of convex functions.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 88,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:28.348913",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 2.0 \\left|{x}\\right| - 10.92$$",
+      "code": "f(x) = -2.0*Abs(x) - 10.92",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 2.0 \\left|{x}\\right| - 10.92$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Concave\n\nReasoning:\n- |x| is convex. Multiplying by -2 (a negative scalar) gives -2|x|, which is concave. Adding the constant -10.92 does not affect convexity/concavity.\n- Piecewise, for x>0: f(x) = -2x - 10.92, so f''(x) = 0; for x<0: f(x) = 2x - 10.92, so f''(x) = 0. At x = 0 the derivative has a jump (a cusp), so f'' is undefined there. However, f''(x) ≤ 0 wherever it exists (it's 0), and the global shape is an inverted V, i.e., slopes decrease from left to right, which is characteristic of concavity.\n- Therefore, the function is concave.",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 89,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:33.759641",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.39 x} - 0.06 \\log{\\left(x \\right)} - 16.2$$",
+      "code": "f(x) = exp(0.39*x) - 0.06*log(x) - 16.2",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.39 x} - 0.06 \\log{\\left(x \\right)} - 16.2$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = e^{0.39x} - 0.06 log x - 16.2, domain x > 0.\n- f'(x) = 0.39 e^{0.39x} - 0.06/x.\n- f''(x) = (0.39)^2 e^{0.39x} + 0.06/x^2 = 0.1521 e^{0.39x} + 0.06/x^2.\n- For x > 0, both e^{0.39x} > 0 and x^2 > 0, so f''(x) > 0.\n\nConclusion: Since f''(x) > 0 for all x > 0, the function is convex on the domain x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 90,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:40.351844",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.54 x^{7} - 1.06 \\log{\\left(x \\right)} + 0.74 \\left|{x}\\right| - 4.98$$",
+      "code": "f(x) = 0.54*x**7 - 1.06*log(x) + 0.74*Abs(x) - 4.98",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.54 x^{7} - 1.06 \\log{\\left(x \\right)} + 0.74 \\left|{x}\\right| - 4.98$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- For x > 0, |x| = x, so f(x) = 0.54 x^7 - 1.06 log x + 0.74 x - 4.98.\n- First derivative: f'(x) = 7*0.54 x^6 - 1.06/x + 0.74 = 3.78 x^6 - 1.06/x + 0.74.\n- Second derivative: f''(x) = 42*0.54 x^5 + 1.06/x^2 = 22.68 x^5 + 1.06/x^2.\n\nFor all x > 0, both terms 22.68 x^5 and 1.06/x^2 are positive, so f''(x) > 0 on the domain x > 0. A positive second derivative implies the function is convex (indeed strictly convex) on x > 0.\n\nAnswer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 91,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:44.811718",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.68 x^{3} + 6.28$$",
+      "code": "f(x) = 0.68*x**3 + 6.28",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.68 x^{3} + 6.28$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step:\n- f(x) = 0.68 x^3 + 6.28\n- f'(x) = 3 * 0.68 x^2 = 2.04 x^2\n- f''(x) = 2.04 * 2 x = 4.08 x\n\nFor x > 0, f''(x) = 4.08 x > 0. A positive second derivative on the domain implies convexity.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 92,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:49.973912",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.67 \\log{\\left(x \\right)} - 1.84 \\left|{x}\\right| - 3.56$$",
+      "code": "f(x) = 0.67*log(x) - 1.84*Abs(x) - 3.56",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.67 \\log{\\left(x \\right)} - 1.84 \\left|{x}\\right| - 3.56$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "- For x > 0, |x| = x, so f(x) = 0.67 log x - 1.84 x - 3.56. (log could be ln or log10; either way the second derivative will be negative.)\n\n- Compute derivatives:\n  - f'(x) = 0.67/x - 1.84\n  - f''(x) = -0.67/x^2\n\n- Since x > 0, x^2 > 0, so f''(x) = -0.67/x^2 < 0 for all x > 0.\n\nConclusion: The function is concave on the domain x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 93,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:28:56.029026",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.56 x^{5} + 0.11 x + e^{0.1 x} - 9.28$$",
+      "code": "f(x) = 0.56*x**5 + 0.11*x + exp(0.1*x) - 9.28",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.56 x^{5} + 0.11 x + e^{0.1 x} - 9.28$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- f(x) = 0.56 x^5 + 0.11 x + e^{0.1 x} - 9.28\n- f'(x) = 0.56 * 5 x^4 + 0.11 + 0.1 e^{0.1 x} = 2.8 x^4 + 0.11 + 0.1 e^{0.1 x}\n- f''(x) = 2.8 * 4 x^3 + 0 + 0.1 * 0.1 e^{0.1 x} = 11.2 x^3 + 0.01 e^{0.1 x}\n\nFor all x > 0:\n- 11.2 x^3 > 0\n- 0.01 e^{0.1 x} > 0\nHence f''(x) = 11.2 x^3 + 0.01 e^{0.1 x} > 0.\n\nConclusion: The function is convex on x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 94,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:02.125346",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.75 \\log{\\left(x \\right)} + 10.34$$",
+      "code": "f(x) = 0.75*log(x) + 10.34",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.75 \\log{\\left(x \\right)} + 10.34$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- Assume log denotes the natural logarithm (the conclusion holds for any base since the base affects only a positive constant factor in the derivative).\n- f(x) = 0.75 log(x) + 10.34\n- f'(x) = 0.75 * (1/x) = 0.75/x\n- f''(x) = 0.75 * (-1/x^2) = -0.75/x^2\n\nFor all x > 0, f''(x) = -0.75/x^2 < 0. \nA function with negative second derivative on the domain is concave.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 95,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:07.683788",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - e^{0.16 x} - e^{0.44 x} + 0.38 \\log{\\left(x \\right)} - 4.72$$",
+      "code": "f(x) = -exp(0.16*x) - exp(0.44*x) + 0.38*log(x) - 4.72",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - e^{0.16 x} - e^{0.44 x} + 0.38 \\log{\\left(x \\right)} - 4.72$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- f(x) = -e^{0.16x} - e^{0.44x} + 0.38 log(x) - 4.72, with domain x > 0.\n- First derivative: f'(x) = -0.16 e^{0.16x} - 0.44 e^{0.44x} + 0.38/x.\n- Second derivative: f''(x) = -(0.16)^2 e^{0.16x} - (0.44)^2 e^{0.44x} - 0.38/x^2.\n- For x > 0, each term on the right is negative: e^{0.16x} > 0, e^{0.44x} > 0, and x^2 > 0, so f''(x) < 0.\n\nConclusion:\n- Since f''(x) < 0 for all x > 0, the function is concave on the domain x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 96,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:13.660767",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.68 x} - 0.65 \\log{\\left(x \\right)} + 0.01$$",
+      "code": "f(x) = exp(0.68*x) - 0.65*log(x) + 0.01",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.68 x} - 0.65 \\log{\\left(x \\right)} + 0.01$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- f(x) = e^{0.68 x} - 0.65 ln x + 0.01, domain x > 0.\n- First derivative: f'(x) = 0.68 e^{0.68 x} - 0.65/x.\n- Second derivative: f''(x) = (0.68)^2 e^{0.68 x} + 0.65/x^2.\n- For x > 0, e^{0.68 x} > 0 and x^2 > 0, so both terms (0.68^2 e^{0.68 x}) and (0.65/x^2) are positive. Therefore f''(x) > 0 for all x > 0.\n\nConclusion: Since f''(x) > 0 on x > 0, the function is convex.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 97,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:18.645258",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 6.79 - 0.83 x^{7}$$",
+      "code": "f(x) = 6.79 - 0.83*x**7",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 6.79 - 0.83 x^{7}$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = 6.79 - 0.83 x^7\n- f'(x) = -0.83 * 7 x^6 = -5.81 x^6\n- f''(x) = -5.81 * 6 x^5 = -34.86 x^5\n- For x > 0, x^5 > 0, so f''(x) = -34.86 x^5 < 0\n\nSince the second derivative is negative for all x > 0, f is concave on the domain x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 98,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:24.097990",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - e^{0.45 x} + 0.57 \\log{\\left(x \\right)} - 6.86$$",
+      "code": "f(x) = -exp(0.45*x) + 0.57*log(x) - 6.86",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - e^{0.45 x} + 0.57 \\log{\\left(x \\right)} - 6.86$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = - e^{0.45 x} + 0.57 ln x - 6.86, domain x > 0.\n- f'(x) = -0.45 e^{0.45 x} + 0.57/x.\n- f''(x) = -0.2025 e^{0.45 x} - 0.57/x^2.\n\nFor all x > 0, e^{0.45 x} > 0 and x^2 > 0, so both terms in f''(x) are negative. Hence f''(x) < 0 for all x > 0.\n\nConclusion: the function is concave on x > 0 (strictly concave since f''(x) < 0).\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 99,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:31.300751",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 2.01 \\left|{x}\\right| + 15.58$$",
+      "code": "f(x) = 2.01*Abs(x) + 15.58",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 2.01 \\left|{x}\\right| + 15.58$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- The function is f(x) = 15.58 + 2.01|x|. The absolute value function |x| is convex.\n- Scaling by a positive constant (2.01 > 0) preserves convexity, and adding a constant (15.58) does not affect convexity.\n- Alternatively, f'(x) = -2.01 for x < 0 and f'(x) = 2.01 for x > 0, with a jump upward at x = 0. The derivative is nondecreasing (a hallmark of convexity), and f''(x) = 0 for x ≠ 0 (undefined at x = 0).\n\nConclusion: convex\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 100,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:39.371409",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.14 x} + e^{1.83 x} + 0.69 \\left|{x}\\right| - 10.47$$",
+      "code": "f(x) = exp(0.14*x) + exp(1.83*x) + 0.69*Abs(x) - 10.47",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.14 x} + e^{1.83 x} + 0.69 \\left|{x}\\right| - 10.47$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- Each exponential term e^{a x} has second derivative f''(x) = a^2 e^{a x} > 0, so e^{0.14x} and e^{1.83x} are convex.\n- |x| is convex, and multiplying by 0.69 preserves convexity.\n- The sum of convex functions is convex, and a constant term does not affect convexity.\n\nCompute f''(x) for x ≠ 0:\n- f''(x) = (0.14)^2 e^{0.14x} + (1.83)^2 e^{1.83x} + 0.69 * d^2|x|/dx^2\n- For x ≠ 0, d^2|x|/dx^2 = 0, so f''(x) = (0.14)^2 e^{0.14x} + (1.83)^2 e^{1.83x} > 0.\n\nAt x = 0, the second derivative does not exist because of the |x| term, but the function is still convex since it is a sum of convex functions (the |x| term is convex, and the exponentials are strictly convex).\n\nConclusion:\n- The function is convex.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 101,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:43.970777",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 12.06 - 0.95 x^{3}$$",
+      "code": "f(x) = 12.06 - 0.95*x**3",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 12.06 - 0.95 x^{3}$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- f(x) = 12.06 - 0.95 x^3\n- f'(x) = d/dx (-0.95 x^3) = -2.85 x^2\n- f''(x) = d/dx (-2.85 x^2) = -5.7 x\n\nFor the domain x > 0, we have f''(x) = -5.7 x < 0. The second derivative is negative throughout x > 0, so the function is concave on this domain.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 102,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:48.384685",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.88 \\log{\\left(x \\right)} + 0.74$$",
+      "code": "f(x) = 0.88*log(x) + 0.74",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.88 \\log{\\left(x \\right)} + 0.74$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- f(x) = 0.88 log(x) + 0.74, with domain x > 0.\n- Assuming log is the natural logarithm, f'(x) = 0.88 * (1/x) = 0.88/x.\n- Then f''(x) = 0.88 * (-1/x^2) = -0.88/x^2.\n- For all x > 0, f''(x) = -0.88/x^2 < 0.\n\nSince the second derivative is negative on the domain x > 0, the function is concave.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 103,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:52.955104",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 3.6 - 0.19 x^{7}$$",
+      "code": "f(x) = 3.6 - 0.19*x**7",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 3.6 - 0.19 x^{7}$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- f(x) = 3.6 - 0.19 x^7\n- f'(x) = d/dx (3.6 - 0.19 x^7) = -0.19 * 7 x^6 = -1.33 x^6\n- f''(x) = d/dx (-1.33 x^6) = -1.33 * 6 x^5 = -7.98 x^5\n- For x > 0, x^5 > 0, so f''(x) = -7.98 x^5 < 0\n\nSince f''(x) < 0 for all x > 0, the function is concave on the domain x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 104,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:29:58.371584",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 2.01 \\log{\\left(x \\right)} - 3.48$$",
+      "code": "f(x) = -2.01*log(x) - 3.48",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 2.01 \\log{\\left(x \\right)} - 3.48$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = -2.01 log(x) - 3.48. For x > 0, use derivative of log(x): d/dx log(x) = 1/x (base does not affect sign for second derivative).\n- First derivative: f'(x) = -2.01 * (1/x) = -2.01/x.\n- Second derivative: f''(x) = 2.01 * (1/x^2) = 2.01/x^2.\n\nSince 2.01/x^2 > 0 for all x > 0, f''(x) > 0 on the domain.\n\nConclusion:\n- The function is convex on x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 105,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:04.245162",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 2.71 x^{3} + 0.81 \\left|{x}\\right| - 4.52$$",
+      "code": "f(x) = 2.71*x**3 + 0.81*Abs(x) - 4.52",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 2.71 x^{3} + 0.81 \\left|{x}\\right| - 4.52$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- For x > 0, |x| = x, so f(x) = 2.71 x^3 + 0.81 x − 4.52.\n- First derivative: f'(x) = 3(2.71) x^2 + 0.81 = 8.13 x^2 + 0.81.\n- Second derivative: f''(x) = 2(8.13) x = 16.26 x.\n- On the domain x > 0, we have f''(x) = 16.26 x > 0.\n\nSince f''(x) > 0 for all x > 0, the function is convex on x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 106,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:09.987968",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.77 \\log{\\left(x \\right)} - 0.12 \\left|{x}\\right| - 3.7$$",
+      "code": "f(x) = 0.77*log(x) - 0.12*Abs(x) - 3.7",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.77 \\log{\\left(x \\right)} - 0.12 \\left|{x}\\right| - 3.7$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "concave\n\nReasoning:\n- For x > 0, |x| = x, so f(x) = 0.77 log x - 0.12 x - 3.7.\n- Then f′(x) = 0.77/x - 0.12 and f″(x) = -0.77/x^2.\n- For all x > 0, x^2 > 0, so f″(x) < 0.\n- Since the second derivative is negative on the domain, f is concave (not convex) on x > 0.",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 107,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:17.368658",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{1.65 x} - 2.65 \\log{\\left(x \\right)} + 13.84$$",
+      "code": "f(x) = exp(1.65*x) - 2.65*log(x) + 13.84",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{1.65 x} - 2.65 \\log{\\left(x \\right)} + 13.84$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- Domain is x > 0 due to log(x) term.\n- f'(x) = 1.65 e^{1.65 x} - 2.65/x\n- f''(x) = (1.65)^2 e^{1.65 x} + 2.65/x^2\n\nFor x > 0, both terms (1.65)^2 e^{1.65 x} and 2.65/x^2 are positive, so f''(x) > 0 for all x > 0.\n\nTherefore, the function is convex on the domain x > 0.\n\nAnswer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 108,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:22.954616",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.31 x^{7} + 0.03 x^{5} + 3.01$$",
+      "code": "f(x) = 0.31*x**7 + 0.03*x**5 + 3.01",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.31 x^{7} + 0.03 x^{5} + 3.01$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- Given f(x) = 0.31 x^7 + 0.03 x^5 + 3.01\n- First derivative: f'(x) = 0.31*7 x^6 + 0.03*5 x^4 = 2.17 x^6 + 0.15 x^4\n- Second derivative: f''(x) = 2.17*6 x^5 + 0.15*4 x^3 = 13.02 x^5 + 0.6 x^3\n- Factor: f''(x) = x^3 (13.02 x^2 + 0.6)\n\nFor x > 0:\n- x^3 > 0\n- 13.02 x^2 + 0.6 > 0 (since both terms are positive)\n\nThus f''(x) > 0 for all x > 0.\n\nConclusion: The function is convex on the domain x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 109,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:27.628815",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 1.35 \\log{\\left(x \\right)} - 14.27$$",
+      "code": "f(x) = -1.35*log(x) - 14.27",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 1.35 \\log{\\left(x \\right)} - 14.27$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- Let f(x) = -1.35 log(x) - 14.27, with domain x > 0.\n- If log denotes the natural logarithm (or any base > 1), then f'(x) = -1.35 / x.\n- Then f''(x) = 1.35 / x^2, which is positive for all x > 0.\n\nSince f''(x) > 0 on x > 0, the function is convex on its domain.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 110,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:34.092157",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 0.57 x^{7} - e^{1.16 x} + 23.81$$",
+      "code": "f(x) = -0.57*x**7 - exp(1.16*x) + 23.81",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 0.57 x^{7} - e^{1.16 x} + 23.81$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step:\n\n- f(x) = -0.57 x^7 - e^{1.16 x} + 23.81\n- f'(x) = -0.57*7 x^6 - 1.16 e^{1.16 x} = -3.99 x^6 - 1.16 e^{1.16 x}\n- f''(x) = -3.99*6 x^5 - 1.16*1.16 e^{1.16 x} = -23.94 x^5 - 1.3456 e^{1.16 x}\n\nFor x > 0, both terms -23.94 x^5 and -1.3456 e^{1.16 x} are negative, so f''(x) < 0.\n\nConclusion: The function is concave on x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 111,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:41.026441",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - e^{1.09 x} - e^{1.84 x} + 1.24 \\log{\\left(x \\right)} - 0.65 \\left|{x}\\right| - 6.91$$",
+      "code": "f(x) = -exp(1.09*x) - exp(1.84*x) + 1.24*log(x) - 0.65*Abs(x) - 6.91",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - e^{1.09 x} - e^{1.84 x} + 1.24 \\log{\\left(x \\right)} - 0.65 \\left|{x}\\right| - 6.91$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step 1: For x > 0, |x| = x, so\nf(x) = -e^{1.09x} - e^{1.84x} + 1.24 \\log x - 0.65 x - 6.91.\n\nStep 2: First derivative\nf'(x) = -1.09 e^{1.09x} - 1.84 e^{1.84x} + 1.24/x - 0.65.\n\nStep 3: Second derivative\nf''(x) = -(1.09)^2 e^{1.09x} - (1.84)^2 e^{1.84x} - 1.24/x^2.\n\nAll terms are negative for x > 0:\n- e^{1.09x} > 0 and coefficient -(1.09)^2 < 0,\n- e^{1.84x} > 0 and coefficient -(1.84)^2 < 0,\n- 1/x^2 > 0 and coefficient -1.24 < 0.\n\nThus f''(x) < 0 for all x > 0, i.e., the function is strictly concave on the domain x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 112,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:46.820057",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 0.84 x^{7} - e^{1.55 x} + 0.39 \\log{\\left(x \\right)} + 20.78$$",
+      "code": "f(x) = -0.84*x**7 - exp(1.55*x) + 0.39*log(x) + 20.78",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 0.84 x^{7} - e^{1.55 x} + 0.39 \\log{\\left(x \\right)} + 20.78$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = -0.84 x^7 - e^{1.55 x} + 0.39 log(x) + 20.78, domain x > 0.\n- First derivative: f'(x) = -5.88 x^6 - 1.55 e^{1.55 x} + 0.39/x.\n- Second derivative:\n  f''(x) = -5.88 * 6 x^5 - 1.55^2 e^{1.55 x} - 0.39/x^2\n         = -35.28 x^5 - 2.4025 e^{1.55 x} - 0.39/x^2.\n\nFor x > 0, each term on the right-hand side is negative:\n-35.28 x^5 < 0, -2.4025 e^{1.55 x} < 0 (since e^{1.55 x} > 0), and -0.39/x^2 < 0.\n\nThus f''(x) < 0 for all x > 0, implying the function is concave on the domain.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 113,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:30:53.533614",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 1.87 \\log{\\left(x \\right)} + 17.18$$",
+      "code": "f(x) = 1.87*log(x) + 17.18",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 1.87 \\log{\\left(x \\right)} + 17.18$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- Domain: x > 0.\n- f(x) = 1.87 log(x) + 17.18, where log(x) is a logarithm with base > 1 (natural log is common).\n- If log is natural, f'(x) = 1.87/x and f''(x) = -1.87/x^2.\n- For x > 0, f''(x) = -1.87/x^2 < 0.\n\nEven if log is base 10, f''(x) = -1.87/(x^2 ln 10) < 0 for x > 0. In any standard base > 1, the second derivative is negative.\n\nConclusion: the function is concave on x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 114,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:04.149440",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 0.17 x - 1.86 \\left|{x}\\right| - 4.88$$",
+      "code": "f(x) = -0.17*x - 1.86*Abs(x) - 4.88",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 0.17 x - 1.86 \\left|{x}\\right| - 4.88$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Concave\n\nReasoning:\n- Write f(x) = -0.17x - 1.86|x| - 4.88. The terms -0.17x and -4.88 are affine (linear plus constant).\n- The term -1.86|x| is -1.86 times |x|. Since |x| is convex, multiplying by a negative constant makes -1.86|x| a concave function.\n- Sum of concave functions is concave, so f(x) is concave.\n- For completeness, the left and right slopes are:\n  - x < 0: f(x) = 1.69x - 4.88, slope 1.69\n  - x > 0: f(x) = -2.03x - 4.88, slope -2.03\n  The derivative decreases as x increases, consistent with concavity. (Note: f is not differentiable at x = 0, but concavity is determined by the nonincreasing slope across the domain.)\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 115,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:10.349791",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - e^{0.77 x} + 0.9 \\log{\\left(x \\right)} - 10.2$$",
+      "code": "f(x) = -exp(0.77*x) + 0.9*log(x) - 10.2",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - e^{0.77 x} + 0.9 \\log{\\left(x \\right)} - 10.2$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step 1: Compute derivatives.\n- f(x) = - e^{0.77 x} + 0.9 log(x) - 10.2\n- f'(x) = -0.77 e^{0.77 x} + 0.9/x\n- f''(x) = -(0.77)^2 e^{0.77 x} - 0.9/x^2\n\nStep 2: Analyze the sign on the domain x > 0.\n- Both e^{0.77x} and x^2 are positive for x > 0.\n- Therefore f''(x) = -[(0.77)^2 e^{0.77 x} + 0.9/x^2] is strictly negative for all x > 0.\n\nConclusion: f''(x) < 0 on x > 0, so the function is concave on its domain.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 116,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:20.344634",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 0.04 x^{5} + 1.43 \\log{\\left(x \\right)} - 0.75$$",
+      "code": "f(x) = -0.04*x**5 + 1.43*log(x) - 0.75",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 0.04 x^{5} + 1.43 \\log{\\left(x \\right)} - 0.75$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Compute derivatives (assuming log is the natural logarithm):\n\n- f'(x) = d/dx [-0.04 x^5] + d/dx [1.43 ln x] = -0.2 x^4 + 1.43/x\n- f''(x) = d/dx [-0.2 x^4] + d/dx [1.43/x] = -0.8 x^3 - 1.43/x^2\n\nFor all x > 0, both terms -0.8 x^3 and -1.43/x^2 are negative, so f''(x) < 0 throughout the domain x > 0. Therefore the function is concave on x > 0 (and strictly concave since f'' < 0).\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 117,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:27.777695",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - e^{0.04 x} - e^{0.15 x} + 0.41 \\log{\\left(x \\right)} - 0.6 \\left|{x}\\right| - 9.97$$",
+      "code": "f(x) = -exp(0.04*x) - exp(0.15*x) + 0.41*log(x) - 0.6*Abs(x) - 9.97",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - e^{0.04 x} - e^{0.15 x} + 0.41 \\log{\\left(x \\right)} - 0.6 \\left|{x}\\right| - 9.97$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Concave\n\nReasoning:\n- For x > 0, |x| = x, so f(x) = - e^{0.04x} - e^{0.15x} + 0.41 ln x - 0.6x - 9.97.\n- First derivative: f'(x) = -0.04 e^{0.04x} - 0.15 e^{0.15x} + 0.41/x - 0.6.\n- Second derivative: f''(x) = -0.0016 e^{0.04x} - 0.0225 e^{0.15x} - 0.41/x^2.\n- For all x > 0, each term in f''(x) is negative, so f''(x) < 0 on the domain.\n\nHence the function is strictly concave on x > 0.",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 118,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:36.047894",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.78 x^{7} + 0.9 x^{3} + e^{0.78 x} - 5.4$$",
+      "code": "f(x) = 0.78*x**7 + 0.9*x**3 + exp(0.78*x) - 5.4",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.78 x^{7} + 0.9 x^{3} + e^{0.78 x} - 5.4$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = 0.78 x^7 + 0.9 x^3 + e^{0.78 x} - 5.4\n- f'(x) = 7(0.78) x^6 + 3(0.9) x^2 + 0.78 e^{0.78 x} = 5.46 x^6 + 2.7 x^2 + 0.78 e^{0.78 x}\n- f''(x) = 6(5.46) x^5 + 2(2.7) x + 0.78^2 e^{0.78 x} = 32.76 x^5 + 5.4 x + 0.6084 e^{0.78 x}\n\nFor x > 0, every term in f''(x) is positive (x^5 > 0, x > 0, e^{0.78 x} > 0, and all coefficients are positive). Therefore f''(x) > 0 on (0, ∞).\n\nConclusion: The function is convex on x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 119,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:42.290234",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 0.49 \\log{\\left(x \\right)} + 1.0 \\left|{x}\\right| - 8.76$$",
+      "code": "f(x) = -0.49*log(x) + 1.0*Abs(x) - 8.76",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 0.49 \\log{\\left(x \\right)} + 1.0 \\left|{x}\\right| - 8.76$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- For x > 0, |x| = x, so f(x) = -0.49 log(x) + x - 8.76.\n- First derivative: f'(x) = -0.49/x + 1.\n- Second derivative: f''(x) = 0.49/x^2.\n- Since x > 0, f''(x) = 0.49/x^2 > 0 for all x > 0.\n\nTherefore, the function is convex on x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 120,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:48.379111",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.31 x - 1.73 \\log{\\left(x \\right)} + 1.13 \\left|{x}\\right| - 0.63$$",
+      "code": "f(x) = 0.31*x - 1.73*log(x) + 1.13*Abs(x) - 0.63",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.31 x - 1.73 \\log{\\left(x \\right)} + 1.13 \\left|{x}\\right| - 0.63$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- For x > 0, |x| = x, so f(x) = 0.31x - 1.73 log(x) + 1.13x - 0.63 = 1.44x - 1.73 log(x) - 0.63.\n- First derivative: f'(x) = 1.44 - 1.73/x.\n- Second derivative: f''(x) = d/dx (1.44 - 1.73/x) = 1.73/x^2.\n\nSince x > 0 implies x^2 > 0, we have f''(x) = 1.73/x^2 > 0 for all x > 0. A function with positive second derivative on the domain is convex.\n\nAnswer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 121,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:31:54.301292",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 0.74 x^{5} - e^{1.02 x} - 0.57 \\left|{x}\\right| - 5.6$$",
+      "code": "f(x) = -0.74*x**5 - exp(1.02*x) - 0.57*Abs(x) - 5.6",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 0.74 x^{5} - e^{1.02 x} - 0.57 \\left|{x}\\right| - 5.6$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- For x > 0, |x| = x, so f(x) = -0.74 x^5 - e^{1.02 x} - 0.57 x - 5.6.\n- First derivative: f'(x) = -3.7 x^4 - 1.02 e^{1.02 x} - 0.57.\n- Second derivative: f''(x) = -14.8 x^3 - (1.02)^2 e^{1.02 x} = -14.8 x^3 - 1.0404 e^{1.02 x}.\n- For x > 0, both -14.8 x^3 and -1.0404 e^{1.02 x} are negative, so f''(x) < 0 for all x > 0.\n\nConclusion:\nThe function is concave on x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 122,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:05.578384",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.99 x} + e^{1.24 x} + 1.09 \\left|{x}\\right| - 4.45$$",
+      "code": "f(x) = exp(0.99*x) + exp(1.24*x) + 1.09*Abs(x) - 4.45",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.99 x} + e^{1.24 x} + 1.09 \\left|{x}\\right| - 4.45$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- Each term e^{a x} with a > 0 is convex, since its second derivative is a^2 e^{a x} > 0.\n  - For f(x) = e^{0.99 x} + e^{1.24 x} + 1.09 |x| - 4.45, we have\n    f''(x) = (0.99)^2 e^{0.99 x} + (1.24)^2 e^{1.24 x} + 0 for x ≠ 0 (the |x| term contributes 0 to the second derivative away from 0).\n    This sum is strictly positive for all x ≠ 0, since exponentials are positive.\n- The term 1.09|x| is convex, and the sum of convex functions is convex.\n- At x = 0, |x| has a corner and f''(x) is not defined there, but convexity is preserved because the sum of convex functions is convex.\n\nConclusion:\nThe function is convex.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 123,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:12.193879",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 5.23 - 0.58 \\log{\\left(x \\right)}$$",
+      "code": "f(x) = 5.23 - 0.58*log(x)",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 5.23 - 0.58 \\log{\\left(x \\right)}$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step:\n- Domain: x > 0 (since log(x) is defined for positive x).\n- If log is the natural logarithm: f'(x) = -0.58/x, and f''(x) = 0.58/x^2 > 0 for all x > 0.\n- Since the second derivative is positive on the domain, f is convex. (Even if log is base 10, f''(x) = 0.58/(x^2 ln 10) > 0, which also implies convex.)\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 124,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:18.249697",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.69 x^{6} - 6.14$$",
+      "code": "f(x) = 0.69*x**6 - 6.14",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.69 x^{6} - 6.14$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = 0.69 x^6 - 6.14\n- f'(x) = 6 * 0.69 x^5 = 4.14 x^5\n- f''(x) = 4.14 * 5 x^4 = 20.7 x^4\n\nSince x^4 ≥ 0 for all real x and 20.7 > 0, we have f''(x) ≥ 0 for all x, with equality only at x = 0. Therefore the function is convex (non-strictly convex) on the real line.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 125,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:24.589050",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 0.86 x^{2} + 1.36 \\log{\\left(x \\right)} + 11.08$$",
+      "code": "f(x) = -0.86*x**2 + 1.36*log(x) + 11.08",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 0.86 x^{2} + 1.36 \\log{\\left(x \\right)} + 11.08$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Concave\n\nReasoning:\n- f(x) = -0.86 x^2 + 1.36 log(x) + 11.08, domain x > 0.\n- f'(x) = d/dx(-0.86 x^2) + d/dx(1.36 log x) = -1.72 x + 1.36/x.\n- f''(x) = d/dx(-1.72 x) + d/dx(1.36/x) = -1.72 - 1.36/x^2.\n\nFor all x > 0, 1.36/x^2 > 0, so f''(x) = -1.72 - 1.36/x^2 < 0. Hence the function is concave on x > 0 (and strictly concave since f''(x) < 0 everywhere in the domain). \n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 126,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:31.742748",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.66 x} + e^{1.25 x} - 0.76 \\log{\\left(x \\right)} + 0.2 \\left|{x}\\right| + 10.13$$",
+      "code": "f(x) = exp(0.66*x) + exp(1.25*x) - 0.76*log(x) + 0.2*Abs(x) + 10.13",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.66 x} + e^{1.25 x} - 0.76 \\log{\\left(x \\right)} + 0.2 \\left|{x}\\right| + 10.13$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- For x > 0, |x| = x, so f(x) = e^{0.66x} + e^{1.25x} - 0.76 ln x + 0.2 x + 10.13.\n- First derivative: f'(x) = 0.66 e^{0.66x} + 1.25 e^{1.25x} - 0.76/x + 0.2.\n- Second derivative: f''(x) = (0.66)^2 e^{0.66x} + (1.25)^2 e^{1.25x} + 0.76/x^2.\n- All terms in f''(x) are positive for x > 0:\n  - e^{0.66x} > 0 and e^{1.25x} > 0 multiply positive constants 0.4356 and 1.5625,\n  - 0.76/x^2 > 0 for x > 0.\n\nTherefore f''(x) > 0 for all x > 0, which means the function is convex on the domain x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 127,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:38.359858",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.37 x^{3} + 1.51 x + e^{1.09 x} - 0.2 \\log{\\left(x \\right)} - 2.28$$",
+      "code": "f(x) = 0.37*x**3 + 1.51*x + exp(1.09*x) - 0.2*log(x) - 2.28",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.37 x^{3} + 1.51 x + e^{1.09 x} - 0.2 \\log{\\left(x \\right)} - 2.28$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = 0.37 x^3 + 1.51 x + e^(1.09 x) − 0.2 log(x) − 2.28, with domain x > 0.\n- First compute f''(x):\n  - For 0.37 x^3: f'' includes 2.22 x.\n  - For 1.51 x: second derivative is 0.\n  - For e^(1.09 x): second derivative is (1.09)^2 e^(1.09 x) = 1.1881 e^(1.09 x).\n  - For −0.2 log(x): first derivative −0.2/x; second derivative 0.2/x^2.\n  - Constant term contributes 0.\n\nSo f''(x) = 2.22 x + 1.1881 e^(1.09 x) + 0.2 / x^2.\n\n- Sign analysis on x > 0:\n  - 2.22 x > 0\n  - 1.1881 e^(1.09 x) > 0\n  - 0.2 / x^2 > 0\n\nThus f''(x) > 0 for all x > 0.\n\nConclusion:\nThe function is convex (in fact strictly convex) on the domain x > 0.\n\nAnswer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 128,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:44.320333",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.3 x} - 1.23 \\log{\\left(x \\right)} + 0.58 \\left|{x}\\right| + 1.47$$",
+      "code": "f(x) = exp(0.3*x) - 1.23*log(x) + 0.58*Abs(x) + 1.47",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.3 x} - 1.23 \\log{\\left(x \\right)} + 0.58 \\left|{x}\\right| + 1.47$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- For x > 0, |x| = x, so f(x) = e^{0.3x} - 1.23 log x + 0.58 x + 1.47.\n- First derivative: f'(x) = 0.3 e^{0.3x} + 0.58 - 1.23/x.\n- Second derivative: f''(x) = (0.3)^2 e^{0.3x} + 1.23/x^2 = 0.09 e^{0.3x} + 1.23/x^2.\n\nBoth terms are positive for all x > 0, so f''(x) > 0 on the domain.\n\nConclusion: the function is convex on x > 0.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 129,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:49.177789",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 1.31 x^{3} - 1.41 \\left|{x}\\right| + 4.2$$",
+      "code": "f(x) = -1.31*x**3 - 1.41*Abs(x) + 4.2",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 1.31 x^{3} - 1.41 \\left|{x}\\right| + 4.2$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step-by-step reasoning:\n- For x > 0, |x| = x, so f(x) = -1.31 x^3 - 1.41 x + 4.2.\n- f'(x) = d/dx(-1.31 x^3) + d/dx(-1.41 x) + 0 = -3.93 x^2 - 1.41.\n- f''(x) = d/dx(-3.93 x^2) = -7.86 x.\n- For all x > 0, f''(x) = -7.86 x < 0.\n\nSince the second derivative is negative on the domain x > 0, the function is concave on this domain.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 130,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:32:54.821964",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.62 x^{5} - 1.46 \\log{\\left(x \\right)} - 1.19$$",
+      "code": "f(x) = 0.62*x**5 - 1.46*log(x) - 1.19",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.62 x^{5} - 1.46 \\log{\\left(x \\right)} - 1.19$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Convex.\n\nReasoning:\n- f(x) = 0.62 x^5 - 1.46 log(x) - 1.19, domain x > 0.\n- f'(x) = 5 * 0.62 x^4 - 1.46/x = 3.1 x^4 - 1.46/x.\n- f''(x) = 4 * 3.1 x^3 + 1.46/x^2 = 12.4 x^3 + 1.46/x^2.\n\nFor all x > 0, both 12.4 x^3 > 0 and 1.46/x^2 > 0, so f''(x) > 0 on the domain. Therefore the function is convex (in fact, strictly convex) on x > 0.",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 131,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:33:01.386476",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.98 x^{6} + e^{0.1 x} + e^{0.57 x} - 19.23$$",
+      "code": "f(x) = 0.98*x**6 + exp(0.1*x) + exp(0.57*x) - 19.23",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.98 x^{6} + e^{0.1 x} + e^{0.57 x} - 19.23$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- f(x) = 0.98 x^6 + e^{0.1 x} + e^{0.57 x} - 19.23\n- f'(x) = 5.88 x^5 + 0.1 e^{0.1 x} + 0.57 e^{0.57 x}\n- f''(x) = 29.4 x^4 + 0.01 e^{0.1 x} + 0.3249 e^{0.57 x}\n\nEach term in f''(x) is nonnegative for all real x, and the exponential terms are strictly positive for all x. Therefore f''(x) > 0 for all x (in particular, even at x = 0 the sum is 0.01 + 0.3249 > 0).\n\nSince the second derivative is positive everywhere, the function is convex on the real line.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 132,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:33:09.188337",
+    "dataset_sample": {
+      "label": "convex",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = e^{0.06 x} + 1.51 \\left|{x}\\right| - 2.75$$",
+      "code": "f(x) = exp(0.06*x) + 1.51*Abs(x) - 2.75",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = e^{0.06 x} + 1.51 \\left|{x}\\right| - 2.75$$.\n\nYour task is to determine whether this function is convex or concave.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- The function is f(x) = e^{0.06x} + 1.51|x| - 2.75.\n- e^{0.06x} is convex for all x (exponential function with a positive coefficient is convex).\n- |x| is convex (absolute value is convex).\n- The sum of convex functions is convex, and subtracting a constant (-2.75) does not affect convexity.\n\nIf you check the second derivative (where it exists):\n- For x > 0: f(x) = e^{0.06x} + 1.51x - 2.75, so f''(x) = (0.06)^2 e^{0.06x} > 0.\n- For x < 0: f(x) = e^{0.06x} - 1.51x - 2.75, so f''(x) = (0.06)^2 e^{0.06x} > 0.\n- At x = 0, f is not twice differentiable due to the kink from |x|, but the function remains convex overall (sum of convex functions).\n\nConclusion: The function is convex.\n\nFinal answer: convex",
+      "parsed_prediction": "convex",
+      "ground_truth": "convex",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 133,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:33:14.601547",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = 0.69 \\log{\\left(x \\right)} - 10.88$$",
+      "code": "f(x) = 0.69*log(x) - 10.88",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = 0.69 \\log{\\left(x \\right)} - 10.88$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Reasoning:\n- Let f(x) = 0.69 log(x) - 10.88 with domain x > 0. Treating log as the natural logarithm (the result is the same for any logarithm base up to a positive constant factor).\n- First derivative: f'(x) = 0.69 * (1/x) = 0.69/x.\n- Second derivative: f''(x) = derivative of 0.69/x = -0.69/x^2.\n- For all x > 0, x^2 > 0 and -0.69/x^2 < 0.\n\nConclusion:\nSince f''(x) < 0 for all x > 0, the function is concave on the domain x > 0.\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 134,
+    "task_name": "math_convexity",
+    "modality": "text",
+    "timestamp": "2025-08-07T15:33:21.636978",
+    "dataset_sample": {
+      "label": "concave",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - 1.55 x^{3} - e^{0.84 x} - 2.24 \\left|{x}\\right| - 11.33$$",
+      "code": "f(x) = -1.55*x**3 - exp(0.84*x) - 2.24*Abs(x) - 11.33",
+      "domain": "x > 0",
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "concave",
+        "convex"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - 1.55 x^{3} - e^{0.84 x} - 2.24 \\left|{x}\\right| - 11.33$$.\n\nYour task is to determine whether this function is convex or concave within the domain x > 0.\n\nRecall the definitions:\n- A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.\n- A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.\n\nAnalyze the given function by computing its second derivative and determining its sign within the domain x > 0.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Step 1: For x > 0, |x| = x, so\nf(x) = -1.55 x^3 - e^{0.84 x} - 2.24 x - 11.33.\n\nStep 2: First derivative\nf'(x) = d/dx(-1.55 x^3) + d/dx(- e^{0.84 x}) + d/dx(-2.24 x)\n      = -4.65 x^2 - 0.84 e^{0.84 x} - 2.24.\n\nStep 3: Second derivative\nf''(x) = d/dx(-4.65 x^2) + d/dx(-0.84 e^{0.84 x})\n       = -9.3 x - 0.84^2 e^{0.84 x}\n       = -9.3 x - 0.7056 e^{0.84 x}.\n\nStep 4: Sign of f''(x) for x > 0\n- Both terms are negative for x > 0: -9.3 x < 0 and -0.7056 e^{0.84 x} < 0.\n- Therefore f''(x) < 0 for all x > 0.\n\nConclusion: The function is concave on x > 0 (in fact, strictly concave).\n\nFinal answer: concave",
+      "parsed_prediction": "concave",
+      "ground_truth": "concave",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
   }
 ]

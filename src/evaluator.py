@@ -13,9 +13,9 @@ from pathlib import Path
 from typing import List, Dict, Any
 from datetime import datetime
 
-from data_structures import EvaluationResult, AggregatedResult
-from models import BaseModel
-from task_evaluators import (
+from .data_structures import EvaluationResult, AggregatedResult
+from .models import BaseModel
+from .task_evaluators import (
     MathTaskEvaluator,
     ScienceTaskEvaluator,
     AlgorithmTaskEvaluator,

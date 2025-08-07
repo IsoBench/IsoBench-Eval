@@ -21,7 +21,7 @@ def test_choice_parsing():
     print("=" * 50)
 
     try:
-        from models import OpenAIModel
+        from src.models import OpenAIModel
 
         # Create a mock model (won't actually call API)
         model = OpenAIModel("gpt-4o-mini")
