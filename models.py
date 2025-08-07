@@ -84,7 +84,6 @@ The answer must be one of these exact values: {choices}"""
             parsing_response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": parsing_prompt}],
-                temperature=0.0,
             )
 
             result = parsing_response.choices[0].message.content.strip()
@@ -245,10 +244,7 @@ class GeminiModel(BaseModel):
             )
 
         # Configuration for generation
-        config_params = {
-            "max_output_tokens": 100,
-            "temperature": 0.0,
-        }
+        config_params = {}
         self.config = GenerateContentConfig(**config_params)
         self.gemini_client = genai.Client(api_key=api_key)
 
@@ -356,8 +352,6 @@ class ClaudeModel(BaseModel):
 
             response = self.client.messages.create(
                 model=self.model_name,
-                max_tokens=1000,  # Increased for detailed responses
-                temperature=0.0,
                 messages=[{"role": "user", "content": prompt}],
             )
 
@@ -388,8 +382,6 @@ class ClaudeModel(BaseModel):
 
             response = self.client.messages.create(
                 model=self.model_name,
-                max_tokens=1000,  # Increased for detailed responses
-                temperature=0.0,
                 messages=[
                     {
                         "role": "user",
