@@ -899,9 +899,11 @@ Two nodes are connected if there exists any path (sequence of edges) between the
 Carefully trace the graph structure to determine connectivity."""
 
         elif self.task_name == "graph_maxflow":
-            base_prompt = """You are shown a flow network diagram.
+            source_node_color = sample.get("source_node_color", "red")
+            sink_node_color = sample.get("sink_node_color", "blue")
+            base_prompt = f"""You are shown a flow network diagram.
 
-Your task is to determine the maximum flow from the source to the sink by analyzing the visual representation.
+Your task is to determine the maximum flow from the source (color: {source_node_color}) to the sink (color: {sink_node_color}) by analyzing the visual representation.
 
 Note: Node indexing starts from 0.
 
