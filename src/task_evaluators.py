@@ -391,16 +391,20 @@ class IsoBenchTaskEvaluator:
                 predictions.append(prediction)
                 ground_truth.append(gt)
 
-                # Compare prediction and ground truth appropriately
-                if isinstance(prediction, int) and isinstance(gt, int):
-                    # Both are indices
-                    is_correct = prediction == gt
-                elif isinstance(prediction, str) and isinstance(gt, str):
-                    # Both are strings, compare case-insensitively
-                    is_correct = prediction.lower().strip() == gt.lower().strip()
-                else:
-                    # Mixed types, not correct
-                    is_correct = False
+                # Compare prediction and ground truth by converting both to strings
+                # This handles mixed types like string "3" vs integer 3
+                pred_str = (
+                    str(prediction).lower().strip() if prediction is not None else ""
+                )
+                gt_str = str(gt).lower().strip() if gt is not None else ""
+
+                # Special handling for boolean values
+                if isinstance(gt, bool):
+                    gt_str = "yes" if gt else "no"
+                if isinstance(prediction, bool):
+                    pred_str = "yes" if prediction else "no"
+
+                is_correct = pred_str == gt_str
 
                 if is_correct:
                     correct_count += 1
