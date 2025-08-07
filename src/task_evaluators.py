@@ -757,18 +757,18 @@ class AlgorithmTaskEvaluator(IsoBenchTaskEvaluator):
             adj_matrix = sample.get("adjacency_matrix", "")
             node1 = sample.get("query_node_1", "")
             node2 = sample.get("query_node_2", "")
-            base_prompt = f"Given the adjacency matrix: {adj_matrix}, determine if nodes {node1} and {node2} are connected."
+            base_prompt = f"Given the adjacency matrix: {adj_matrix}, determine if nodes {node1} and {node2} are connected. Note: Node indexing starts from 0."
 
         elif self.task_name == "graph_maxflow":
             adj_matrix = sample.get("adjacency_matrix", "")
             source = sample.get("source_node", "")
             sink = sample.get("sink_node", "")
-            base_prompt = f"Given the capacity matrix: {adj_matrix}, find the maximum flow from source node {source} to sink node {sink}."
+            base_prompt = f"Given the capacity matrix: {adj_matrix}, find the maximum flow from source node {source} to sink node {sink}. Note: Node indexing starts from 0."
 
         elif self.task_name == "graph_isomorphism":
             adj_g = sample.get("adjacency_matrix_G", "")
             adj_h = sample.get("adjacency_matrix_H", "")
-            base_prompt = f"Given two adjacency matrices G: {adj_g} and H: {adj_h}, determine if the graphs are isomorphic."
+            base_prompt = f"Given two adjacency matrices G: {adj_g} and H: {adj_h}, determine if the graphs are isomorphic. Note: Node indexing starts from 0."
 
         return base_prompt
 
@@ -777,13 +777,13 @@ class AlgorithmTaskEvaluator(IsoBenchTaskEvaluator):
         if self.task_name == "graph_connectivity":
             node1 = sample.get("query_node_1", "")
             node2 = sample.get("query_node_2", "")
-            return f"Looking at the graph, determine if nodes {node1} and {node2} are connected."
+            return f"Looking at the graph, determine if nodes {node1} and {node2} are connected. Note: Node indexing starts from 0."
 
         elif self.task_name == "graph_maxflow":
-            return "Looking at the flow network, determine the maximum flow from source to sink."
+            return "Looking at the flow network, determine the maximum flow from source to sink. Note: Node indexing starts from 0."
 
         elif self.task_name == "graph_isomorphism":
-            return "Looking at the two graphs, determine if they are isomorphic."
+            return "Looking at the two graphs, determine if they are isomorphic. Note: Node indexing starts from 0."
 
         return "Please analyze the graph(s) shown in the image."
 
@@ -807,6 +807,7 @@ In this matrix:
 - Entry (i,j) = 1 means there is an edge from node i to node j
 - Entry (i,j) = 0 means there is no direct edge from node i to node j
 - The graph may be directed or undirected
+- Node indexing starts from 0
 
 Query: Determine if node {node1} and node {node2} are connected.
 
@@ -829,6 +830,7 @@ Network representation: The flow network is represented as a capacity matrix:
 In this matrix:
 - Entry (i,j) represents the maximum capacity of the edge from node i to node j
 - Entry (i,j) = 0 means there is no edge from node i to node j
+- Node indexing starts from 0
 
 Source node: {source}
 Sink node: {sink}
@@ -853,6 +855,9 @@ Graph G adjacency matrix:
 
 Graph H adjacency matrix:
 {adj_h}
+
+In both matrices:
+- Node indexing starts from 0
 
 Two graphs are isomorphic if:
 - They have the same number of vertices and edges
@@ -881,6 +886,7 @@ When checking for isomorphism, consider:
 Your task is to determine whether two specific nodes are connected by analyzing the visual representation.
 
 Query nodes: {node1} and {node2}
+Note: Node indexing starts from 0.
 
 When examining the graph:
 - Look for direct edges between the query nodes
@@ -897,6 +903,8 @@ Carefully trace the graph structure to determine connectivity."""
 
 Your task is to determine the maximum flow from the source to the sink by analyzing the visual representation.
 
+Note: Node indexing starts from 0.
+
 When examining the network:
 - Identify the source node (usually specially marked or colored)
 - Identify the sink node (usually specially marked or colored)  
@@ -912,6 +920,8 @@ Analyze the network systematically to find the maximum flow value."""
             base_prompt = """You are shown two graph visualizations.
 
 Your task is to determine whether these two graphs are isomorphic (structurally identical) by analyzing their visual representations.
+
+Note: Node indexing starts from 0.
 
 Two graphs are isomorphic if:
 - They have the same number of vertices and edges
