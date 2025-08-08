@@ -1,0 +1,2000 @@
+[
+  {
+    "sample_index": 0,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:40:41.540438",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$$",
+      "code": "f(x) = -2*x**5/(2*x**8 - 4*x**6 + 12*x**4 + 4*x**2 + 11.16)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = - \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$.\n\nTo determine if the function has even, odd, or neither symmetry, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nFirst, let's find $f(-x)$:\nReplace every instance of $x$ with $-x$ in the expression for $f(x)$:\n$$f(-x) = - \\frac{2 (-x)^{5}}{2 (-x)^{8} - 4 (-x)^{6} + 12 (-x)^{4} + 4 (-x)^{2} + 11.16}$$\n\nNow, let's simplify the terms involving $-x$:\n$(-x)^5 = (-1)^5 x^5 = -x^5$\n$(-x)^8 = (-1)^8 x^8 = x^8$\n$(-x)^6 = (-1)^6 x^6 = x^6$\n$(-x)^4 = (-1)^4 x^4 = x^4$\n$(-x)^2 = (-1)^2 x^2 = x^2$\n\nSubstitute these simplified terms back into the expression for $f(-x)$:\n$$f(-x) = - \\frac{2 (-x^{5})}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$$\n$$f(-x) = - \\frac{-2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$$\n\nNow, let's simplify the expression for $f(-x)$ by dealing with the double negative sign:\n$$f(-x) = \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$$\n\nNext, let's compare $f(-x)$ with $f(x)$.\nThe original function is $f(x) = - \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$.\nWe found that $f(-x) = \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$.\n\nSince $f(-x) \\neq f(x)$, the function is not even.\n\nNow, let's compare $f(-x)$ with $-f(x)$.\nFirst, find $-f(x)$:\n$$-f(x) = - \\left( - \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16} \\right)$$\n$$-f(x) = \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$$\n\nWe found that $f(-x) = \\frac{2 x^{5}}{2 x^{8} - 4 x^{6} + 12 x^{4} + 4 x^{2} + 11.16}$.\nComparing $f(-x)$ and $-f(x)$, we see that:\n$f(-x) = -f(x)$\n\nSince $f(-x) = -f(x)$, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 1,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:40:46.714353",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{x \\left(6.0 - 16.0 x^{2}\\right)}{8.0 x^{10} + 6.0 x^{4} + 4.28}$$",
+      "code": "f(x) = x*(6.0 - 16.0*x**2)/(8.0*x**10 + 6.0*x**4 + 4.28)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{x \\left(6.0 - 16.0 x^{2}\\right)}{8.0 x^{10} + 6.0 x^{4} + 4.28}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{x \\left(6.0 - 16.0 x^{2}\\right)}{8.0 x^{10} + 6.0 x^{4} + 4.28}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's find $f(-x)$:\nReplace every instance of $x$ with $-x$ in the function:\n$$f(-x) = \\frac{(-x) \\left(6.0 - 16.0 (-x)^{2}\\right)}{8.0 (-x)^{10} + 6.0 (-x)^{4} + 4.28}$$\n\nNow, let's simplify the terms involving $-x$:\n$(-x)^2 = x^2$\n$(-x)^{10} = ((-x)^2)^5 = (x^2)^5 = x^{10}$\n$(-x)^4 = ((-x)^2)^2 = (x^2)^2 = x^4$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{(-x) \\left(6.0 - 16.0 x^{2}\\right)}{8.0 x^{10} + 6.0 x^{4} + 4.28}$$\n\nNow, let's compare $f(-x)$ with $f(x)$.\nThe numerator of $f(-x)$ is $-x(6.0 - 16.0 x^2)$, which is the negative of the numerator of $f(x)$, which is $x(6.0 - 16.0 x^2)$.\nThe denominator of $f(-x)$ is $8.0 x^{10} + 6.0 x^{4} + 4.28$, which is the same as the denominator of $f(x)$.\n\nSo, we can write $f(-x)$ as:\n$$f(-x) = - \\frac{x \\left(6.0 - 16.0 x^{2}\\right)}{8.0 x^{10} + 6.0 x^{4} + 4.28}$$\n\nThis means that $f(-x) = -f(x)$.\n\nAccording to the definitions:\n- If $f(-x) = f(x)$, the function is EVEN.\n- If $f(-x) = -f(x)$, the function is ODD.\n\nSince we found that $f(-x) = -f(x)$, the function $f(x)$ has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 2,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:40:51.246230",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{4 x^{5}}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$$",
+      "code": "f(x) = 4*x**5/(16*x**10 + 4*x**8 + 8*x**4 + 10*x**2 + 20.56)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{4 x^{5}}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{4 x^{5}}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$.\nTo determine the symmetry of the function, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's find $f(-x)$:\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{4 (-x)^{5}}{16 (-x)^{10} + 4 (-x)^{8} + 8 (-x)^{4} + 10 (-x)^{2} + 20.56}$$\n\nNow, let's simplify the terms with $(-x)$:\n$(-x)^5 = (-1)^5 x^5 = -x^5$\n$(-x)^{10} = (-1)^{10} x^{10} = x^{10}$\n$(-x)^8 = (-1)^8 x^8 = x^8$\n$(-x)^4 = (-1)^4 x^4 = x^4$\n$(-x)^2 = (-1)^2 x^2 = x^2$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{4 (-x^{5})}{16 (x^{10}) + 4 (x^{8}) + 8 (x^{4}) + 10 (x^{2}) + 20.56}$$\n$$f(-x) = \\frac{-4 x^{5}}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{4 x^{5}}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$\n$f(-x) = \\frac{-4 x^{5}}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$\n\nWe can see that the denominator of $f(-x)$ is exactly the same as the denominator of $f(x)$.\nThe numerator of $f(-x)$ is $-4x^5$, which is the negative of the numerator of $f(x)$, which is $4x^5$.\n\nTherefore, we can write $f(-x)$ in terms of $f(x)$:\n$$f(-x) = -\\frac{4 x^{5}}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$$\n$$f(-x) = -f(x)$$\n\nSince $f(-x) = -f(x)$ for all $x$ in the domain of the function, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 3,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:40:57.963441",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 4 x^{6} - 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$$",
+      "code": "f(x) = (-4*x**6 - 3*x**5 + 4*x**4 - 1.35)/(5*x**10 + 6*x**6 + 3*x**2 + 2.43)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 4 x^{6} - 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{- 4 x^{6} - 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 4 (-x)^{6} - 3 (-x)^{5} + 4 (-x)^{4} - 1.35}{5 (-x)^{10} + 6 (-x)^{6} + 3 (-x)^{2} + 2.43}$$\n\nNow, let's simplify the terms involving powers of $-x$:\n$(-x)^6 = x^6$ (since the exponent is even)\n$(-x)^5 = -x^5$ (since the exponent is odd)\n$(-x)^4 = x^4$ (since the exponent is even)\n$(-x)^{10} = x^{10}$ (since the exponent is even)\n$(-x)^2 = x^2$ (since the exponent is even)\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 4 x^{6} - 3 (-x^{5}) + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$$\n$$f(-x) = \\frac{- 4 x^{6} + 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$$\n\nNow, let's compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nFirst, compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{- 4 x^{6} - 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$\n$f(-x) = \\frac{- 4 x^{6} + 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$\n\nClearly, $f(-x) \\neq f(x)$ because the sign of the $x^5$ term in the numerator is different. Therefore, the function is not even.\n\nNext, let's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 4 x^{6} - 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43} \\right)$$\n$$-f(x) = \\frac{- (- 4 x^{6} - 3 x^{5} + 4 x^{4} - 1.35)}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$$\n$$-f(x) = \\frac{4 x^{6} + 3 x^{5} - 4 x^{4} + 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$$\n\nNow, compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{- 4 x^{6} + 3 x^{5} + 4 x^{4} - 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$\n$-f(x) = \\frac{4 x^{6} + 3 x^{5} - 4 x^{4} + 1.35}{5 x^{10} + 6 x^{6} + 3 x^{2} + 2.43}$\n\nClearly, $f(-x) \\neq -f(x)$ because the signs of the $x^6$ and $x^4$ terms in the numerator are different, and the constant term also has a different sign. Therefore, the function is not odd.\n\nSince the function is neither even nor odd, it has neither even symmetry nor odd symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 4,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:02.719553",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{6 x}{4 x^{8} - 10 x^{2} + 9.48}$$",
+      "code": "f(x) = 6*x/(4*x**8 - 10*x**2 + 9.48)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{6 x}{4 x^{8} - 10 x^{2} + 9.48}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{6 x}{4 x^{8} - 10 x^{2} + 9.48}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nStep 1: Evaluate $f(-x)$\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{6 (-x)}{4 (-x)^{8} - 10 (-x)^{2} + 9.48}$$\n\nStep 2: Simplify the expression for $f(-x)$\nRecall that $(-a)^n = a^n$ if $n$ is an even integer, and $(-a)^n = -a^n$ if $n$ is an odd integer.\n\nFor the numerator:\n$6(-x) = -6x$\n\nFor the terms in the denominator:\n$(-x)^8 = x^8$ (since 8 is an even exponent)\n$(-x)^2 = x^2$ (since 2 is an even exponent)\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{-6x}{4 x^{8} - 10 x^{2} + 9.48}$$\n\nStep 3: Compare $f(-x)$ with $f(x)$\nThe original function is:\n$$f(x) = \\frac{6 x}{4 x^{8} - 10 x^{2} + 9.48}$$\n\nWe can see that $f(-x) = \\frac{-6x}{4 x^{8} - 10 x^{2} + 9.48}$.\nSince $f(-x) \\neq f(x)$, the function is not even.\n\nStep 4: Compare $f(-x)$ with $-f(x)$\nFirst, let's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{6 x}{4 x^{8} - 10 x^{2} + 9.48} \\right) = \\frac{-6 x}{4 x^{8} - 10 x^{2} + 9.48}$$\n\nNow, compare $f(-x)$ with $-f(x)$:\n$$f(-x) = \\frac{-6x}{4 x^{8} - 10 x^{2} + 9.48}$$\n$$-f(x) = \\frac{-6 x}{4 x^{8} - 10 x^{2} + 9.48}$$\n\nWe can see that $f(-x) = -f(x)$.\n\nConclusion:\nSince $f(-x) = -f(x)$, the function $f(x)$ has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 5,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:06.658372",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - \\frac{20.62}{4 x^{6} - 8 x^{4} + 4 x^{2} + 25.18}$$",
+      "code": "f(x) = -20.62/(4*x**6 - 8*x**4 + 4*x**2 + 25.18)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - \\frac{20.62}{4 x^{6} - 8 x^{4} + 4 x^{2} + 25.18}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = - \\frac{20.62}{4 x^{6} - 8 x^{4} + 4 x^{2} + 25.18}$.\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's find $f(-x)$:\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = - \\frac{20.62}{4 (-x)^{6} - 8 (-x)^{4} + 4 (-x)^{2} + 25.18}$$\n\nNow, let's simplify the terms with $(-x)$ raised to different powers:\n$(-x)^{6} = (-1)^6 x^6 = 1 \\cdot x^6 = x^6$\n$(-x)^{4} = (-1)^4 x^4 = 1 \\cdot x^4 = x^4$\n$(-x)^{2} = (-1)^2 x^2 = 1 \\cdot x^2 = x^2$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = - \\frac{20.62}{4 x^{6} - 8 x^{4} + 4 x^{2} + 25.18}$$\n\nNow, compare $f(-x)$ with $f(x)$:\nWe found that $f(-x) = - \\frac{20.62}{4 x^{6} - 8 x^{4} + 4 x^{2} + 25.18}$.\nThe original function is $f(x) = - \\frac{20.62}{4 x^{6} - 8 x^{4} + 4 x^{2} + 25.18}$.\n\nWe can see that $f(-x) = f(x)$.\n\nAccording to the definitions of symmetry:\n- If $f(-x) = f(x)$, the function has even symmetry.\n- If $f(-x) = -f(x)$, the function has odd symmetry.\n\nSince $f(-x) = f(x)$, the given function has even symmetry.\n\nThe final answer is $\\boxed{even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 6,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:12.452730",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{2 x^{8} - 2 x^{7} + 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$",
+      "code": "f(x) = (2*x**8 - 2*x**7 + 3*x**5 - 4*x**2 - 17.11)/(5*x**6 - 2*x**2 + 4.8)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{2 x^{8} - 2 x^{7} + 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{2 x^{8} - 2 x^{7} + 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ into the function:\n$$f(-x) = \\frac{2 (-x)^{8} - 2 (-x)^{7} + 3 (-x)^{5} - 4 (-x)^{2} - 17.11}{5 (-x)^{6} - 2 (-x)^{2} + 4.8}$$\n\nNow, let's simplify the terms with $(-x)$:\n$(-x)^{8} = x^{8}$ (because an even power of a negative number is positive)\n$(-x)^{7} = -x^{7}$ (because an odd power of a negative number is negative)\n$(-x)^{5} = -x^{5}$ (because an odd power of a negative number is negative)\n$(-x)^{2} = x^{2}$ (because an even power of a negative number is positive)\n\nSubstitute these simplified terms back into the expression for $f(-x)$:\n$$f(-x) = \\frac{2 (x^{8}) - 2 (-x^{7}) + 3 (-x^{5}) - 4 (x^{2}) - 17.11}{5 (x^{6}) - 2 (x^{2}) + 4.8}$$\n\nNow, simplify the numerator and denominator further:\n$$f(-x) = \\frac{2 x^{8} + 2 x^{7} - 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$$f(x) = \\frac{2 x^{8} - 2 x^{7} + 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$\n$$f(-x) = \\frac{2 x^{8} + 2 x^{7} - 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$\n\nWe can see that $f(-x) \\neq f(x)$ because the signs of the terms $-2x^7$ and $+3x^5$ in the numerator of $f(x)$ are different from the signs of $+2x^7$ and $-3x^5$ in the numerator of $f(-x)$. Therefore, the function is not even.\n\nNext, let's compare $f(-x)$ with $-f(x)$:\n$$-f(x) = -\\left(\\frac{2 x^{8} - 2 x^{7} + 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}\\right) = \\frac{-(2 x^{8} - 2 x^{7} + 3 x^{5} - 4 x^{2} - 17.11)}{5 x^{6} - 2 x^{2} + 4.8}$$\n$$-f(x) = \\frac{-2 x^{8} + 2 x^{7} - 3 x^{5} + 4 x^{2} + 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$\n\nNow, compare $f(-x)$ with $-f(x)$:\n$$f(-x) = \\frac{2 x^{8} + 2 x^{7} - 3 x^{5} - 4 x^{2} - 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$\n$$-f(x) = \\frac{-2 x^{8} + 2 x^{7} - 3 x^{5} + 4 x^{2} + 17.11}{5 x^{6} - 2 x^{2} + 4.8}$$\n\nWe can see that $f(-x) \\neq -f(x)$ because the signs of the terms $2x^8$ and $-4x^2$ in the numerator of $f(-x)$ are different from the signs of $-2x^8$ and $+4x^2$ in the numerator of $-f(x)$. Therefore, the function is not odd.\n\nSince the function is neither even nor odd, it has neither symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 7,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:16.355654",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84}$$",
+      "code": "f(x) = (-2*x**6 - 6.98)/(4*x**8 + 18.84)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84}$.\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's find $f(-x)$:\nSubstitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{- 2 (-x)^{6} - 6.98}{4 (-x)^{8} + 18.84}$\n\nNow, let's simplify the terms with $(-x)$:\nSince the exponent 6 is an even number, $(-x)^{6} = x^{6}$.\nSince the exponent 8 is an even number, $(-x)^{8} = x^{8}$.\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84}$\n\nNow, let's compare $f(-x)$ with $f(x)$:\nWe found that $f(-x) = \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84}$.\nThe original function is $f(x) = \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84}$.\nWe can see that $f(-x) = f(x)$.\n\nAccording to the definition, if $f(-x) = f(x)$, the function is EVEN.\n\nTo be thorough, let's also check for odd symmetry. For odd symmetry, we need $f(-x) = -f(x)$.\nLet's find $-f(x)$:\n$-f(x) = - \\left( \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84} \\right) = \\frac{- (- 2 x^{6} - 6.98)}{4 x^{8} + 18.84} = \\frac{2 x^{6} + 6.98}{4 x^{8} + 18.84}$\n\nNow compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{- 2 x^{6} - 6.98}{4 x^{8} + 18.84}$\n$-f(x) = \\frac{2 x^{6} + 6.98}{4 x^{8} + 18.84}$\nClearly, $f(-x) \\neq -f(x)$. Therefore, the function is not odd.\n\nSince $f(-x) = f(x)$, the function exhibits even symmetry.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 8,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:20.785662",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 8 x^{10} - 10 x^{8} - 26.9}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$$",
+      "code": "f(x) = (-8*x**10 - 10*x**8 - 26.9)/(16*x**10 + 4*x**8 + 8*x**4 + 10*x**2 + 20.56)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 8 x^{10} - 10 x^{8} - 26.9}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{- 8 x^{10} - 10 x^{8} - 26.9}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ into the function:\n$f(-x) = \\frac{- 8 (-x)^{10} - 10 (-x)^{8} - 26.9}{16 (-x)^{10} + 4 (-x)^{8} + 8 (-x)^{4} + 10 (-x)^{2} + 20.56}$\n\nWe know that for any even power $n$, $(-x)^n = x^n$. In this function, all the powers of $x$ are even (10, 8, 4, 2). Therefore:\n$(-x)^{10} = x^{10}$\n$(-x)^{8} = x^{8}$\n$(-x)^{4} = x^{4}$\n$(-x)^{2} = x^{2}$\n\nSubstituting these back into the expression for $f(-x)$:\n$f(-x) = \\frac{- 8 x^{10} - 10 x^{8} - 26.9}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$\n\nNow, let's compare $f(-x)$ with the original function $f(x)$:\n$f(x) = \\frac{- 8 x^{10} - 10 x^{8} - 26.9}{16 x^{10} + 4 x^{8} + 8 x^{4} + 10 x^{2} + 20.56}$\n\nWe can see that $f(-x) = f(x)$.\n\nAccording to the definitions:\n- If $f(-x) = f(x)$, the function is EVEN.\n- If $f(-x) = -f(x)$, the function is ODD.\n- If neither of the above is true, the function is NEITHER.\n\nSince $f(-x) = f(x)$, the given function has even symmetry.\n\nThe final answer is $\\boxed{even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 9,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:24.813152",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{2 x^{5} \\left(x^{2} - 4\\right)}{2 x^{10} + 10 x^{6} + 11.2}$$",
+      "code": "f(x) = 2*x**5*(x**2 - 4)/(2*x**10 + 10*x**6 + 11.2)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{2 x^{5} \\left(x^{2} - 4\\right)}{2 x^{10} + 10 x^{6} + 11.2}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{2 x^{5} \\left(x^{2} - 4\\right)}{2 x^{10} + 10 x^{6} + 11.2}$, we need to evaluate $f(-x)$.\n\nFirst, let's simplify the numerator and denominator separately for $f(-x)$:\n\nNumerator:\nLet $N(x) = 2 x^{5} \\left(x^{2} - 4\\right)$.\nThen, $N(-x) = 2 (-x)^{5} \\left((-x)^{2} - 4\\right)$.\nSince $(-x)^5 = -x^5$ and $(-x)^2 = x^2$, we have:\n$N(-x) = 2 (-x^{5}) \\left(x^{2} - 4\\right) = -2 x^{5} \\left(x^{2} - 4\\right) = -N(x)$.\n\nDenominator:\nLet $D(x) = 2 x^{10} + 10 x^{6} + 11.2$.\nThen, $D(-x) = 2 (-x)^{10} + 10 (-x)^{6} + 11.2$.\nSince $(-x)^{10} = x^{10}$ (because the exponent is even) and $(-x)^{6} = x^{6}$ (because the exponent is even), we have:\n$D(-x) = 2 x^{10} + 10 x^{6} + 11.2 = D(x)$.\n\nNow, let's find $f(-x)$:\n$f(-x) = \\frac{N(-x)}{D(-x)} = \\frac{-N(x)}{D(x)} = -\\frac{N(x)}{D(x)} = -f(x)$.\n\nSince $f(-x) = -f(x)$, the function $f(x)$ is an ODD function.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 10,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:29.732919",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$",
+      "code": "f(x) = (-8*x**6 + 8*x**4 - 2.7)/(10*x**10 + 12*x**6 + 6*x**2 + 4.86)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 8 (-x)^{6} + 8 (-x)^{4} - 2.7}{10 (-x)^{10} + 12 (-x)^{6} + 6 (-x)^{2} + 4.86}$$\n\nNow, let's simplify the terms with $(-x)$:\nSince any even power of $-x$ is equal to the same even power of $x$, we have:\n$(-x)^{6} = x^{6}$\n$(-x)^{4} = x^{4}$\n$(-x)^{10} = x^{10}$\n$(-x)^{2} = x^{2}$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$\n\nNow, we compare $f(-x)$ with $f(x)$.\nWe see that $f(-x) = \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$ and $f(x) = \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$.\nThus, $f(-x) = f(x)$.\n\nThis means the function satisfies the condition for even symmetry.\n\nTo confirm it is not odd, let's check if $f(-x) = -f(x)$:\n$-f(x) = - \\left( \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86} \\right)$\n$-f(x) = \\frac{8 x^{6} - 8 x^{4} + 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$\n\nComparing $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{- 8 x^{6} + 8 x^{4} - 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$\n$-f(x) = \\frac{8 x^{6} - 8 x^{4} + 2.7}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$\n\nClearly, $f(-x) \\neq -f(x)$ (unless the numerator is identically zero, which it is not).\n\nTherefore, the function has even symmetry.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 11,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:38.111751",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{5 x^{10} - 5 x^{8} + 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$",
+      "code": "f(x) = (5*x**10 - 5*x**8 + 2*x**3 + 9.87)/(3*x**10 - 3*x**8 + 10*x**6 + 2*x**4 + 19.41)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{5 x^{10} - 5 x^{8} + 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be\n$$f(x) = \\frac{5 x^{10} - 5 x^{8} + 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{5 (-x)^{10} - 5 (-x)^{8} + 2 (-x)^{3} + 9.87}{3 (-x)^{10} - 3 (-x)^{8} + 10 (-x)^{6} + 2 (-x)^{4} + 19.41}$$\n\nNow, simplify the terms involving powers of $-x$:\nRecall that for any real number $a$ and any even integer $n$, $(-a)^n = a^n$.\nRecall that for any real number $a$ and any odd integer $n$, $(-a)^n = -a^n$.\n\nApplying these rules:\n$(-x)^{10} = x^{10}$\n$(-x)^{8} = x^{8}$\n$(-x)^{3} = -x^{3}$\n$(-x)^{6} = x^{6}$\n$(-x)^{4} = x^{4}$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{5 x^{10} - 5 x^{8} + 2 (-x^{3}) + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\n$$f(-x) = \\frac{5 x^{10} - 5 x^{8} - 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\n\nNow, let's compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nCompare $f(-x)$ with $f(x)$:\n$$f(x) = \\frac{5 x^{10} - 5 x^{8} + 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\n$$f(-x) = \\frac{5 x^{10} - 5 x^{8} - 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\nSince the numerator of $f(-x)$ has a term $-2x^3$ while the numerator of $f(x)$ has a term $+2x^3$, $f(-x) \\neq f(x)$. Therefore, the function is not even.\n\nNow, let's find $-f(x)$:\n$$-f(x) = -\\left(\\frac{5 x^{10} - 5 x^{8} + 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}\\right)$$\n$$-f(x) = \\frac{-(5 x^{10} - 5 x^{8} + 2 x^{3} + 9.87)}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\n$$-f(x) = \\frac{-5 x^{10} + 5 x^{8} - 2 x^{3} - 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\n\nCompare $f(-x)$ with $-f(x)$:\n$$f(-x) = \\frac{5 x^{10} - 5 x^{8} - 2 x^{3} + 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\n$$-f(x) = \\frac{-5 x^{10} + 5 x^{8} - 2 x^{3} - 9.87}{3 x^{10} - 3 x^{8} + 10 x^{6} + 2 x^{4} + 19.41}$$\nComparing the numerators, we can see that $f(-x) \\neq -f(x)$. For example, the coefficient of $x^{10}$ in the numerator of $f(-x)$ is 5, while in $-f(x)$ it is -5. Therefore, the function is not odd.\n\nSince the function is neither even nor odd, it has neither even symmetry nor odd symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 12,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:44.115133",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} + 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$",
+      "code": "f(x) = (-4*x**10 + 5*x**6 - 3*x**4 + 2*x + 14.34)/(5*x**8 + 2*x**6 + 14.02)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} + 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} + 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 4 (-x)^{10} + 5 (-x)^{6} - 3 (-x)^{4} + 2 (-x) + 14.34}{5 (-x)^{8} + 2 (-x)^{6} + 14.02}$$\n\nNow, let's simplify the terms with $(-x)$:\n$(-x)^{10} = x^{10}$ (because an even exponent makes the result positive)\n$(-x)^{6} = x^{6}$ (because an even exponent makes the result positive)\n$(-x)^{4} = x^{4}$ (because an even exponent makes the result positive)\n$(-x) = -x$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} - 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$\n\nNow, let's compare $f(-x)$ with $f(x)$.\n\n**Check for Even Symmetry:**\nA function is even if $f(-x) = f(x)$.\n$$f(-x) = \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} - 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$\n$$f(x) = \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} + 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$\n\nComparing the numerators, we see that the term $+2x$ in $f(x)$ becomes $-2x$ in $f(-x)$. Since these are not equal, $f(-x) \\neq f(x)$. Therefore, the function is not even.\n\n**Check for Odd Symmetry:**\nA function is odd if $f(-x) = -f(x)$.\nFirst, let's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} + 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02} \\right)$$\n$$-f(x) = \\frac{- (- 4 x^{10} + 5 x^{6} - 3 x^{4} + 2 x + 14.34)}{5 x^{8} + 2 x^{6} + 14.02}$$\n$$-f(x) = \\frac{4 x^{10} - 5 x^{6} + 3 x^{4} - 2 x - 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$\n\nNow compare $f(-x)$ and $-f(x)$:\n$$f(-x) = \\frac{- 4 x^{10} + 5 x^{6} - 3 x^{4} - 2 x + 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$\n$$-f(x) = \\frac{4 x^{10} - 5 x^{6} + 3 x^{4} - 2 x - 14.34}{5 x^{8} + 2 x^{6} + 14.02}$$\n\nComparing the numerators, we see that the terms $-4x^{10}$ in $f(-x)$ and $4x^{10}$ in $-f(x)$ are not equal. Similarly, other terms do not match. Therefore, $f(-x) \\neq -f(x)$. The function is not odd.\n\nSince the function is neither even nor odd, it has neither symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 13,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:47.918063",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{4 x}{10 x^{8} + 4 x^{6} + 28.04}$$",
+      "code": "f(x) = 4*x/(10*x**8 + 4*x**6 + 28.04)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{4 x}{10 x^{8} + 4 x^{6} + 28.04}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $$f(x) = \\frac{4 x}{10 x^{8} + 4 x^{6} + 28.04}$$.\n\nTo determine if the function has even symmetry, we need to check if $f(-x) = f(x)$.\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{4 (-x)}{10 (-x)^{8} + 4 (-x)^{6} + 28.04}$$\n$$f(-x) = \\frac{-4 x}{10 x^{8} + 4 x^{6} + 28.04}$$\n\nNow, compare $f(-x)$ with $f(x)$:\n$$f(x) = \\frac{4 x}{10 x^{8} + 4 x^{6} + 28.04}$$\n$$f(-x) = \\frac{-4 x}{10 x^{8} + 4 x^{6} + 28.04}$$\n\nSince $f(-x) = -f(x)$ and $f(-x) \\neq f(x)$, the function is not even.\n\nTo determine if the function has odd symmetry, we need to check if $f(-x) = -f(x)$.\nFrom our previous calculation, we found:\n$$f(-x) = \\frac{-4 x}{10 x^{8} + 4 x^{6} + 28.04}$$\nAnd we can see that $-f(x)$ is:\n$$-f(x) = -\\left(\\frac{4 x}{10 x^{8} + 4 x^{6} + 28.04}\\right) = \\frac{-4 x}{10 x^{8} + 4 x^{6} + 28.04}$$\n\nComparing $f(-x)$ and $-f(x)$:\n$$f(-x) = \\frac{-4 x}{10 x^{8} + 4 x^{6} + 28.04}$$\n$$-f(x) = \\frac{-4 x}{10 x^{8} + 4 x^{6} + 28.04}$$\nThus, $f(-x) = -f(x)$.\n\nTherefore, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 14,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:52.456052",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{10 x^{8} - 8 x^{2} + 6.18}{2 x^{10} + 4 x^{8} + 7.44}$$",
+      "code": "f(x) = (10*x**8 - 8*x**2 + 6.18)/(2*x**10 + 4*x**8 + 7.44)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{10 x^{8} - 8 x^{2} + 6.18}{2 x^{10} + 4 x^{8} + 7.44}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{10 x^{8} - 8 x^{2} + 6.18}{2 x^{10} + 4 x^{8} + 7.44}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{10 (-x)^{8} - 8 (-x)^{2} + 6.18}{2 (-x)^{10} + 4 (-x)^{8} + 7.44}$$\n\nWe know that any even power of $-x$ is equal to the same even power of $x$. That is, $(-x)^n = x^n$ if $n$ is an even integer.\nIn our function, the powers of $x$ in the numerator are 8 and 2, both of which are even. The powers of $x$ in the denominator are 10 and 8, both of which are also even.\n\nSo, we can simplify $f(-x)$ as follows:\n$$(-x)^{8} = x^{8}$$\n$$(-x)^{2} = x^{2}$$\n$$(-x)^{10} = x^{10}$$\n\nSubstituting these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{10 x^{8} - 8 x^{2} + 6.18}{2 x^{10} + 4 x^{8} + 7.44}$$\n\nNow, we compare $f(-x)$ with the original function $f(x)$.\nWe see that:\n$$f(-x) = \\frac{10 x^{8} - 8 x^{2} + 6.18}{2 x^{10} + 4 x^{8} + 7.44}$$\n$$f(x) = \\frac{10 x^{8} - 8 x^{2} + 6.18}{2 x^{10} + 4 x^{8} + 7.44}$$\n\nSince $f(-x) = f(x)$, the function $f(x)$ has even symmetry.\n\nThe final answer is $\\boxed{even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 15,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:41:58.491945",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 2 x^{10} - 3 x^{8} + 2 x^{7} + 3 x^{2} - 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$",
+      "code": "f(x) = (-2*x**10 - 3*x**8 + 2*x**7 + 3*x**2 - 5*x + 13.69)/(4*x**10 + 5*x**4 + 16.43)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 2 x^{10} - 3 x^{8} + 2 x^{7} + 3 x^{2} - 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{- 2 x^{10} - 3 x^{8} + 2 x^{7} + 3 x^{2} - 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ into the function:\n$$f(-x) = \\frac{- 2 (-x)^{10} - 3 (-x)^{8} + 2 (-x)^{7} + 3 (-x)^{2} - 5 (-x) + 13.69}{4 (-x)^{10} + 5 (-x)^{4} + 16.43}$$\n\nNow, let's simplify the terms with powers of $-x$:\n$(-x)^{10} = x^{10}$ (since the exponent is even)\n$(-x)^{8} = x^{8}$ (since the exponent is even)\n$(-x)^{7} = -x^{7}$ (since the exponent is odd)\n$(-x)^{2} = x^{2}$ (since the exponent is even)\n$-5(-x) = 5x$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 2 x^{10} - 3 x^{8} + 2 (-x^{7}) + 3 x^{2} - 5 (-x) + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$\n$$f(-x) = \\frac{- 2 x^{10} - 3 x^{8} - 2 x^{7} + 3 x^{2} + 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$$f(x) = \\frac{- 2 x^{10} - 3 x^{8} + 2 x^{7} + 3 x^{2} - 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$\n$$f(-x) = \\frac{- 2 x^{10} - 3 x^{8} - 2 x^{7} + 3 x^{2} + 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$\n\nWe can see that the numerator of $f(-x)$ is different from the numerator of $f(x)$. Specifically, the sign of the $2x^7$ term and the $-5x$ term have changed. Therefore, $f(-x) \\neq f(x)$. This means the function is not even.\n\nNext, let's compare $f(-x)$ with $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 2 x^{10} - 3 x^{8} + 2 x^{7} + 3 x^{2} - 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43} \\right)$$\n$$-f(x) = \\frac{- (- 2 x^{10} - 3 x^{8} + 2 x^{7} + 3 x^{2} - 5 x + 13.69)}{4 x^{10} + 5 x^{4} + 16.43}$$\n$$-f(x) = \\frac{2 x^{10} + 3 x^{8} - 2 x^{7} - 3 x^{2} + 5 x - 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$\n\nComparing $f(-x)$ with $-f(x)$:\n$$f(-x) = \\frac{- 2 x^{10} - 3 x^{8} - 2 x^{7} + 3 x^{2} + 5 x + 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$\n$$-f(x) = \\frac{2 x^{10} + 3 x^{8} - 2 x^{7} - 3 x^{2} + 5 x - 13.69}{4 x^{10} + 5 x^{4} + 16.43}$$\n\nThe numerators are different. For example, the coefficient of $x^{10}$ in $f(-x)$ is $-2$, while in $-f(x)$ it is $2$. Therefore, $f(-x) \\neq -f(x)$. This means the function is not odd.\n\nSince the function is neither even nor odd, it has neither symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 16,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:04.157745",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{4 x \\left(x^{8} - 1\\right)}{8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76}$$",
+      "code": "f(x) = 4*x*(x**8 - 1)/(8*x**8 - 2*x**6 - 10*x**2 + 31.76)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{4 x \\left(x^{8} - 1\\right)}{8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{4 x \\left(x^{8} - 1\\right)}{8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76}$.\n\nTo determine if the function has even or odd symmetry, we need to evaluate $f(-x)$.\n\nFirst, let's analyze the numerator:\nNumerator of $f(x)$ is $N(x) = 4 x \\left(x^{8} - 1\\right)$.\nNow let's find $N(-x)$:\n$N(-x) = 4 (-x) \\left((-x)^{8} - 1\\right)$\n$N(-x) = -4x \\left(x^{8} - 1\\right)$\nWe can see that $N(-x) = -N(x)$. This means the numerator is an odd function.\n\nNext, let's analyze the denominator:\nDenominator of $f(x)$ is $D(x) = 8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76$.\nNow let's find $D(-x)$:\n$D(-x) = 8 (-x)^{8} - 2 (-x)^{6} - 10 (-x)^{2} + 31.76$\nSince any even power of $-x$ is equal to the same even power of $x$, we have:\n$(-x)^8 = x^8$\n$(-x)^6 = x^6$\n$(-x)^2 = x^2$\nSo, $D(-x) = 8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76$.\nWe can see that $D(-x) = D(x)$. This means the denominator is an even function.\n\nNow let's find $f(-x)$:\n$f(-x) = \\frac{N(-x)}{D(-x)}$\nSubstitute the expressions we found for $N(-x)$ and $D(-x)$:\n$f(-x) = \\frac{-4 x \\left(x^{8} - 1\\right)}{8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76}$\n$f(-x) = -\\frac{4 x \\left(x^{8} - 1\\right)}{8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76}$\n\nComparing $f(-x)$ with $f(x)$:\nWe found that $f(-x) = -\\frac{4 x \\left(x^{8} - 1\\right)}{8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76}$ and $f(x) = \\frac{4 x \\left(x^{8} - 1\\right)}{8 x^{8} - 2 x^{6} - 10 x^{2} + 31.76}$.\nTherefore, $f(-x) = -f(x)$.\n\nSince $f(-x) = -f(x)$ for all $x$ in the domain, the function $f(x)$ has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 17,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:09.587092",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$",
+      "code": "f(x) = -6*x**5/(10*x**10 + 12*x**6 + 6*x**2 + 4.86)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = - \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = - \\frac{6 (-x)^{5}}{10 (-x)^{10} + 12 (-x)^{6} + 6 (-x)^{2} + 4.86}$$\n\nLet's simplify the terms with $-x$:\n$(-x)^5 = (-1)^5 x^5 = -x^5$\n$(-x)^{10} = (-1)^{10} x^{10} = x^{10}$\n$(-x)^6 = (-1)^6 x^6 = x^6$\n$(-x)^2 = (-1)^2 x^2 = x^2$\n\nNow substitute these back into the expression for $f(-x)$:\n$$f(-x) = - \\frac{6 (-x^{5})}{10 (x^{10}) + 12 (x^{6}) + 6 (x^{2}) + 4.86}$$\n$$f(-x) = - \\frac{-6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$\n$$f(-x) = \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$\n\nNow we compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nFirst, let's find $-f(x)$:\n$$-f(x) = - \\left( - \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86} \\right)$$\n$$-f(x) = \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$$\n\nComparing $f(-x)$ and $f(x)$:\n$f(-x) = \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$\n$f(x) = - \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$\n\nWe can see that $f(-x) \\neq f(x)$ because the numerator has a different sign. Therefore, the function is not even.\n\nComparing $f(-x)$ and $-f(x)$:\n$f(-x) = \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$\n$-f(x) = \\frac{6 x^{5}}{10 x^{10} + 12 x^{6} + 6 x^{2} + 4.86}$\n\nWe can see that $f(-x) = -f(x)$. Therefore, the function is odd.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 18,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:15.963101",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{4 x^{6} - 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}$$",
+      "code": "f(x) = (4*x**6 - 3*x**5 + 5*x**2 + 0.45)/(5*x**8 + 4*x**4 + 7.49)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{4 x^{6} - 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{4 x^{6} - 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ into the function:\n$$f(-x) = \\frac{4 (-x)^{6} - 3 (-x)^{5} + 5 (-x)^{2} + 0.45}{5 (-x)^{8} + 4 (-x)^{4} + 7.49}$$\n\nNow, let's simplify the terms with $(-x)$:\nSince $(-x)^n = x^n$ if $n$ is even, and $(-x)^n = -x^n$ if $n$ is odd, we have:\n$(-x)^6 = x^6$\n$(-x)^5 = -x^5$\n$(-x)^2 = x^2$\n$(-x)^8 = x^8$\n$(-x)^4 = x^4$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{4 x^{6} - 3 (-x^{5}) + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}$$\n$$f(-x) = \\frac{4 x^{6} + 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{4 x^{6} - 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}$\n$f(-x) = \\frac{4 x^{6} + 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}$\n\nClearly, $f(-x) \\neq f(x)$ because the sign of the term $-3x^5$ in the numerator of $f(x)$ is different from the sign of the term $+3x^5$ in the numerator of $f(-x)$. This means the function is not even.\n\nNext, let's compare $f(-x)$ with $-f(x)$:\n$$-f(x) = -\\left(\\frac{4 x^{6} - 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}\\right)$$\n$$-f(x) = \\frac{-(4 x^{6} - 3 x^{5} + 5 x^{2} + 0.45)}{5 x^{8} + 4 x^{4} + 7.49}$$\n$$-f(x) = \\frac{-4 x^{6} + 3 x^{5} - 5 x^{2} - 0.45}{5 x^{8} + 4 x^{4} + 7.49}$$\n\nNow compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{4 x^{6} + 3 x^{5} + 5 x^{2} + 0.45}{5 x^{8} + 4 x^{4} + 7.49}$\n$-f(x) = \\frac{-4 x^{6} + 3 x^{5} - 5 x^{2} - 0.45}{5 x^{8} + 4 x^{4} + 7.49}$\n\nWe can see that $f(-x) \\neq -f(x)$ because the terms $4x^6$, $5x^2$, and $0.45$ in the numerator of $f(-x)$ have different signs compared to the corresponding terms in the numerator of $-f(x)$. For the function to be odd, all corresponding terms in the numerators must have opposite signs.\n\nSince $f(-x) \\neq f(x)$ and $f(-x) \\neq -f(x)$, the function has neither even nor odd symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 19,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:22.200985",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$$",
+      "code": "f(x) = (8*x**8 - 17.98)/(16*x**10 + 2.62)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{8 (-x)^{8} - 17.98}{16 (-x)^{10} + 2.62}$$\n\nNow, we need to simplify the terms with $(-x)$:\nRecall that an even power of a negative number is positive, i.e., $(-a)^n = a^n$ if $n$ is even.\nAlso, an odd power of a negative number is negative, i.e., $(-a)^n = -a^n$ if $n$ is odd.\n\nIn our expression for $f(-x)$:\n$(-x)^8 = x^8$ (since 8 is an even exponent)\n$(-x)^{10} = x^{10}$ (since 10 is an even exponent)\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$$\n\nNow, let's compare $f(-x)$ with the original function $f(x)$:\n$f(x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$\n$f(-x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$\n\nWe can see that $f(-x) = f(x)$.\n\nAccording to the definitions:\n- A function f(x) is EVEN if $f(-x) = f(x)$ for all x in the domain.\n\nSince $f(-x) = f(x)$, the given function has even symmetry.\n\nLet's also check for odd symmetry to be thorough.\nA function f(x) is ODD if $f(-x) = -f(x)$ for all x in the domain.\nWe have $f(-x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$.\nAnd $-f(x) = -\\left(\\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}\\right) = \\frac{-(8 x^{8} - 17.98)}{16 x^{10} + 2.62} = \\frac{-8 x^{8} + 17.98}{16 x^{10} + 2.62}$.\n\nComparing $f(-x)$ and $-f(x)$:\n$f(-x) = \\frac{8 x^{8} - 17.98}{16 x^{10} + 2.62}$\n$-f(x) = \\frac{-8 x^{8} + 17.98}{16 x^{10} + 2.62}$\n\nClearly, $f(-x) \\neq -f(x)$ (unless $8x^8 - 17.98 = 0$ and $-8x^8 + 17.98 = 0$, which implies $8x^8 = 17.98$ and $-8x^8 = -17.98$, which is consistent, but this must hold for all x in the domain for odd symmetry, which it does not for example if $x=0$, $f(0) = -17.98/2.62 \\neq 0$, so $-f(0) = 17.98/2.62$. $f(-0)=f(0)$, and $-f(0) \\neq f(0)$).\n\nTherefore, the function is neither odd nor neither.\n\nThe final answer is $\\boxed{even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 20,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:28.382245",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 2 x^{10} - 2 x^{9} - x^{5} + 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81}$$",
+      "code": "f(x) = (-2*x**10 - 2*x**9 - x**5 + 3*x**3 + 8.66)/(5*x**8 + 3*x**4 + 6.81)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 2 x^{10} - 2 x^{9} - x^{5} + 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{- 2 x^{10} - 2 x^{9} - x^{5} + 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's find $f(-x)$:\nSubstitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{- 2 (-x)^{10} - 2 (-x)^{9} - (-x)^{5} + 3 (-x)^{3} + 8.66}{5 (-x)^{8} + 3 (-x)^{4} + 6.81}$\n\nNow, let's simplify the terms with powers of $-x$:\n$(-x)^{10} = x^{10}$ (since the exponent is even)\n$(-x)^{9} = -x^{9}$ (since the exponent is odd)\n$(-x)^{5} = -x^{5}$ (since the exponent is odd)\n$(-x)^{3} = -x^{3}$ (since the exponent is odd)\n$(-x)^{8} = x^{8}$ (since the exponent is even)\n$(-x)^{4} = x^{4}$ (since the exponent is even)\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{- 2 (x^{10}) - 2 (-x^{9}) - (-x^{5}) + 3 (-x^{3}) + 8.66}{5 (x^{8}) + 3 (x^{4}) + 6.81}$\n\nSimplify the signs:\n$f(-x) = \\frac{- 2 x^{10} + 2 x^{9} + x^{5} - 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81}$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{- 2 x^{10} - 2 x^{9} - x^{5} + 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81}$\n$f(-x) = \\frac{- 2 x^{10} + 2 x^{9} + x^{5} - 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81}$\n\nWe can see that the numerators are different, and the denominators are the same.\nTherefore, $f(-x) \\neq f(x)$. This means the function is not even.\n\nNext, let's compare $f(-x)$ with $-f(x)$:\nFirst, find $-f(x)$:\n$-f(x) = - \\left( \\frac{- 2 x^{10} - 2 x^{9} - x^{5} + 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81} \\right)$\n$-f(x) = \\frac{- (- 2 x^{10} - 2 x^{9} - x^{5} + 3 x^{3} + 8.66)}{5 x^{8} + 3 x^{4} + 6.81}$\n$-f(x) = \\frac{2 x^{10} + 2 x^{9} + x^{5} - 3 x^{3} - 8.66}{5 x^{8} + 3 x^{4} + 6.81}$\n\nNow compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{- 2 x^{10} + 2 x^{9} + x^{5} - 3 x^{3} + 8.66}{5 x^{8} + 3 x^{4} + 6.81}$\n$-f(x) = \\frac{2 x^{10} + 2 x^{9} + x^{5} - 3 x^{3} - 8.66}{5 x^{8} + 3 x^{4} + 6.81}$\n\nWe can see that the numerators are also different. For $f(-x) = -f(x)$, the numerators must be identical.\nSpecifically, the term $-2x^{10}$ in $f(-x)$ and $2x^{10}$ in $-f(x)$ do not match. Also, the constant term $+8.66$ in $f(-x)$ and $-8.66$ in $-f(x)$ do not match.\n\nSince $f(-x) \\neq f(x)$ and $f(-x) \\neq -f(x)$, the function has neither even nor odd symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 21,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:35.470412",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{x^{10} + x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$",
+      "code": "f(x) = (x**10 + x**5 - x**2 - 1.05)/(8*x**8 + 2*x**6 + 8.0)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{x^{10} + x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{x^{10} + x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{(-x)^{10} + (-x)^{5} - (-x)^{2} - 1.05}{8 (-x)^{8} + 2 (-x)^{6} + 8.0}$$\n\nNow, let's simplify the terms involving $-x$:\n$(-x)^{10} = x^{10}$ (because the exponent is even)\n$(-x)^{5} = -x^{5}$ (because the exponent is odd)\n$(-x)^{2} = x^{2}$ (because the exponent is even)\n$(-x)^{8} = x^{8}$ (because the exponent is even)\n$(-x)^{6} = x^{6}$ (because the exponent is even)\n\nSubstitute these simplified terms back into the expression for $f(-x)$:\n$$f(-x) = \\frac{x^{10} - x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$$f(x) = \\frac{x^{10} + x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$\n$$f(-x) = \\frac{x^{10} - x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$\n\nWe can see that the numerator of $f(-x)$ is different from the numerator of $f(x)$ because of the sign of the $x^5$ term. Specifically, the numerator of $f(-x)$ is $x^{10} - x^{5} - x^{2} - 1.05$, while the numerator of $f(x)$ is $x^{10} + x^{5} - x^{2} - 1.05$. Since these numerators are not equal, $f(-x) \\neq f(x)$. Therefore, the function is not even.\n\nNext, let's compare $f(-x)$ with $-f(x)$. First, let's find $-f(x)$:\n$$-f(x) = -\\left(\\frac{x^{10} + x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}\\right) = \\frac{-(x^{10} + x^{5} - x^{2} - 1.05)}{8 x^{8} + 2 x^{6} + 8.0} = \\frac{-x^{10} - x^{5} + x^{2} + 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$\n\nNow, let's compare $f(-x)$ and $-f(x)$:\n$$f(-x) = \\frac{x^{10} - x^{5} - x^{2} - 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$\n$$-f(x) = \\frac{-x^{10} - x^{5} + x^{2} + 1.05}{8 x^{8} + 2 x^{6} + 8.0}$$\n\nThe numerators of $f(-x)$ and $-f(x)$ are different. For instance, the $x^{10}$ term has a positive coefficient in the numerator of $f(-x)$ and a negative coefficient in the numerator of $-f(x)$. Thus, $f(-x) \\neq -f(x)$. Therefore, the function is not odd.\n\nSince the function is neither even nor odd, it has neither symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 22,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:41.890222",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$$",
+      "code": "f(x) = 2*x**3*(-x**6 - 2)/(10*x**8 + 6*x**6 - 2*x**4 + 16.08)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$.\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nFirst, let's simplify the numerator and denominator separately.\nNumerator: $N(x) = 2 x^{3} \\left(- x^{6} - 2\\right) = -2x^9 - 4x^3$\nDenominator: $D(x) = 10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08$\n\nNow, let's find $f(-x)$:\n$f(-x) = \\frac{2 (-x)^{3} \\left(- (-x)^{6} - 2\\right)}{10 (-x)^{8} + 6 (-x)^{6} - 2 (-x)^{4} + 16.08}$\n\nLet's evaluate the terms with $(-x)$:\n$(-x)^3 = -x^3$\n$(-x)^6 = x^6$\n$(-x)^8 = x^8$\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{2 (-x^{3}) \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n$f(-x) = \\frac{-2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n$f(-x) = \\frac{-2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n\nWe can see that $f(-x) = -f(x)$ because the numerator has an extra negative sign compared to the numerator of $f(x)$, while the denominator remains the same.\n\nLet's verify this by writing out the terms for $f(-x)$:\n$f(-x) = \\frac{-2x^9 - 4x^3}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n\nAnd for $-f(x)$:\n$-f(x) = - \\left( \\frac{2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08} \\right)$\n$-f(x) = \\frac{-2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n$-f(x) = \\frac{-(-2x^9 - 4x^3)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n$-f(x) = \\frac{2x^9 + 4x^3}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n\nThere seems to be a mistake in the comparison. Let's re-examine the numerator of $f(-x)$:\n$f(-x) = \\frac{2 (-x)^{3} \\left(- (-x)^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n$f(-x) = \\frac{2 (-x^{3}) \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n$f(-x) = \\frac{-2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n\nNow, let's compare $f(-x)$ directly with $f(x)$:\n$f(x) = \\frac{2 x^{3} \\left(- x^{6} - 2\\right)}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n$f(-x) = \\frac{-1 \\cdot [2 x^{3} \\left(- x^{6} - 2\\right)]}{10 x^{8} + 6 x^{6} - 2 x^{4} + 16.08}$\n\nThus, $f(-x) = -f(x)$.\n\nTo confirm, let's analyze the powers of x in the numerator and denominator.\nNumerator: $2x^3(-x^6 - 2) = -2x^9 - 4x^3$. All powers are odd.\nDenominator: $10x^8 + 6x^6 - 2x^4 + 16.08$. The terms with x have even powers, and the constant term is even.\n\nLet $g(x) = -2x^9 - 4x^3$.\n$g(-x) = -2(-x)^9 - 4(-x)^3 = -2(-x^9) - 4(-x^3) = 2x^9 + 4x^3 = -( -2x^9 - 4x^3) = -g(x)$.\nSo the numerator is an odd function.\n\nLet $h(x) = 10x^8 + 6x^6 - 2x^4 + 16.08$.\n$h(-x) = 10(-x)^8 + 6(-x)^6 - 2(-x)^4 + 16.08 = 10x^8 + 6x^6 - 2x^4 + 16.08 = h(x)$.\nSo the denominator is an even function.\n\nThe function $f(x)$ is the ratio of an odd function to an even function.\n$f(-x) = \\frac{g(-x)}{h(-x)} = \\frac{-g(x)}{h(x)} = - \\frac{g(x)}{h(x)} = -f(x)$.\n\nTherefore, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 23,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:48.221928",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 2 x^{4} - 2 x^{2} + 4.16}{18 x^{10} - 4 x^{6} + 22.36}$$",
+      "code": "f(x) = (-2*x**4 - 2*x**2 + 4.16)/(18*x**10 - 4*x**6 + 22.36)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 2 x^{4} - 2 x^{2} + 4.16}{18 x^{10} - 4 x^{6} + 22.36}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{- 2 x^{4} - 2 x^{2} + 4.16}{18 x^{10} - 4 x^{6} + 22.36}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{- 2 (-x)^{4} - 2 (-x)^{2} + 4.16}{18 (-x)^{10} - 4 (-x)^{6} + 22.36}$\n\nNow, let's simplify the powers of $-x$:\n$(-x)^{4} = (-1 \\cdot x)^{4} = (-1)^{4} \\cdot x^{4} = 1 \\cdot x^{4} = x^{4}$\n$(-x)^{2} = (-1 \\cdot x)^{2} = (-1)^{2} \\cdot x^{2} = 1 \\cdot x^{2} = x^{2}$\n$(-x)^{10} = (-1 \\cdot x)^{10} = (-1)^{10} \\cdot x^{10} = 1 \\cdot x^{10} = x^{10}$\n$(-x)^{6} = (-1 \\cdot x)^{6} = (-1)^{6} \\cdot x^{6} = 1 \\cdot x^{6} = x^{6}$\n\nSubstitute these simplified terms back into the expression for $f(-x)$:\n$f(-x) = \\frac{- 2 x^{4} - 2 x^{2} + 4.16}{18 x^{10} - 4 x^{6} + 22.36}$\n\nNow, we compare $f(-x)$ with $f(x)$ and $-f(x)$:\n\n1. **Check for Even Symmetry:**\n   Is $f(-x) = f(x)$?\n   We found $f(-x) = \\frac{- 2 x^{4} - 2 x^{2} + 4.16}{18 x^{10} - 4 x^{6} + 22.36}$, which is exactly the same as the original function $f(x)$.\n   So, $f(-x) = f(x)$.\n\nSince $f(-x) = f(x)$, the function exhibits even symmetry.\n\nLet's also check for odd symmetry to confirm it's not both (which is only possible for the zero function, which this is not).\n\n2. **Check for Odd Symmetry:**\n   Is $f(-x) = -f(x)$?\n   $-f(x) = - \\left( \\frac{- 2 x^{4} - 2 x^{2} + 4.16}{18 x^{10} - 4 x^{6} + 22.36} \\right) = \\frac{-(- 2 x^{4} - 2 x^{2} + 4.16)}{18 x^{10} - 4 x^{6} + 22.36} = \\frac{2 x^{4} + 2 x^{2} - 4.16}{18 x^{10} - 4 x^{6} + 22.36}$\n\n   Comparing $f(-x)$ and $-f(x)$:\n   $f(-x) = \\frac{- 2 x^{4} - 2 x^{2} + 4.16}{18 x^{10} - 4 x^{6} + 22.36}$\n   $-f(x) = \\frac{2 x^{4} + 2 x^{2} - 4.16}{18 x^{10} - 4 x^{6} + 22.36}$\n\n   Clearly, $f(-x) \\neq -f(x)$ because the numerator of $f(-x)$ is not the negative of the numerator of $-f(x)$.\n\nTherefore, the function has even symmetry.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 24,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:42:53.757929",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 2 x^{7} + 5 x^{5} + 1.07}{4 x^{8} + 0.19}$$",
+      "code": "f(x) = (-2*x**7 + 5*x**5 + 1.07)/(4*x**8 + 0.19)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 2 x^{7} + 5 x^{5} + 1.07}{4 x^{8} + 0.19}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{- 2 x^{7} + 5 x^{5} + 1.07}{4 x^{8} + 0.19}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nStep 1: Substitute $-x$ for $x$ in the function $f(x)$.\n$f(-x) = \\frac{- 2 (-x)^{7} + 5 (-x)^{5} + 1.07}{4 (-x)^{8} + 0.19}$\n\nStep 2: Simplify the terms involving $(-x)$.\nRecall that $(-x)^n = x^n$ if $n$ is even, and $(-x)^n = -x^n$ if $n$ is odd.\n\nIn the numerator:\n$(-x)^{7} = -x^{7}$\n$(-x)^{5} = -x^{5}$\n\nIn the denominator:\n$(-x)^{8} = x^{8}$\n\nStep 3: Rewrite the expression for $f(-x)$ using the simplified terms.\n$f(-x) = \\frac{- 2 (-x^{7}) + 5 (-x^{5}) + 1.07}{4 (x^{8}) + 0.19}$\n$f(-x) = \\frac{2 x^{7} - 5 x^{5} + 1.07}{4 x^{8} + 0.19}$\n\nStep 4: Compare $f(-x)$ with $f(x)$.\n$f(x) = \\frac{- 2 x^{7} + 5 x^{5} + 1.07}{4 x^{8} + 0.19}$\n$f(-x) = \\frac{2 x^{7} - 5 x^{5} + 1.07}{4 x^{8} + 0.19}$\n\nWe can see that $f(-x) \\neq f(x)$ because the signs of the terms $-2x^7$ and $5x^5$ in the numerator are different in $f(x)$ and $f(-x)$. Therefore, the function is not even.\n\nStep 5: Compare $f(-x)$ with $-f(x)$.\nFirst, let's find $-f(x)$:\n$-f(x) = - \\left( \\frac{- 2 x^{7} + 5 x^{5} + 1.07}{4 x^{8} + 0.19} \\right)$\n$-f(x) = \\frac{-(- 2 x^{7} + 5 x^{5} + 1.07)}{4 x^{8} + 0.19}$\n$-f(x) = \\frac{2 x^{7} - 5 x^{5} - 1.07}{4 x^{8} + 0.19}$\n\nNow compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{2 x^{7} - 5 x^{5} + 1.07}{4 x^{8} + 0.19}$\n$-f(x) = \\frac{2 x^{7} - 5 x^{5} - 1.07}{4 x^{8} + 0.19}$\n\nWe can see that $f(-x) \\neq -f(x)$ because the constant term in the numerator is $+1.07$ in $f(-x)$ and $-1.07$ in $-f(x)$. Therefore, the function is not odd.\n\nStep 6: Conclude the symmetry of the function.\nSince $f(-x) \\neq f(x)$ and $f(-x) \\neq -f(x)$, the function has neither even nor odd symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 25,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:02.283579",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 2 x^{8} - 2 x^{5} - 5 x^{4} - 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$$",
+      "code": "f(x) = (-2*x**8 - 2*x**5 - 5*x**4 - 4*x + 0.9)/(2*x**10 + 3*x**6 + 5*x**2 + 16.19)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 2 x^{8} - 2 x^{5} - 5 x^{4} - 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{- 2 x^{8} - 2 x^{5} - 5 x^{4} - 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 2 (-x)^{8} - 2 (-x)^{5} - 5 (-x)^{4} - 4 (-x) + 0.9}{2 (-x)^{10} + 3 (-x)^{6} + 5 (-x)^{2} + 16.19}$$\n\nNow, simplify the terms with $(-x)$:\n$(-x)^{8} = x^{8}$ (since the exponent is even)\n$(-x)^{5} = -x^{5}$ (since the exponent is odd)\n$(-x)^{4} = x^{4}$ (since the exponent is even)\n$(-x)^{2} = x^{2}$ (since the exponent is even)\n$(-x)^{10} = x^{10}$ (since the exponent is even)\n$(-x)^{6} = x^{6}$ (since the exponent is even)\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 2 x^{8} - 2 (-x^{5}) - 5 x^{4} - 4 (-x) + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$$\n$$f(-x) = \\frac{- 2 x^{8} + 2 x^{5} - 5 x^{4} + 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{- 2 x^{8} - 2 x^{5} - 5 x^{4} - 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$\n$f(-x) = \\frac{- 2 x^{8} + 2 x^{5} - 5 x^{4} + 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$\n\nWe can see that $f(-x) \\neq f(x)$ because the signs of the terms $-2x^5$ and $-4x$ in the numerator of $f(x)$ are different from the signs of the terms $+2x^5$ and $+4x$ in the numerator of $f(-x)$. Therefore, the function is not even.\n\nNext, let's check for odd symmetry by comparing $f(-x)$ with $-f(x)$.\nFirst, find $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 2 x^{8} - 2 x^{5} - 5 x^{4} - 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19} \\right)$$\n$$-f(x) = \\frac{- (- 2 x^{8} - 2 x^{5} - 5 x^{4} - 4 x + 0.9)}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$$\n$$-f(x) = \\frac{2 x^{8} + 2 x^{5} + 5 x^{4} + 4 x - 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$$\n\nNow, compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{- 2 x^{8} + 2 x^{5} - 5 x^{4} + 4 x + 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$\n$-f(x) = \\frac{2 x^{8} + 2 x^{5} + 5 x^{4} + 4 x - 0.9}{2 x^{10} + 3 x^{6} + 5 x^{2} + 16.19}$\n\nWe can see that $f(-x) \\neq -f(x)$ because the signs of the terms $-2x^8$, $-5x^4$, and $+0.9$ in the numerator of $f(-x)$ are different from the signs of the corresponding terms $2x^8$, $5x^4$, and $-0.9$ in the numerator of $-f(x)$. Therefore, the function is not odd.\n\nSince the function is neither even nor odd, it has neither symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 26,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:06.204905",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - \\frac{10 x}{2 x^{2} + 12.98}$$",
+      "code": "f(x) = -10*x/(2*x**2 + 12.98)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - \\frac{10 x}{2 x^{2} + 12.98}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = - \\frac{10 x}{2 x^{2} + 12.98}$, we need to evaluate $f(-x)$ and compare it with $f(x)$ and $-f(x)$.\n\nStep 1: Evaluate $f(-x)$.\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = - \\frac{10 (-x)}{2 (-x)^{2} + 12.98}$$\n\nStep 2: Simplify the expression for $f(-x)$.\n$$f(-x) = - \\frac{-10x}{2 (x^{2}) + 12.98}$$\n$$f(-x) = - \\frac{-10x}{2 x^{2} + 12.98}$$\n$$f(-x) = \\frac{10x}{2 x^{2} + 12.98}$$\n\nStep 3: Compare $f(-x)$ with $f(x)$.\nThe original function is $f(x) = - \\frac{10 x}{2 x^{2} + 12.98}$.\nWe found that $f(-x) = \\frac{10x}{2 x^{2} + 12.98}$.\nClearly, $f(-x) \\neq f(x)$ because $f(-x)$ has a positive sign in front of the fraction, while $f(x)$ has a negative sign.\n\nStep 4: Compare $f(-x)$ with $-f(x)$.\nFirst, let's find $-f(x)$:\n$$-f(x) = - \\left( - \\frac{10 x}{2 x^{2} + 12.98} \\right)$$\n$$-f(x) = \\frac{10 x}{2 x^{2} + 12.98}$$\nNow, compare this with our result for $f(-x)$:\nWe found that $f(-x) = \\frac{10x}{2 x^{2} + 12.98}$.\nSo, $f(-x) = -f(x)$.\n\nConclusion:\nSince $f(-x) = -f(x)$, the function $f(x)$ has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 27,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:12.418205",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 3 x^{10} - 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$$",
+      "code": "f(x) = (-3*x**10 - 4*x**7 - 11.29)/(3*x**10 + 2*x**6 + 2*x**2 + 12.48)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 3 x^{10} - 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{- 3 x^{10} - 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 3 (-x)^{10} - 4 (-x)^{7} - 11.29}{3 (-x)^{10} + 2 (-x)^{6} + 2 (-x)^{2} + 12.48}$$\n\nNow, let's simplify the terms involving $(-x)$:\n$(-x)^{10} = x^{10}$ (because the exponent is even)\n$(-x)^{7} = -x^{7}$ (because the exponent is odd)\n$(-x)^{6} = x^{6}$ (because the exponent is even)\n$(-x)^{2} = x^{2}$ (because the exponent is even)\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 3 x^{10} - 4 (-x^{7}) - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$$\n$$f(-x) = \\frac{- 3 x^{10} + 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$$\n\nNow, let's compare $f(-x)$ with $f(x)$.\nOriginal function: $f(x) = \\frac{- 3 x^{10} - 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$\nCalculated $f(-x)$: $f(-x) = \\frac{- 3 x^{10} + 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$\n\nWe can see that the numerator of $f(-x)$ is different from the numerator of $f(x)$. Specifically, the term $-4x^7$ in $f(x)$ becomes $+4x^7$ in $f(-x)$. Therefore, $f(-x) \\neq f(x)$. This means the function is not even.\n\nNext, let's compare $f(-x)$ with $-f(x)$.\nFirst, let's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 3 x^{10} - 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48} \\right)$$\n$$-f(x) = \\frac{- (- 3 x^{10} - 4 x^{7} - 11.29)}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$$\n$$-f(x) = \\frac{3 x^{10} + 4 x^{7} + 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$$\n\nNow, let's compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{- 3 x^{10} + 4 x^{7} - 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$\n$-f(x) = \\frac{3 x^{10} + 4 x^{7} + 11.29}{3 x^{10} + 2 x^{6} + 2 x^{2} + 12.48}$\n\nThe numerators of $f(-x)$ and $-f(x)$ are different. For instance, the term $-3x^{10}$ in the numerator of $f(-x)$ is $3x^{10}$ in the numerator of $-f(x)$. Therefore, $f(-x) \\neq -f(x)$. This means the function is not odd.\n\nSince the function is neither even nor odd, it has neither even nor odd symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 28,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:16.908834",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{x^{5} \\cdot \\left(6.0 - 8.0 x^{2}\\right)}{10.0 x^{10} + 6.0 x^{8} - 2.0 x^{4} + 11.04}$$",
+      "code": "f(x) = x**5*(6.0 - 8.0*x**2)/(10.0*x**10 + 6.0*x**8 - 2.0*x**4 + 11.04)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{x^{5} \\cdot \\left(6.0 - 8.0 x^{2}\\right)}{10.0 x^{10} + 6.0 x^{8} - 2.0 x^{4} + 11.04}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{x^{5} \\cdot \\left(6.0 - 8.0 x^{2}\\right)}{10.0 x^{10} + 6.0 x^{8} - 2.0 x^{4} + 11.04}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it with $f(x)$ and $-f(x)$.\n\nLet's find $f(-x)$:\nReplace every instance of $x$ with $-x$ in the function:\n$$f(-x) = \\frac{(-x)^{5} \\cdot \\left(6.0 - 8.0 (-x)^{2}\\right)}{10.0 (-x)^{10} + 6.0 (-x)^{8} - 2.0 (-x)^{4} + 11.04}$$\n\nNow, let's simplify the terms involving $-x$:\n$(-x)^5 = -x^5$ (since the exponent is odd)\n$(-x)^2 = x^2$ (since the exponent is even)\n$(-x)^{10} = x^{10}$ (since the exponent is even)\n$(-x)^{8} = x^{8}$ (since the exponent is even)\n$(-x)^{4} = x^{4}$ (since the exponent is even)\n\nSubstitute these simplified terms back into the expression for $f(-x)$:\n$$f(-x) = \\frac{-x^{5} \\cdot \\left(6.0 - 8.0 x^{2}\\right)}{10.0 x^{10} + 6.0 x^{8} - 2.0 x^{4} + 11.04}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\nWe have $f(x) = \\frac{x^{5} \\cdot \\left(6.0 - 8.0 x^{2}\\right)}{10.0 x^{10} + 6.0 x^{8} - 2.0 x^{4} + 11.04}$.\nAnd $f(-x) = \\frac{-x^{5} \\cdot \\left(6.0 - 8.0 x^{2}\\right)}{10.0 x^{10} + 6.0 x^{8} - 2.0 x^{4} + 11.04}$.\n\nWe can see that the numerator of $f(-x)$ is the negative of the numerator of $f(x)$, while the denominator remains the same. Therefore, we can write $f(-x)$ as:\n$$f(-x) = - \\frac{x^{5} \\cdot \\left(6.0 - 8.0 x^{2}\\right)}{10.0 x^{10} + 6.0 x^{8} - 2.0 x^{4} + 11.04}$$\n$$f(-x) = -f(x)$$\n\nSince $f(-x) = -f(x)$, the function has odd symmetry.\n\nTo confirm, let's check for even symmetry. For even symmetry, $f(-x) = f(x)$. In this case, $f(-x) = -f(x)$, so it is not even symmetry unless $f(x) = 0$ for all $x$, which is not the case here.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 29,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:22.384683",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$$",
+      "code": "f(x) = -27.46/(10*x**8 - 10*x**4 + 20.34)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$f(-x) = - \\frac{27.46}{10 (-x)^{8} - 10 (-x)^{4} + 20.34}$\n\nNow, let's simplify the terms with $(-x)$:\n$(-x)^8 = (-1)^8 \\cdot x^8 = 1 \\cdot x^8 = x^8$\n$(-x)^4 = (-1)^4 \\cdot x^4 = 1 \\cdot x^4 = x^4$\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$\n\nNow, compare $f(-x)$ with the original function $f(x)$.\nWe see that $f(-x) = - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$ and $f(x) = - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$.\nTherefore, $f(-x) = f(x)$.\n\nAccording to the definition, if $f(-x) = f(x)$ for all $x$ in the domain, the function is EVEN.\n\nLet's also check for odd symmetry to be thorough. For odd symmetry, we would need $f(-x) = -f(x)$.\nWe found that $f(-x) = f(x)$.\nSo, $-f(x) = - \\left( - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34} \\right) = \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$.\nSince $f(-x) = - \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$ and $-f(x) = \\frac{27.46}{10 x^{8} - 10 x^{4} + 20.34}$, we can see that $f(-x) \\neq -f(x)$ (unless the entire function is zero, which it is not).\n\nTherefore, the function is neither odd.\n\nThe function has even symmetry.\n\nThe final answer is $\\boxed{Even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 30,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:27.026227",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{25.48 - 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04}$$",
+      "code": "f(x) = (25.48 - 20*x**10)/(4*x**10 + 10*x**8 + 2*x**6 + 2*x**2 + 5.04)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{25.48 - 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be:\n$$f(x) = \\frac{25.48 - 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04}$$\n\nTo determine if the function has even or odd symmetry, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{25.48 - 20 (-x)^{10}}{4 (-x)^{10} + 10 (-x)^{8} + 2 (-x)^{6} + 2 (-x)^{2} + 5.04}$$\n\nNow, we simplify the terms involving $(-x)^n$.\nRecall that $(-x)^n = x^n$ if $n$ is an even integer, and $(-x)^n = -x^n$ if $n$ is an odd integer.\nIn our function, all the powers of $x$ in both the numerator and the denominator are even: 10, 8, 6, and 2.\n\nSo, $(-x)^{10} = x^{10}$\n$(-x)^{8} = x^{8}$\n$(-x)^{6} = x^{6}$\n$(-x)^{2} = x^{2}$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{25.48 - 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04}$$\n\nNow, compare $f(-x)$ with the original function $f(x)$.\n$$f(x) = \\frac{25.48 - 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04}$$\n$$f(-x) = \\frac{25.48 - 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04}$$\n\nWe can see that $f(-x) = f(x)$.\n\nAccording to the definition, if $f(-x) = f(x)$ for all $x$ in the domain, the function is **EVEN**.\n\nLet's also check for odd symmetry, even though we've already found it's even. For odd symmetry, we would need $f(-x) = -f(x)$.\n$$-f(x) = - \\left( \\frac{25.48 - 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04} \\right) = \\frac{-(25.48 - 20 x^{10})}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04} = \\frac{-25.48 + 20 x^{10}}{4 x^{10} + 10 x^{8} + 2 x^{6} + 2 x^{2} + 5.04}$$\nSince $f(-x) \\neq -f(x)$ (unless $25.48 - 20 x^{10} = 0$, which is not true for all $x$), the function is not odd.\n\nThe final answer is $\\boxed{Even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 31,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:31.937028",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{6 x^{9}}{8 x^{10} + 16 x^{6} - 2 x^{2} + 62.18}$$",
+      "code": "f(x) = 6*x**9/(8*x**10 + 16*x**6 - 2*x**2 + 62.18)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{6 x^{9}}{8 x^{10} + 16 x^{6} - 2 x^{2} + 62.18}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{6 x^{9}}{8 x^{10} + 16 x^{6} - 2 x^{2} + 62.18}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{6 (-x)^{9}}{8 (-x)^{10} + 16 (-x)^{6} - 2 (-x)^{2} + 62.18}$\n\nNow, let's simplify the terms with $-x$:\n$(-x)^9 = (-1)^9 x^9 = -x^9$\n$(-x)^{10} = (-1)^{10} x^{10} = x^{10}$\n$(-x)^6 = (-1)^6 x^6 = x^6$\n$(-x)^2 = (-1)^2 x^2 = x^2$\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{6 (-x^{9})}{8 (x^{10}) + 16 (x^{6}) - 2 (x^{2}) + 62.18}$\n$f(-x) = \\frac{-6 x^{9}}{8 x^{10} + 16 x^{6} - 2 x^{2} + 62.18}$\n\nNow, let's compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nFirst, compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{6 x^{9}}{8 x^{10} + 16 x^{6} - 2 x^{2} + 62.18}$\n$f(-x) = \\frac{-6 x^{9}}{8 x^{10} + 16 x^{6} - 2 x^{2} + 62.18}$\n\nWe can see that $f(-x) = - \\frac{6 x^{9}}{8 x^{10} + 16 x^{6} - 2 x^{2} + 62.18}$.\nSo, $f(-x) = -f(x)$.\n\nSince $f(-x) = -f(x)$ for all $x$ in the domain, the function $f(x)$ is odd.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 32,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:38.732620",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = - \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$",
+      "code": "f(x) = -2*x*(4*x**8 + x**6 + 3)/(10*x**10 + 2*x**8 - 4*x**6 - 2*x**2 + 39.44)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = - \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = - \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's first find $f(-x)$:\n$$f(-x) = - \\frac{2 (-x) \\left(4 (-x)^{8} + (-x)^{6} + 3\\right)}{10 (-x)^{10} + 2 (-x)^{8} - 4 (-x)^{6} - 2 (-x)^{2} + 39.44}$$\n\nWe know that for any even power $n$, $(-x)^n = x^n$.\nSo, $(-x)^8 = x^8$, $(-x)^6 = x^6$, $(-x)^{10} = x^{10}$, and $(-x)^2 = x^2$.\n\nSubstitute these into the expression for $f(-x)$:\n$$f(-x) = - \\frac{2 (-x) \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$\n\nNow, simplify the numerator:\n$$f(-x) = - \\frac{-2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$\n\nWe can see that the term $-2x$ in the numerator becomes $2x$ when multiplied by the negative sign outside the fraction:\n$$f(-x) = \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$$f(x) = - \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$\n$$f(-x) = \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$\n\nWe can observe that $f(-x) = -f(x)$.\n\nLet's verify this:\n$$-f(x) = - \\left( - \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44} \\right)$$\n$$-f(x) = \\frac{2 x \\left(4 x^{8} + x^{6} + 3\\right)}{10 x^{10} + 2 x^{8} - 4 x^{6} - 2 x^{2} + 39.44}$$\n\nSince $f(-x) = -f(x)$, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 33,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:43.147009",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$",
+      "code": "f(x) = (-4*x**2 - 18.56)/(12*x**4 + 18*x**2 + 3.08)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 4 (-x)^{2} - 18.56}{12 (-x)^{4} + 18 (-x)^{2} + 3.08}$$\n\nNow, let's simplify the terms involving $(-x)$:\nSince $(-x)^2 = x^2$ and $(-x)^4 = x^4$, we have:\n$$f(-x) = \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$$f(-x) = \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$\n$$f(x) = \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$\n\nWe can see that $f(-x) = f(x)$. This satisfies the condition for an even function.\n\nTo confirm, let's also check for odd symmetry. For a function to be odd, $f(-x) = -f(x)$.\nLet's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08} \\right)$$\n$$-f(x) = \\frac{-(- 4 x^{2} - 18.56)}{12 x^{4} + 18 x^{2} + 3.08}$$\n$$-f(x) = \\frac{4 x^{2} + 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$\n\nComparing $f(-x)$ and $-f(x)$:\n$$f(-x) = \\frac{- 4 x^{2} - 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$\n$$-f(x) = \\frac{4 x^{2} + 18.56}{12 x^{4} + 18 x^{2} + 3.08}$$\n\nClearly, $f(-x) \\neq -f(x)$. Therefore, the function is not odd.\n\nSince $f(-x) = f(x)$, the function has even symmetry.\n\nThe final answer is $\\boxed{even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 34,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:48.996089",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}$$",
+      "code": "f(x) = x**3*(-4.0*x**4 - 10.0)/(8.0*x**8 + 2.0*x**6 - 8.0*x**4 - 6.0*x**2 + 27.52)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\nNumerator:\n$(-x)^{3} \\left(- 4.0 (-x)^{4} - 10.0\\right)$\n$= -x^{3} \\left(- 4.0 x^{4} - 10.0\\right)$\n\nDenominator:\n$8.0 (-x)^{8} + 2.0 (-x)^{6} - 8.0 (-x)^{4} - 6.0 (-x)^{2} + 27.52$\n$= 8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52$\n\nSo, $f(-x)$ is:\n$$f(-x) = \\frac{-x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}$$\n\nNow we compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nComparing $f(-x)$ with $f(x)$:\n$$f(-x) = \\frac{-x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}$$\n$$f(x) = \\frac{x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}$$\nWe can see that $f(-x) = -f(x)$ because the numerator of $f(-x)$ is the negative of the numerator of $f(x)$, while the denominator is the same.\n\nLet's confirm by calculating $-f(x)$:\n$$-f(x) = -\\left(\\frac{x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}\\right)$$\n$$-f(x) = \\frac{-x^{3} \\left(- 4.0 x^{4} - 10.0\\right)}{8.0 x^{8} + 2.0 x^{6} - 8.0 x^{4} - 6.0 x^{2} + 27.52}$$\nThis matches our calculation for $f(-x)$.\n\nSince $f(-x) = -f(x)$, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 35,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:54.840567",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{6 x^{2} - 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$$",
+      "code": "f(x) = (6*x**2 - 6.5)/(4*x**10 + 4*x**6 - 8*x**4 + 4.48)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{6 x^{2} - 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{6 x^{2} - 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{6 (-x)^{2} - 6.5}{4 (-x)^{10} + 4 (-x)^{6} - 8 (-x)^{4} + 4.48}$\n\nNow, let's simplify the terms involving powers of $-x$:\n$(-x)^{2} = x^{2}$ (because an even power of a negative number is positive)\n$(-x)^{10} = x^{10}$ (because an even power of a negative number is positive)\n$(-x)^{6} = x^{6}$ (because an even power of a negative number is positive)\n$(-x)^{4} = x^{4}$ (because an even power of a negative number is positive)\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{6 x^{2} - 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$\n\nNow, let's compare $f(-x)$ with the original function $f(x)$:\n$f(x) = \\frac{6 x^{2} - 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$\n\nWe can see that $f(-x) = f(x)$.\n\nAccording to the definition, if $f(-x) = f(x)$ for all $x$ in the domain, then the function is EVEN.\n\nTo be thorough, let's also check if it's odd. For a function to be odd, $f(-x) = -f(x)$.\n$-f(x) = - \\left( \\frac{6 x^{2} - 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48} \\right) = \\frac{-(6 x^{2} - 6.5)}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48} = \\frac{-6 x^{2} + 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$\n\nSince $f(-x) = \\frac{6 x^{2} - 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$ and $-f(x) = \\frac{-6 x^{2} + 6.5}{4 x^{10} + 4 x^{6} - 8 x^{4} + 4.48}$, we can see that $f(-x) \\neq -f(x)$ (unless the numerator is identically zero, which is not the case here).\n\nTherefore, the function is not odd.\n\nSince $f(-x) = f(x)$, the function exhibits even symmetry.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 36,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:43:59.658831",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{4 x^{4} - 16.48}{4 x^{8} - 6 x^{4} + 8 x^{2} + 4.62}$$",
+      "code": "f(x) = (4*x**4 - 16.48)/(4*x**8 - 6*x**4 + 8*x**2 + 4.62)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{4 x^{4} - 16.48}{4 x^{8} - 6 x^{4} + 8 x^{2} + 4.62}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{4 x^{4} - 16.48}{4 x^{8} - 6 x^{4} + 8 x^{2} + 4.62}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it with $f(x)$ and $-f(x)$.\n\nLet's find $f(-x)$ by substituting $-x$ for $x$ in the function:\n$$f(-x) = \\frac{4 (-x)^{4} - 16.48}{4 (-x)^{8} - 6 (-x)^{4} + 8 (-x)^{2} + 4.62}$$\n\nWe know that for any real number $x$:\n$(-x)^n = x^n$ if $n$ is an even integer.\n$(-x)^n = -x^n$ if $n$ is an odd integer.\n\nApplying this to our expression for $f(-x)$:\n$(-x)^4 = x^4$\n$(-x)^8 = x^8$\n$(-x)^2 = x^2$\n\nSo, the expression for $f(-x)$ becomes:\n$$f(-x) = \\frac{4 x^{4} - 16.48}{4 x^{8} - 6 x^{4} + 8 x^{2} + 4.62}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\nWe found that $f(-x) = \\frac{4 x^{4} - 16.48}{4 x^{8} - 6 x^{4} + 8 x^{2} + 4.62}$, which is exactly the same as $f(x)$.\n\nSince $f(-x) = f(x)$ for all $x$ in the domain of the function, the function has even symmetry.\n\nTo confirm, let's check for odd symmetry, which requires $f(-x) = -f(x)$.\nWe have $f(-x) = f(x)$. For odd symmetry, we would need $f(x) = -f(x)$, which implies $2f(x) = 0$, or $f(x) = 0$.\nHowever, $f(x)$ is not identically zero. For example, if $x=0$, $f(0) = \\frac{4(0)^4 - 16.48}{4(0)^8 - 6(0)^4 + 8(0)^2 + 4.62} = \\frac{-16.48}{4.62} \\neq 0$.\nTherefore, $f(-x) \\neq -f(x)$ in general.\n\nThus, the function has even symmetry.\n\nThe final answer is $\\boxed{even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 37,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:03.061338",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{x \\left(4.0 x^{6} - 10.0\\right)}{8.0 x^{10} + 10.0 x^{4} + 32.86}$$",
+      "code": "f(x) = x*(4.0*x**6 - 10.0)/(8.0*x**10 + 10.0*x**4 + 32.86)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{x \\left(4.0 x^{6} - 10.0\\right)}{8.0 x^{10} + 10.0 x^{4} + 32.86}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function $f(x) = \\frac{x \\left(4.0 x^{6} - 10.0\\right)}{8.0 x^{10} + 10.0 x^{4} + 32.86}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{(-x) \\left(4.0 (-x)^{6} - 10.0\\right)}{8.0 (-x)^{10} + 10.0 (-x)^{4} + 32.86}$$\n\nNow, let's simplify the terms involving $(-x)$:\nSince $(-x)^n = x^n$ if $n$ is even, and $(-x)^n = -x^n$ if $n$ is odd, we have:\n$(-x)^6 = x^6$\n$(-x)^{10} = x^{10}$\n$(-x)^4 = x^4$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{(-x) \\left(4.0 x^{6} - 10.0\\right)}{8.0 x^{10} + 10.0 x^{4} + 32.86}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\nThe numerator of $f(-x)$ is $-x(4.0 x^{6} - 10.0)$, which is the negative of the numerator of $f(x)$, which is $x(4.0 x^{6} - 10.0)$.\nThe denominator of $f(-x)$ is $8.0 x^{10} + 10.0 x^{4} + 32.86$, which is the same as the denominator of $f(x)$, $8.0 x^{10} + 10.0 x^{4} + 32.86$.\n\nSo, we can write $f(-x)$ as:\n$$f(-x) = - \\frac{x \\left(4.0 x^{6} - 10.0\\right)}{8.0 x^{10} + 10.0 x^{4} + 32.86}$$\n$$f(-x) = -f(x)$$\n\nSince $f(-x) = -f(x)$, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 38,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:07.783616",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{x \\left(2.0 - 8.0 x^{4}\\right)}{4.0 x^{10} - 4.0 x^{2} + 17.26}$$",
+      "code": "f(x) = x*(2.0 - 8.0*x**4)/(4.0*x**10 - 4.0*x**2 + 17.26)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{x \\left(2.0 - 8.0 x^{4}\\right)}{4.0 x^{10} - 4.0 x^{2} + 17.26}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{x \\left(2.0 - 8.0 x^{4}\\right)}{4.0 x^{10} - 4.0 x^{2} + 17.26}$.\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nFirst, let's find $f(-x)$:\nSubstitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{(-x) \\left(2.0 - 8.0 (-x)^{4}\\right)}{4.0 (-x)^{10} - 4.0 (-x)^{2} + 17.26}$\n\nNow, let's simplify the terms involving powers of $-x$:\n$(-x)^{4} = (-1)^4 (x^4) = 1 \\cdot x^4 = x^4$\n$(-x)^{10} = (-1)^{10} (x^{10}) = 1 \\cdot x^{10} = x^{10}$\n$(-x)^{2} = (-1)^2 (x^2) = 1 \\cdot x^2 = x^2$\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{(-x) \\left(2.0 - 8.0 x^{4}\\right)}{4.0 x^{10} - 4.0 x^{2} + 17.26}$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{x \\left(2.0 - 8.0 x^{4}\\right)}{4.0 x^{10} - 4.0 x^{2} + 17.26}$\n$f(-x) = \\frac{-x \\left(2.0 - 8.0 x^{4}\\right)}{4.0 x^{10} - 4.0 x^{2} + 17.26}$\n\nWe can see that $f(-x) = - \\frac{x \\left(2.0 - 8.0 x^{4}\\right)}{4.0 x^{10} - 4.0 x^{2} + 17.26}$.\nThis means $f(-x) = -f(x)$.\n\nSince $f(-x) = -f(x)$ for all $x$ in the domain of the function, the function exhibits odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 39,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:14.448727",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{5 x^{8} + 5 x^{5} - 3 x^{4} - x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$$",
+      "code": "f(x) = (5*x**8 + 5*x**5 - 3*x**4 - x - 4.43)/(4*x**6 + 5*x**4 + x**2 + 15.12)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{5 x^{8} + 5 x^{5} - 3 x^{4} - x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{5 x^{8} + 5 x^{5} - 3 x^{4} - x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$.\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{5 (-x)^{8} + 5 (-x)^{5} - 3 (-x)^{4} - (-x) - 4.43}{4 (-x)^{6} + 5 (-x)^{4} + (-x)^{2} + 15.12}$$\n\nNow, simplify the terms with powers of $-x$:\n$(-x)^8 = x^8$ (since the exponent is even)\n$(-x)^5 = -x^5$ (since the exponent is odd)\n$(-x)^4 = x^4$ (since the exponent is even)\n$(-x)^2 = x^2$ (since the exponent is even)\n$-(-x) = x$\n\nSubstitute these simplified terms back into the expression for $f(-x)$:\n$$f(-x) = \\frac{5 x^{8} + 5 (-x^{5}) - 3 x^{4} - (-x) - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$$\n$$f(-x) = \\frac{5 x^{8} - 5 x^{5} - 3 x^{4} + x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$$\n\nNow, we compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\n**1. Check for Even Symmetry:**\nFor even symmetry, $f(-x) = f(x)$.\nComparing the expression for $f(-x)$ with $f(x)$:\n$f(x) = \\frac{5 x^{8} + 5 x^{5} - 3 x^{4} - x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$\n$f(-x) = \\frac{5 x^{8} - 5 x^{5} - 3 x^{4} + x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$\n\nThe numerators of $f(x)$ and $f(-x)$ are different ($5x^5$ vs $-5x^5$, $-x$ vs $x$). Therefore, $f(-x) \\neq f(x)$. The function is not even.\n\n**2. Check for Odd Symmetry:**\nFor odd symmetry, $f(-x) = -f(x)$.\nFirst, let's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{5 x^{8} + 5 x^{5} - 3 x^{4} - x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12} \\right)$$\n$$-f(x) = \\frac{-(5 x^{8} + 5 x^{5} - 3 x^{4} - x - 4.43)}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$$\n$$-f(x) = \\frac{-5 x^{8} - 5 x^{5} + 3 x^{4} + x + 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$$\n\nNow, compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{5 x^{8} - 5 x^{5} - 3 x^{4} + x - 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$\n$-f(x) = \\frac{-5 x^{8} - 5 x^{5} + 3 x^{4} + x + 4.43}{4 x^{6} + 5 x^{4} + x^{2} + 15.12}$\n\nThe numerators of $f(-x)$ and $-f(x)$ are different ($5x^8$ vs $-5x^8$, $-3x^4$ vs $3x^4$, $-4.43$ vs $4.43$). Therefore, $f(-x) \\neq -f(x)$. The function is not odd.\n\nSince the function is neither even nor odd, it has neither symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 40,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:20.319235",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 4 x^{9} - 5 x^{8} - x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2}$$",
+      "code": "f(x) = (-4*x**9 - 5*x**8 - x**7 - 4*x**4 - 34.96)/(3*x**10 + 5*x**4 + 7.2)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 4 x^{9} - 5 x^{8} - x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{- 4 x^{9} - 5 x^{8} - x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2}$.\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{- 4 (-x)^{9} - 5 (-x)^{8} - (-x)^{7} - 4 (-x)^{4} - 34.96}{3 (-x)^{10} + 5 (-x)^{4} + 7.2}$\n\nNow, let's simplify the terms with $(-x)$:\n$(-x)^9 = -x^9$ (odd power)\n$(-x)^8 = x^8$ (even power)\n$(-x)^7 = -x^7$ (odd power)\n$(-x)^4 = x^4$ (even power)\n$(-x)^{10} = x^{10}$ (even power)\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{- 4 (-x^{9}) - 5 (x^{8}) - (-x^{7}) - 4 (x^{4}) - 34.96}{3 (x^{10}) + 5 (x^{4}) + 7.2}$\n$f(-x) = \\frac{4 x^{9} - 5 x^{8} + x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2}$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{- 4 x^{9} - 5 x^{8} - x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2}$\n$f(-x) = \\frac{4 x^{9} - 5 x^{8} + x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2}$\n\nFor the function to be EVEN, we need $f(-x) = f(x)$.\nComparing the numerators of $f(x)$ and $f(-x)$:\nNumerator of $f(x)$: $- 4 x^{9} - 5 x^{8} - x^{7} - 4 x^{4} - 34.96$\nNumerator of $f(-x)$: $4 x^{9} - 5 x^{8} + x^{7} - 4 x^{4} - 34.96$\nThese are not equal because the terms involving $x^9$ and $x^7$ have different signs. Therefore, the function is not EVEN.\n\nFor the function to be ODD, we need $f(-x) = -f(x)$.\nLet's find $-f(x)$:\n$-f(x) = - \\left( \\frac{- 4 x^{9} - 5 x^{8} - x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2} \\right)$\n$-f(x) = \\frac{- (- 4 x^{9} - 5 x^{8} - x^{7} - 4 x^{4} - 34.96)}{3 x^{10} + 5 x^{4} + 7.2}$\n$-f(x) = \\frac{4 x^{9} + 5 x^{8} + x^{7} + 4 x^{4} + 34.96}{3 x^{10} + 5 x^{4} + 7.2}$\n\nNow, compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{4 x^{9} - 5 x^{8} + x^{7} - 4 x^{4} - 34.96}{3 x^{10} + 5 x^{4} + 7.2}$\n$-f(x) = \\frac{4 x^{9} + 5 x^{8} + x^{7} + 4 x^{4} + 34.96}{3 x^{10} + 5 x^{4} + 7.2}$\n\nComparing the numerators of $f(-x)$ and $-f(x)$:\nNumerator of $f(-x)$: $4 x^{9} - 5 x^{8} + x^{7} - 4 x^{4} - 34.96$\nNumerator of $-f(x)$: $4 x^{9} + 5 x^{8} + x^{7} + 4 x^{4} + 34.96$\nThese are not equal. For instance, the term $-5x^8$ in $f(-x)$ is not equal to $5x^8$ in $-f(x)$. Also, the constant term $-34.96$ in $f(-x)$ is not equal to $34.96$ in $-f(x)$. Therefore, the function is not ODD.\n\nSince the function is neither EVEN nor ODD, it has NEITHER symmetry.\n\nThe final answer is $\\boxed{NEITHER}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 41,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:25.645313",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$$",
+      "code": "f(x) = 2*x**3*(-x**4 - 4*x**2 - 5)/(6*x**10 - 6*x**6 + 2*x**4 - 6*x**2 + 12.28)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$.\n\nWe need to determine if the function has even symmetry, odd symmetry, or neither. To do this, we will evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nFirst, let's simplify the numerator and the denominator separately.\nThe numerator is $N(x) = 2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right) = -2x^7 - 8x^5 - 10x^3$.\nThe denominator is $D(x) = 6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28$.\n\nNow, let's find $f(-x)$. We substitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{2 (-x)^{3} \\left(- (-x)^{4} - 4 (-x)^{2} - 5\\right)}{6 (-x)^{10} - 6 (-x)^{6} + 2 (-x)^{4} - 6 (-x)^{2} + 12.28}$\n\nLet's evaluate the terms with $(-x)$:\n$(-x)^3 = -x^3$\n$(-x)^4 = x^4$\n$(-x)^6 = x^6$\n$(-x)^{10} = x^{10}$\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{2 (-x^{3}) \\left(- (x^{4}) - 4 (x^{2}) - 5\\right)}{6 (x^{10}) - 6 (x^{6}) + 2 (x^{4}) - 6 (x^{2}) + 12.28}$\n$f(-x) = \\frac{-2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$\n\nNow, let's compare $f(-x)$ with $f(x)$.\nWe have $f(x) = \\frac{2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$.\nAnd $f(-x) = \\frac{-2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$.\n\nWe can see that the denominator of $f(-x)$ is the same as the denominator of $f(x)$, because all the powers of $x$ in the denominator are even.\nThe numerator of $f(-x)$ is $-1$ times the numerator of $f(x)$.\nTherefore, $f(-x) = - f(x)$.\n\nLet's verify this explicitly:\n$-f(x) = - \\frac{2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$\n$-f(x) = \\frac{-2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28}$\n\nComparing $f(-x)$ and $-f(x)$, we see that they are equal.\n$f(-x) = \\frac{-2 x^{3} \\left(- x^{4} - 4 x^{2} - 5\\right)}{6 x^{10} - 6 x^{6} + 2 x^{4} - 6 x^{2} + 12.28} = -f(x)$.\n\nSince $f(-x) = -f(x)$, the function $f(x)$ is an odd function.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 42,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:29.585274",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$$",
+      "code": "f(x) = 8*x*(x**6 - 1)/(10*x**10 - 6*x**6 - 8*x**4 + 17.58)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$.\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$f(-x) = \\frac{8 (-x) \\left((-x)^{6} - 1\\right)}{10 (-x)^{10} - 6 (-x)^{6} - 8 (-x)^{4} + 17.58}$\n\nNow, let's simplify the terms involving $-x$:\n$(-x) = -x$\n$(-x)^{6} = x^{6}$ (since any even power of a negative number is positive)\n$(-x)^{10} = x^{10}$ (since any even power of a negative number is positive)\n$(-x)^{4} = x^{4}$ (since any even power of a negative number is positive)\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{8 (-x) \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$\n$f(-x) = \\frac{-8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$\n$f(-x) = \\frac{-8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$\n\nWe can see that $f(-x) = -f(x)$.\n\nLet's verify this by multiplying $f(x)$ by $-1$:\n$-f(x) = - \\left( \\frac{8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58} \\right)$\n$-f(x) = \\frac{-8 x \\left(x^{6} - 1\\right)}{10 x^{10} - 6 x^{6} - 8 x^{4} + 17.58}$\n\nComparing $f(-x)$ with $-f(x)$, we find that they are identical.\nTherefore, $f(-x) = -f(x)$.\n\nThis condition satisfies the definition of an odd function.\n\nThe final answer is $\\boxed{odd}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 43,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:35.449598",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$",
+      "code": "f(x) = (-14*x**4 + 8*x**2 + 11.42)/(-10*x**10 + 8*x**8 + 8*x**6 + 8*x**4 - 23.06)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 14 (-x)^{4} + 8 (-x)^{2} + 11.42}{- 10 (-x)^{10} + 8 (-x)^{8} + 8 (-x)^{6} + 8 (-x)^{4} - 23.06}$$\n\nWe know that for any even power $n$, $(-x)^n = x^n$. And for any odd power $m$, $(-x)^m = -x^m$.\nLet's simplify the terms in the numerator and denominator:\n$(-x)^4 = x^4$\n$(-x)^2 = x^2$\n$(-x)^{10} = x^{10}$\n$(-x)^8 = x^8$\n$(-x)^6 = x^6$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\n\nNow, let's compare $f(-x)$ with $f(x)$.\nWe can see that:\n$$f(-x) = \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\n$$f(x) = \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\n\nSince $f(-x) = f(x)$, the function has even symmetry.\n\nTo be thorough, let's also check for odd symmetry, which requires $f(-x) = -f(x)$.\nIf the function were odd, then:\n$$-f(x) = - \\left( \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06} \\right)$$\n$$-f(x) = \\frac{- (- 14 x^{4} + 8 x^{2} + 11.42)}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\n$$-f(x) = \\frac{14 x^{4} - 8 x^{2} - 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\n\nComparing $f(-x)$ with $-f(x)$:\n$$f(-x) = \\frac{- 14 x^{4} + 8 x^{2} + 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\n$$-f(x) = \\frac{14 x^{4} - 8 x^{2} - 11.42}{- 10 x^{10} + 8 x^{8} + 8 x^{6} + 8 x^{4} - 23.06}$$\nClearly, $f(-x) \\neq -f(x)$ because the numerators are different.\n\nTherefore, the function has even symmetry.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 44,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:41.271541",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{2 x \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08}$$",
+      "code": "f(x) = 2*x*(x**6 - 4)/(6*x**10 - 2*x**8 + 4.08)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{2 x \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "To determine the symmetry of the function $f(x) = \\frac{2 x \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08}$, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{2 (-x) \\left((-x)^{6} - 4\\right)}{6 (-x)^{10} - 2 (-x)^{8} + 4.08}$$\n\nNow, let's simplify the terms with $-x$:\n$(-x) = -x$\n$(-x)^6 = x^6$ (since the exponent is even)\n$(-x)^{10} = x^{10}$ (since the exponent is even)\n$(-x)^8 = x^8$ (since the exponent is even)\n\nSubstitute these simplified terms back into the expression for $f(-x)$:\n$$f(-x) = \\frac{2 (-x) \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08}$$\n$$f(-x) = \\frac{-2 x \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08}$$\n\nNow, let's compare $f(-x)$ with $f(x)$.\nThe original function is $f(x) = \\frac{2 x \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08}$.\nWe found that $f(-x) = \\frac{-2 x \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08}$.\n\nWe can see that $f(-x)$ has a negative sign in the numerator compared to $f(x)$.\nSo, $f(-x) = - \\frac{2 x \\left(x^{6} - 4\\right)}{6 x^{10} - 2 x^{8} + 4.08} = -f(x)$.\n\nSince $f(-x) = -f(x)$, the function has odd symmetry.\n\nLet's double check by considering the properties of the numerator and denominator separately.\nNumerator: $N(x) = 2 x (x^6 - 4) = 2x^7 - 8x$.\n$N(-x) = 2 (-x) ((-x)^6 - 4) = -2x (x^6 - 4) = -2x^7 + 8x = -(2x^7 - 8x) = -N(x)$.\nThe numerator is an odd function.\n\nDenominator: $D(x) = 6 x^{10} - 2 x^{8} + 4.08$.\n$D(-x) = 6 (-x)^{10} - 2 (-x)^{8} + 4.08 = 6 x^{10} - 2 x^{8} + 4.08 = D(x)$.\nThe denominator is an even function.\n\nWhen an odd function is divided by an even function, the resulting function is odd:\n$f(x) = \\frac{N(x)}{D(x)}$\n$f(-x) = \\frac{N(-x)}{D(-x)} = \\frac{-N(x)}{D(x)} = - \\frac{N(x)}{D(x)} = -f(x)$.\n\nTherefore, the function $f(x)$ has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 45,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:45.735074",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{4 x^{8} - 8 x^{2} - 34.22}{10 x^{6} - 4 x^{2} + 9.6}$$",
+      "code": "f(x) = (4*x**8 - 8*x**2 - 34.22)/(10*x**6 - 4*x**2 + 9.6)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{4 x^{8} - 8 x^{2} - 34.22}{10 x^{6} - 4 x^{2} + 9.6}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{4 x^{8} - 8 x^{2} - 34.22}{10 x^{6} - 4 x^{2} + 9.6}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nStep 1: Calculate $f(-x)$.\nSubstitute $-x$ for $x$ in the function $f(x)$:\n$f(-x) = \\frac{4 (-x)^{8} - 8 (-x)^{2} - 34.22}{10 (-x)^{6} - 4 (-x)^{2} + 9.6}$\n\nRecall the properties of exponents:\n$(-x)^{n} = x^{n}$ if $n$ is an even integer.\n$(-x)^{n} = -x^{n}$ if $n$ is an odd integer.\n\nIn our expression:\n$(-x)^{8} = x^{8}$ (since 8 is even)\n$(-x)^{2} = x^{2}$ (since 2 is even)\n$(-x)^{6} = x^{6}$ (since 6 is even)\n\nSubstitute these back into the expression for $f(-x)$:\n$f(-x) = \\frac{4 x^{8} - 8 x^{2} - 34.22}{10 x^{6} - 4 x^{2} + 9.6}$\n\nStep 2: Compare $f(-x)$ with $f(x)$.\nWe found that $f(-x) = \\frac{4 x^{8} - 8 x^{2} - 34.22}{10 x^{6} - 4 x^{2} + 9.6}$.\nThe original function is $f(x) = \\frac{4 x^{8} - 8 x^{2} - 34.22}{10 x^{6} - 4 x^{2} + 9.6}$.\nClearly, $f(-x) = f(x)$.\n\nStep 3: Determine the symmetry.\nSince $f(-x) = f(x)$, the function satisfies the condition for even symmetry.\n\nLet's also check for odd symmetry to be thorough, although it's not necessary once even symmetry is confirmed.\nFor odd symmetry, we would need $f(-x) = -f(x)$.\nWe have $f(-x) = f(x)$.\nSo, for odd symmetry to hold, we would need $f(x) = -f(x)$, which implies $2f(x) = 0$, or $f(x) = 0$.\nThe given function is not identically zero, so it cannot be odd.\n\nConclusion:\nThe function $f(x) = \\frac{4 x^{8} - 8 x^{2} - 34.22}{10 x^{6} - 4 x^{2} + 9.6}$ has even symmetry.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 46,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:50.635860",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{14 x^{10} - 27.48}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74}$$",
+      "code": "f(x) = (14*x**10 - 27.48)/(8*x**10 + 2*x**8 + 14*x**2 + 1.74)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{14 x^{10} - 27.48}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{14 x^{10} - 27.48}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{14 (-x)^{10} - 27.48}{8 (-x)^{10} + 2 (-x)^{8} + 14 (-x)^{2} + 1.74}$$\n\nNow, let's simplify the terms with $(-x)$:\nWe know that for any even power $n$, $(-x)^n = x^n$.\nAnd for any odd power $n$, $(-x)^n = -x^n$.\n\nIn our function, the powers of $x$ in the numerator are $10$ (even).\nThe powers of $x$ in the denominator are $10$ (even), $8$ (even), and $2$ (even).\n\nSo, we have:\n$(-x)^{10} = x^{10}$\n$(-x)^{8} = x^{8}$\n$(-x)^{2} = x^{2}$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{14 (x^{10}) - 27.48}{8 (x^{10}) + 2 (x^{8}) + 14 (x^{2}) + 1.74}$$\n\nNow, let's compare $f(-x)$ with the original function $f(x)$:\n$$f(x) = \\frac{14 x^{10} - 27.48}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74}$$\n\nWe can see that:\n$$f(-x) = \\frac{14 x^{10} - 27.48}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74} = f(x)$$\n\nSince $f(-x) = f(x)$ for all $x$ in the domain of the function, the function has even symmetry.\n\nLet's also check for odd symmetry just to confirm. For odd symmetry, we would need $f(-x) = -f(x)$.\n$$-f(x) = -\\left(\\frac{14 x^{10} - 27.48}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74}\\right) = \\frac{-(14 x^{10} - 27.48)}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74} = \\frac{-14 x^{10} + 27.48}{8 x^{10} + 2 x^{8} + 14 x^{2} + 1.74}$$\n\nClearly, $f(-x) = f(x)$ is not equal to $-f(x)$ unless the function is identically zero, which is not the case here.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 47,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:44:56.879839",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 3 x^{10} + 4 x^{8} + x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$",
+      "code": "f(x) = (-3*x**10 + 4*x**8 + x**5 + 8.46)/(4*x**10 - 4*x**8 + 5*x**6 + 3*x**4 + 4*x**2 + 5.4)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 3 x^{10} + 4 x^{8} + x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{- 3 x^{10} + 4 x^{8} + x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 3 (-x)^{10} + 4 (-x)^{8} + (-x)^{5} + 8.46}{4 (-x)^{10} - 4 (-x)^{8} + 5 (-x)^{6} + 3 (-x)^{4} + 4 (-x)^{2} + 5.4}$$\n\nNow, let's simplify the terms with $(-x)$:\n$(-x)^{10} = x^{10}$ (since the exponent is even)\n$(-x)^{8} = x^{8}$ (since the exponent is even)\n$(-x)^{5} = -x^{5}$ (since the exponent is odd)\n$(-x)^{6} = x^{6}$ (since the exponent is even)\n$(-x)^{4} = x^{4}$ (since the exponent is even)\n$(-x)^{2} = x^{2}$ (since the exponent is even)\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 3 x^{10} + 4 x^{8} + (-x^{5}) + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\n$$f(-x) = \\frac{- 3 x^{10} + 4 x^{8} - x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\n\nNow, let's compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nFirst, compare $f(-x)$ with $f(x)$:\n$$f(x) = \\frac{- 3 x^{10} + 4 x^{8} + x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\n$$f(-x) = \\frac{- 3 x^{10} + 4 x^{8} - x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\nWe can see that the numerator of $f(-x)$ is different from the numerator of $f(x)$ due to the sign of the $x^5$ term. Therefore, $f(-x) \\neq f(x)$. This means the function is not even.\n\nNext, let's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 3 x^{10} + 4 x^{8} + x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4} \\right)$$\n$$-f(x) = \\frac{-(- 3 x^{10} + 4 x^{8} + x^{5} + 8.46)}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\n$$-f(x) = \\frac{3 x^{10} - 4 x^{8} - x^{5} - 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\n\nNow, compare $f(-x)$ with $-f(x)$:\n$$f(-x) = \\frac{- 3 x^{10} + 4 x^{8} - x^{5} + 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\n$$-f(x) = \\frac{3 x^{10} - 4 x^{8} - x^{5} - 8.46}{4 x^{10} - 4 x^{8} + 5 x^{6} + 3 x^{4} + 4 x^{2} + 5.4}$$\nThe numerators of $f(-x)$ and $-f(x)$ are not the same. For example, the coefficient of $x^{10}$ is $-3$ in $f(-x)$ and $3$ in $-f(x)$. Therefore, $f(-x) \\neq -f(x)$. This means the function is not odd.\n\nSince $f(-x) \\neq f(x)$ and $f(-x) \\neq -f(x)$, the function has neither even nor odd symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 48,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:45:01.199137",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 6 x^{2} - 25.18}{4 x^{8} + 8 x^{4} + 16.2}$$",
+      "code": "f(x) = (-6*x**2 - 25.18)/(4*x**8 + 8*x**4 + 16.2)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 6 x^{2} - 25.18}{4 x^{8} + 8 x^{4} + 16.2}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be $f(x) = \\frac{- 6 x^{2} - 25.18}{4 x^{8} + 8 x^{4} + 16.2}$.\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 6 (-x)^{2} - 25.18}{4 (-x)^{8} + 8 (-x)^{4} + 16.2}$$\n\nNow, let's simplify the terms involving $-x$:\n$(-x)^2 = x^2$\n$(-x)^8 = x^8$\n$(-x)^4 = x^4$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 6 x^{2} - 25.18}{4 x^{8} + 8 x^{4} + 16.2}$$\n\nNow, we compare $f(-x)$ with $f(x)$:\nWe can see that $f(-x) = \\frac{- 6 x^{2} - 25.18}{4 x^{8} + 8 x^{4} + 16.2}$, which is exactly the same as the original function $f(x)$.\n\nSo, $f(-x) = f(x)$.\n\nThis condition matches the definition of an **even** function.\n\nLet's also check the condition for an odd function to confirm it's not odd:\nFor an odd function, $f(-x) = -f(x)$.\n$-f(x) = -\\left(\\frac{- 6 x^{2} - 25.18}{4 x^{8} + 8 x^{4} + 16.2}\\right) = \\frac{6 x^{2} + 25.18}{4 x^{8} + 8 x^{4} + 16.2}$\n\nComparing $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{- 6 x^{2} - 25.18}{4 x^{8} + 8 x^{4} + 16.2}$\n$-f(x) = \\frac{6 x^{2} + 25.18}{4 x^{8} + 8 x^{4} + 16.2}$\n\nClearly, $f(-x) \\neq -f(x)$ because the numerators are different.\n\nTherefore, the function is neither odd nor neither. It is even.\n\nThe final answer is $\\boxed{even}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 49,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:45:06.245628",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{4 x^{6} - 10 x^{4} - 23.6}{18 x^{8} + 10 x^{4} + 5.14}$$",
+      "code": "f(x) = (4*x**6 - 10*x**4 - 23.6)/(18*x**8 + 10*x**4 + 5.14)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{4 x^{6} - 10 x^{4} - 23.6}{18 x^{8} + 10 x^{4} + 5.14}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let the given function be:\n$$f(x) = \\frac{4 x^{6} - 10 x^{4} - 23.6}{18 x^{8} + 10 x^{4} + 5.14}$$\n\nTo determine the symmetry of the function, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{4 (-x)^{6} - 10 (-x)^{4} - 23.6}{18 (-x)^{8} + 10 (-x)^{4} + 5.14}$$\n\nRecall that for any real number $a$ and any positive integer $n$:\n- If $n$ is even, $(-a)^n = a^n$.\n- If $n$ is odd, $(-a)^n = -a^n$.\n\nApplying these properties to the terms in $f(-x)$:\n$(-x)^6 = x^6$ (since 6 is even)\n$(-x)^4 = x^4$ (since 4 is even)\n$(-x)^8 = x^8$ (since 8 is even)\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{4 x^{6} - 10 x^{4} - 23.6}{18 x^{8} + 10 x^{4} + 5.14}$$\n\nNow, compare $f(-x)$ with the original function $f(x)$:\n$$f(-x) = \\frac{4 x^{6} - 10 x^{4} - 23.6}{18 x^{8} + 10 x^{4} + 5.14} = f(x)$$\n\nSince $f(-x) = f(x)$, the function has even symmetry.\n\nTo confirm it's not odd, let's look at $-f(x)$:\n$$-f(x) = - \\left( \\frac{4 x^{6} - 10 x^{4} - 23.6}{18 x^{8} + 10 x^{4} + 5.14} \\right) = \\frac{-(4 x^{6} - 10 x^{4} - 23.6)}{18 x^{8} + 10 x^{4} + 5.14} = \\frac{-4 x^{6} + 10 x^{4} + 23.6}{18 x^{8} + 10 x^{4} + 5.14}$$\n\nClearly, $f(-x) \\neq -f(x)$ because $f(-x)$ has a $-23.6$ in the numerator while $-f(x)$ has a $+23.6$ in the numerator.\n\nThe final answer is $\\boxed{even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 50,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:45:12.637414",
+    "dataset_sample": {
+      "label": "neither",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{- 5 x^{9} + x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$$",
+      "code": "f(x) = (-5*x**9 + x**7 + 2.25)/(x**10 + 2*x**8 - 3*x**6 + 5*x**2 + 1.97)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{- 5 x^{9} + x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{- 5 x^{9} + x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{- 5 (-x)^{9} + (-x)^{7} + 2.25}{(-x)^{10} + 2 (-x)^{8} - 3 (-x)^{6} + 5 (-x)^{2} + 1.97}$$\n\nNow, let's simplify the terms with $(-x)$:\n$(-x)^9 = (-1)^9 x^9 = -x^9$\n$(-x)^7 = (-1)^7 x^7 = -x^7$\n$(-x)^{10} = (-1)^{10} x^{10} = x^{10}$\n$(-x)^8 = (-1)^8 x^8 = x^8$\n$(-x)^6 = (-1)^6 x^6 = x^6$\n$(-x)^2 = (-1)^2 x^2 = x^2$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{- 5 (-x^{9}) + (-x^{7}) + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$$\n$$f(-x) = \\frac{5 x^{9} - x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$$\n\nNow, let's compare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{- 5 x^{9} + x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$\n$f(-x) = \\frac{5 x^{9} - x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$\n\nFor the function to be EVEN, $f(-x)$ must equal $f(x)$.\nComparing the numerators: $-5x^9 + x^7 + 2.25$ and $5x^9 - x^7 + 2.25$.\nThese are not equal because the signs of the $x^9$ and $x^7$ terms are different.\nFor example, if $x=1$, $f(1) = \\frac{-5+1+2.25}{1+2-3+5+1.97} = \\frac{-1.75}{6.97}$ and $f(-1) = \\frac{5-1+2.25}{1+2-3+5+1.97} = \\frac{6.25}{6.97}$.\nSince $f(-x) \\neq f(x)$, the function is not even.\n\nFor the function to be ODD, $f(-x)$ must equal $-f(x)$.\nFirst, let's find $-f(x)$:\n$$-f(x) = - \\left( \\frac{- 5 x^{9} + x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97} \\right)$$\n$$-f(x) = \\frac{- (- 5 x^{9} + x^{7} + 2.25)}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$$\n$$-f(x) = \\frac{5 x^{9} - x^{7} - 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$$\n\nNow, let's compare $f(-x)$ with $-f(x)$:\n$f(-x) = \\frac{5 x^{9} - x^{7} + 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$\n$-f(x) = \\frac{5 x^{9} - x^{7} - 2.25}{x^{10} + 2 x^{8} - 3 x^{6} + 5 x^{2} + 1.97}$\n\nComparing the numerators: $5x^9 - x^7 + 2.25$ and $5x^9 - x^7 - 2.25$.\nThese are not equal because the constant terms are different ($+2.25$ versus $-2.25$).\nSince $f(-x) \\neq -f(x)$, the function is not odd.\n\nBecause the function is neither even nor odd, it has neither symmetry.\n\nThe final answer is $\\boxed{neither}$.",
+      "parsed_prediction": "neither",
+      "ground_truth": "neither",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 51,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:45:17.269661",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}$$",
+      "code": "f(x) = 2*x*(x**8 + 1)/(10*x**6 + 6*x**4 + 12.3)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{2 (-x) \\left((-x)^{8} + 1\\right)}{10 (-x)^{6} + 6 (-x)^{4} + 12.3}$$\n\nNow, let's simplify the terms involving $-x$:\nRecall that for any even power $n$, $(-x)^n = x^n$. For any odd power $m$, $(-x)^m = -x^m$.\n\nThe numerator:\n$2 (-x) \\left((-x)^{8} + 1\\right) = -2x \\left(x^{8} + 1\\right)$\n\nThe denominator:\n$10 (-x)^{6} + 6 (-x)^{4} + 12.3 = 10 x^{6} + 6 x^{4} + 12.3$\n\nSo, substituting these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{-2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}$$\n\nNow we compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nCompare $f(-x)$ with $f(x)$:\n$f(x) = \\frac{2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}$\n$f(-x) = \\frac{-2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}$\n\nWe can see that $f(-x) = -f(x)$.\n\nLet's verify this by comparing $f(-x)$ with $-f(x)$:\n$$-f(x) = -\\left(\\frac{2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}\\right) = \\frac{-2 x \\left(x^{8} + 1\\right)}{10 x^{6} + 6 x^{4} + 12.3}$$\n\nIndeed, $f(-x) = -f(x)$.\n\nSince the condition $f(-x) = -f(x)$ is met, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 52,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:45:20.891063",
+    "dataset_sample": {
+      "label": "even",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$",
+      "code": "f(x) = (10*x**6 - 6*x**2 - 19.94)/(6*x**10 + 10*x**6 - 16*x**2 + 24.36)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "We are given the function:\n$$f(x) = \\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$ and compare it to $f(x)$ and $-f(x)$.\n\nLet's substitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{10 (-x)^{6} - 6 (-x)^{2} - 19.94}{6 (-x)^{10} + 10 (-x)^{6} - 16 (-x)^{2} + 24.36}$$\n\nNow, we simplify the terms with powers of $-x$:\nSince any even power of $-x$ is equal to the same even power of $x$, we have:\n$(-x)^6 = x^6$\n$(-x)^{10} = x^{10}$\n$(-x)^2 = x^2$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n\nNow, let's compare $f(-x)$ with the original function $f(x)$:\n$$f(-x) = \\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n$$f(x) = \\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n\nWe can see that $f(-x) = f(x)$.\n\nNow, let's consider the condition for an odd function: $f(-x) = -f(x)$.\n$$-f(x) = -\\left(\\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}\\right) = \\frac{-(10 x^{6} - 6 x^{2} - 19.94)}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n$$-f(x) = \\frac{-10 x^{6} + 6 x^{2} + 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n\nComparing $f(-x)$ and $-f(x)$:\n$$f(-x) = \\frac{10 x^{6} - 6 x^{2} - 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n$$-f(x) = \\frac{-10 x^{6} + 6 x^{2} + 19.94}{6 x^{10} + 10 x^{6} - 16 x^{2} + 24.36}$$\n\nClearly, $f(-x) \\neq -f(x)$ due to the signs of the terms in the numerator.\n\nSince $f(-x) = f(x)$, the function has even symmetry.\n\nThe final answer is $\\boxed{Even symmetry}$.",
+      "parsed_prediction": "even",
+      "ground_truth": "even",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 53,
+    "task_name": "math_parity",
+    "modality": "text",
+    "timestamp": "2025-08-08T21:45:33.672227",
+    "dataset_sample": {
+      "label": "odd",
+      "answer": null,
+      "question": null,
+      "latex": "$$f(x) = \\frac{x^{5} \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}$$",
+      "code": "f(x) = x**5*(10.0 - 4.0*x**2)/(8.0*x**8 + 0.38)",
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "domain",
+        "latex",
+        "code",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "even",
+        "neither",
+        "odd"
+      ],
+      "input_prompt": "You are given a mathematical function f(x) = $$f(x) = \\frac{x^{5} \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}$$.\n\nYour task is to determine whether this function has even symmetry, odd symmetry, or neither.\n\nRecall the definitions:\n- A function f(x) is EVEN if f(-x) = f(x) for all x in the domain. Even functions are symmetric about the y-axis.\n- A function f(x) is ODD if f(-x) = -f(x) for all x in the domain. Odd functions have rotational symmetry about the origin.\n- A function is NEITHER if it satisfies neither of these conditions.\n\nAnalyze the given function mathematically by substituting -x for x and comparing the result to the original function and its negative.\n\nPlease read the problem carefully and provide your answer. Think step by step about the mathematical properties involved.",
+      "model_response": "Let's analyze the given function $f(x) = \\frac{x^{5} \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}$.\n\nTo determine if the function has even symmetry, odd symmetry, or neither, we need to evaluate $f(-x)$.\n\nSubstitute $-x$ for $x$ in the function:\n$$f(-x) = \\frac{(-x)^{5} \\cdot \\left(10.0 - 4.0 (-x)^{2}\\right)}{8.0 (-x)^{8} + 0.38}$$\n\nNow, let's simplify the terms:\n$(-x)^5 = (-1)^5 \\cdot x^5 = -x^5$\n$(-x)^2 = (-1)^2 \\cdot x^2 = x^2$\n$(-x)^8 = (-1)^8 \\cdot x^8 = x^8$\n\nSubstitute these back into the expression for $f(-x)$:\n$$f(-x) = \\frac{(-x^{5}) \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}$$\n\nNow, let's compare $f(-x)$ with $f(x)$ and $-f(x)$.\n\nFirst, compare $f(-x)$ with $f(x)$:\n$$f(-x) = \\frac{-x^{5} \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}$$\n$$f(x) = \\frac{x^{5} \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}$$\nWe can see that $f(-x)$ has a negative sign in the numerator compared to $f(x)$, so $f(-x) \\neq f(x)$. Therefore, the function is not even.\n\nNext, compare $f(-x)$ with $-f(x)$:\n$$-f(x) = -\\left(\\frac{x^{5} \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}\\right) = \\frac{-x^{5} \\cdot \\left(10.0 - 4.0 x^{2}\\right)}{8.0 x^{8} + 0.38}$$\nWe can see that $f(-x) = -f(x)$.\n\nSince $f(-x) = -f(x)$, the function has odd symmetry.\n\nThe final answer is $\\boxed{odd symmetry}$.",
+      "parsed_prediction": "odd",
+      "ground_truth": "odd",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  }
+]

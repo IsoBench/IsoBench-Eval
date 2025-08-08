@@ -17,14 +17,38 @@ from PIL import Image
 logger = logging.getLogger(__name__)
 
 
+# Define structured output schema for Gemini parser
+def get_choice_parser_schema():
+    """Get the JSON schema for choice parsing"""
+    return {
+        "type": "object",
+        "properties": {
+            "answer": {
+                "type": "string",
+                "description": "The selected choice from the available options",
+            },
+            "reasoning": {
+                "type": "string",
+                "description": "Brief explanation of how the choice was determined",
+            },
+        },
+        "required": ["answer", "reasoning"],
+        "propertyOrdering": ["answer", "reasoning"],
+    }
+
+
 class BaseModel(ABC):
     """Abstract base class for all models"""
 
-    def __init__(self, model_name: str, api_key: str = None):
+    def __init__(
+        self, model_name: str, api_key: str = None, parser_model: str = "gpt-3.5"
+    ):
         self.model_name = model_name
         self.api_key = api_key
-        self.rate_limit_delay = 1.0  # seconds between API calls
+        self.rate_limit_delay = 0.1  # seconds between API calls
+        self.parser_model = parser_model  # "gpt-3.5" or "gemini-2.5-flash-lite"
         self._parser_client = None  # Will be initialized when needed
+        self._gemini_parser_client = None  # For Gemini parser
         self._last_response = ""  # Store last raw response for logging
 
     @abstractmethod
@@ -58,85 +82,153 @@ class BaseModel(ABC):
                 )
         return self._parser_client
 
+    def _get_gemini_parser_client(self):
+        """Get or create Gemini-2.5-flash-lite client for parsing"""
+        if self._gemini_parser_client is None:
+            try:
+                from google import genai
+                from google.genai.types import GenerateContentConfig
+
+                api_key = (
+                    os.getenv("GEMINI_API_KEY")
+                    or os.getenv("GOOGLE_API_KEY")
+                    or self.api_key
+                )
+                if not api_key:
+                    raise ValueError("Gemini API key required for gemini parser")
+
+                self._gemini_parser_client = genai.Client(api_key=api_key)
+
+            except ImportError:
+                raise ImportError(
+                    "Google GenerativeAI package required for gemini parsing: pip install google-generativeai"
+                )
+        return self._gemini_parser_client
+
     def _parse_choice(self, response: str, choices: List[str]) -> str:
+        """Parse model response to extract choice value using configured parser"""
+        if self.parser_model == "gemini-2.5-flash-lite":
+            return self._parse_choice_gemini(response, choices)
+        else:
+            return self._parse_choice_gpt(response, choices)
+
+    def _get_parsing_prompt(self, response: str, choices: List[str]) -> str:
+        """Generate parsing prompt based on task type"""
+        # Check if this is a chess puzzle task (binary choice with chess moves)
+        is_chess_puzzle = (
+            len(choices) == 2
+            and "no-move" in choices
+            and any(len(choice) >= 4 and choice != "no-move" for choice in choices)
+        )
+
+        if is_chess_puzzle:
+            return f"""You are a chess move parser. Given a model's response to a chess puzzle, extract the chess move.
+
+Model Response: "{response}"
+
+Available Choices: {choices}
+
+Your task:
+1. First, check if there is a \\boxed{{}} expression in the response. If present, use ONLY what's inside the \\boxed{{}} as the model's final answer
+2. Look for chess moves in Algebraic Coordinate Notation (e.g., "d2d1", "e5a1", "c4f4") in the response (or in the \\boxed{{}} content if present)
+3. If you find a chess move, select it
+4. If no valid chess move is found or mentioned, select "no-move"
+
+The answer must be one of these exact values: {choices}"""
+        else:
+            return f"""You are a response parser. Given a model's response to a multiple choice question, extract the answer and reasoning.
+
+Model Response: "{response}"
+
+Available Choices: {choices}
+
+Your task:
+1. First, check if there is a \\boxed{{}} expression in the response. If present, use ONLY what's inside the \\boxed{{}} as the model's final answer and compare it to the available choices
+2. If no \\boxed{{}} is present, determine which choice the model selected from the available options using the full response
+3. Parse the response to extract the model's reasoning behind the choice. You can copy the reasoning directly from the response.
+
+The answer must be one of these exact values: {choices}"""
+
+    def _process_parsed_response(
+        self, result: str, response: str, choices: List[str], parser_type: str
+    ) -> str:
+        """Process parsed response and validate choice"""
+        import json
+
+        try:
+            parsed = json.loads(result)
+            choice_value = parsed.get("answer", choices[0])
+            reasoning = parsed.get("reasoning", "No reasoning provided")
+
+            logger.info(
+                f"{parser_type} parsed choice: {choice_value}, Reasoning: {reasoning}"
+            )
+
+            # Validate choice value
+            if choice_value in choices:
+                return choice_value
+            else:
+                logger.warning(
+                    f"Invalid choice value '{choice_value}', defaulting to first choice '{choices[0]}'"
+                )
+                return choices[0]
+
+        except json.JSONDecodeError:
+            logger.warning(
+                f"Failed to parse JSON from {parser_type} parser response: {result}"
+            )
+            # Fallback to simple parsing
+            return self._fallback_parse_choice(response, choices)
+
+    def _parse_choice_gemini(self, response: str, choices: List[str]) -> str:
+        """Parse model response to extract choice value using Gemini-2.5-flash-lite with structured output"""
+        try:
+            from google.genai.types import GenerateContentConfig
+
+            client = self._get_gemini_parser_client()
+            parsing_prompt = self._get_parsing_prompt(response, choices)
+
+            # Configure structured output
+            config = GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema=get_choice_parser_schema(),
+            )
+
+            # Make the request with structured output
+            parsing_response = client.models.generate_content(
+                model="gemini-2.5-flash-lite", contents=parsing_prompt, config=config
+            )
+
+            result = parsing_response.text.strip()
+            return self._process_parsed_response(result, response, choices, "Gemini")
+
+        except Exception as e:
+            logger.error(f"Error in Gemini-2.5-flash-lite choice parsing: {e}")
+            # Fallback to simple parsing
+            return self._fallback_parse_choice(response, choices)
+
+    def _parse_choice_gpt(self, response: str, choices: List[str]) -> str:
         """Parse model response to extract choice value using GPT-3.5-turbo"""
         try:
             client = self._get_parser_client()
+            parsing_prompt = self._get_parsing_prompt(response, choices)
 
-            # Check if this is a chess puzzle task (binary choice with chess moves)
-            is_chess_puzzle = (
-                len(choices) == 2
-                and "no-move" in choices
-                and any(len(choice) >= 4 and choice != "no-move" for choice in choices)
-            )
-
-            if is_chess_puzzle:
-                parsing_prompt = f"""You are a chess move parser. Given a model's response to a chess puzzle, extract the chess move.
-
-Model Response: "{response}"
-
-Available Choices: {choices}
-
-Your task:
-1. Look for chess moves in Algebraic Coordinate Notation (e.g., "d2d1", "e5a1", "c4f4") in the response
-2. If you find a chess move, select it
-3. If no valid chess move is found or mentioned, select "no-move"
+            # Add JSON format instruction for GPT
+            parsing_prompt += """
 
 Respond with valid JSON in this exact format:
-{{
+{
     "answer": "<exact_choice_value>",
-    "reasoning": "<brief explanation of how you identified the chess move>"
-}}
+    "reasoning": "<brief explanation of how you identified the choice>"
+}"""
 
-The answer must be one of these exact values: {choices}"""
-            else:
-                parsing_prompt = f"""You are a response parser. Given a model's response to a multiple choice question, extract the answer and reasoning.
-
-Model Response: "{response}"
-
-Available Choices: {choices}
-
-Your task:
-1. Determine which choice the model selected from the available options
-2. Parse the response to extract the model's reasoning behind the choice. You can copy the reasoning directly from the response.
-
-Respond with valid JSON in this exact format:
-{{
-    "answer": "<exact_choice_value>",
-    "reasoning": "<brief explanation of how the model determined the choice>"
-}}
-
-The answer must be one of these exact values: {choices}"""
             parsing_response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": parsing_prompt}],
             )
 
             result = parsing_response.choices[0].message.content.strip()
-
-            # Parse the JSON response
-            import json
-
-            try:
-                parsed = json.loads(result)
-                choice_value = parsed.get("answer", choices[0])
-                reasoning = parsed.get("reasoning", "No reasoning provided")
-
-                logger.info(f"Parsed choice: {choice_value}, Reasoning: {reasoning}")
-
-                # Validate choice value
-                if choice_value in choices or "no-move" in choices:
-                    return choice_value
-                else:
-                    logger.warning(
-                        f"Invalid choice value '{choice_value}', defaulting to first choice '{choices[0]}'"
-                    )
-                    return choices[0]
-
-            except json.JSONDecodeError:
-                logger.warning(f"Failed to parse JSON from parser response: {result}")
-                # Fallback to simple parsing
-                return self._fallback_parse_choice(response, choices)
+            return self._process_parsed_response(result, response, choices, "GPT")
 
         except Exception as e:
             logger.error(f"Error in GPT-3.5 choice parsing: {e}")
@@ -144,9 +236,30 @@ The answer must be one of these exact values: {choices}"""
             return self._fallback_parse_choice(response, choices)
 
     def _fallback_parse_choice(self, response: str, choices: List[str]) -> str:
-        """Fallback simple choice parsing when GPT-3.5 parser fails"""
+        """Fallback simple choice parsing when structured parser fails"""
         response_upper = response.upper().strip()
         response_lower = response.lower().strip()
+
+        # First, check for \boxed{} content - prioritize this as the final answer
+        import re
+
+        boxed_pattern = r"\\boxed\{([^}]*)\}"
+        boxed_matches = re.findall(boxed_pattern, response, re.IGNORECASE)
+
+        if boxed_matches:
+            # Use the last \boxed{} content as the final answer
+            boxed_content = boxed_matches[-1].strip()
+            logger.info(f"Found \\boxed{{}} content: {boxed_content}")
+
+            # Try to match boxed content to choices
+            for choice in choices:
+                if choice.lower() == boxed_content.lower():
+                    return choice
+
+            # If exact match fails, check if boxed content contains any choice
+            for choice in choices:
+                if choice.lower() in boxed_content.lower():
+                    return choice
 
         # Special handling for chess puzzle tasks
         is_chess_puzzle = (
@@ -162,9 +275,6 @@ The answer must be one of these exact values: {choices}"""
             )
             if chess_move:
                 # Look for chess move pattern in response (4+ characters like "e6e7")
-                import re
-
-                # Match patterns like e6e7, a1h8, etc.
                 chess_pattern = r"[a-h][1-8][a-h][1-8]"
                 matches = re.findall(chess_pattern, response_lower)
 
@@ -203,8 +313,13 @@ The answer must be one of these exact values: {choices}"""
 class OpenAIModel(BaseModel):
     """OpenAI GPT model implementation"""
 
-    def __init__(self, model_name: str = "gpt-4o", api_key: str = None):
-        super().__init__(model_name, api_key)
+    def __init__(
+        self,
+        model_name: str = "gpt-4o",
+        api_key: str = None,
+        parser_model: str = "gpt-3.5",
+    ):
+        super().__init__(model_name, api_key, parser_model)
         try:
             import openai
 
@@ -278,8 +393,13 @@ class OpenAIModel(BaseModel):
 class GeminiModel(BaseModel):
     """Google Gemini model implementation"""
 
-    def __init__(self, model_name: str = "gemini-2.0-flash-exp", api_key: str = None):
-        super().__init__(model_name, api_key)
+    def __init__(
+        self,
+        model_name: str = "gemini-2.0-flash-exp",
+        api_key: str = None,
+        parser_model: str = "gpt-3.5",
+    ):
+        super().__init__(model_name, api_key, parser_model)
         try:
             from google import genai
             from google.genai.types import GenerateContentConfig
@@ -380,8 +500,13 @@ class GeminiModel(BaseModel):
 class ClaudeModel(BaseModel):
     """Anthropic Claude model implementation"""
 
-    def __init__(self, model_name: str = "claude-3-opus-20240229", api_key: str = None):
-        super().__init__(model_name, api_key)
+    def __init__(
+        self,
+        model_name: str = "claude-3-opus-20240229",
+        api_key: str = None,
+        parser_model: str = "gpt-3.5",
+    ):
+        super().__init__(model_name, api_key, parser_model)
         try:
             import anthropic
 

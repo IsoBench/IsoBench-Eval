@@ -37,18 +37,20 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def create_model(model_name: str, api_key: Optional[str] = None):
+def create_model(
+    model_name: str, api_key: Optional[str] = None, parser_model: str = "gpt-3.5"
+):
     """Create and return the specified model instance"""
     model_name_lower = model_name.lower()
 
     if any(name in model_name_lower for name in ["gpt", "openai"]):
-        return OpenAIModel(model_name, api_key)
+        return OpenAIModel(model_name, api_key, parser_model)
 
     elif any(name in model_name_lower for name in ["gemini", "google"]):
-        return GeminiModel(model_name, api_key)
+        return GeminiModel(model_name, api_key, parser_model)
 
     elif any(name in model_name_lower for name in ["claude", "anthropic"]):
-        return ClaudeModel(model_name, api_key)
+        return ClaudeModel(model_name, api_key, parser_model)
     else:
         raise ValueError(
             f"Unknown model: {model_name}. Supported models include OpenAI GPT models, Google Gemini models, and Anthropic Claude models"
@@ -148,6 +150,14 @@ Available tasks:
         help="API key for the model (can also use environment variables)",
     )
 
+    parser.add_argument(
+        "--parser-model",
+        type=str,
+        choices=["gpt-3.5", "gemini-2.5-flash-lite"],
+        default="gemini-2.5-flash-lite",
+        help="Choice parsing model to use (default: gpt-3.5). Options: gpt-3.5 (OpenAI GPT-3.5-turbo), gemini-2.5-flash-lite (Google Gemini with structured output)",
+    )
+
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
 
     parser.add_argument(
@@ -207,6 +217,7 @@ def main():
         logger.info("Using short prompts for simplified evaluation")
     logger.info("=== IsoBench Evaluation Framework ===")
     logger.info(f"Model: {args.model}")
+    logger.info(f"Parser Model: {args.parser_model}")
     logger.info(f"Tasks: {args.tasks or 'all'}")
     logger.info(f"Modalities: {args.modalities}")
     logger.info(f"Max samples per task: {args.max_samples or 'all'}")
@@ -227,7 +238,7 @@ def main():
     try:
         # Create model instance
         logger.info("Initializing model...")
-        model = create_model(args.model, args.api_key)
+        model = create_model(args.model, args.api_key, args.parser_model)
         logger.info(f"Using model: {model.model_name}")
 
         # Create evaluator

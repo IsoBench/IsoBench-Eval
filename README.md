@@ -103,6 +103,8 @@ Options:
   --no-resume           Don't resume from cached results
   --fresh-start         Override cached results and start fresh evaluation
   --api-key KEY         API key for the model (can also use env vars)
+  --parser-model MODEL  Choice parsing model (default: gpt-3.5)
+                       Options: gpt-3.5 (OpenAI GPT-3.5-turbo), gemini-2.5-flash-lite (Google Gemini with structured output)
   --verbose             Enable verbose logging
   --help               Show help message
 ```
@@ -149,6 +151,11 @@ python eval.py --model gpt-4 --fresh-start
 python eval.py --model claude-3-opus-20240229 --tasks math_parity graph_connectivity --long-prompts --max-samples 100 --verbose
 ```
 
+9. **Use Gemini parser for choice extraction**:
+```bash
+python eval.py --model gpt-5 --parser-model gemini-2.5-flash-lite
+```
+
 ## Enhanced Functionality
 
 ### 🎯 Comprehensive Evaluation Summaries
@@ -183,6 +190,14 @@ Generate professional radar plots with:
 - **Multi-model comparison**: Compare up to 4 models on the same plot
 - **Professional styling**: Serif fonts, bold labels, optimized spacing
 - **High-resolution output**: 300 DPI PNG files ready for publications
+
+### 🔍 Enhanced Choice Parsing
+Advanced choice parsing with dual parser support:
+- **Multiple Parser Options**: Choose between GPT-3.5-turbo or Gemini-2.5-flash-lite for response parsing
+- **Structured Output**: Gemini parser uses native structured JSON output for reliable parsing
+- **LaTeX Final Answer Support**: Automatically detects `\boxed{}` expressions and prioritizes them as the final answer
+- **Chess Notation Support**: Specialized parsing for chess move notation in puzzle tasks
+- **Intelligent Fallback**: Falls back to simple pattern matching if structured parsing fails
 
 ### 🔄 Intelligent Caching & Resume
 - **Automatic result caching**: Skip already evaluated samples
