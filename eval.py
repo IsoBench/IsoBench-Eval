@@ -130,6 +130,14 @@ Available tasks:
     parser.add_argument(
         "--long-prompts",
         action="store_true",
+        default=True,
+        help="Use long prompts from paper appendix (default: short prompts)",
+    )
+
+    parser.add_argument(
+        "--short-prompts",
+        action="store_true",
+        default=False,
         help="Use long prompts from paper appendix (default: short prompts)",
     )
 
@@ -180,6 +188,9 @@ def main():
     if args.verbose:
         logging.getLogger().setLevel(logging.DEBUG)
 
+    if args.short_prompts:
+        args.long_prompts = False
+        logger.info("Using short prompts for simplified evaluation")
     logger.info("=== IsoBench Evaluation Framework ===")
     logger.info(f"Model: {args.model}")
     logger.info(f"Tasks: {args.tasks or 'all'}")
