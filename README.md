@@ -11,7 +11,7 @@ Evaluating multimodal foundation models on isomorphic representations - the same
 
 ### GPT-5-nano Performance Across Task Categories
 
-![GPT-5-nano Macro Results](isobench_results/gpt-5-nano_macro_radar.png)
+![GPT-5-nano Macro Results](isobench_results/gpt-5-nano_detailed_radar.png)
 
 *GPT-5-nano performance on IsoBench macro-task categories. Red indicates text modality performance, blue indicates image modality performance. The framework reveals consistent gaps between text and image reasoning across all task domains.*
 
