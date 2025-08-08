@@ -157,6 +157,20 @@ Available tasks:
     )
 
     parser.add_argument(
+        "--generate-radar-plots",
+        action="store_true",
+        default=True,
+        help="Generate radar plots for evaluation results (default: True)",
+    )
+
+    parser.add_argument(
+        "--no-radar-plots",
+        dest="generate_radar_plots",
+        action="store_false",
+        help="Disable radar plot generation",
+    )
+
+    parser.add_argument(
         "--resume",
         dest="resume",
         action="store_true",
@@ -236,14 +250,21 @@ def main():
         # Create evaluation summary for the model
         evaluator.create_evaluation_summary(model.model_name)
 
-        # Generate report
+        # Generate enhanced reports
         if args.save_detailed_results:
             evaluator.save_detailed_results()
 
-        # Generate Table 1 report
+        # Generate Table 1 report (now enhanced)
         report = evaluator.generate_table1_report([args.model])
         print("\nEvaluation Results:")
         print(report.to_string(index=False))
+
+        # Generate radar plots
+        if args.generate_radar_plots:
+            logger.info("Generating radar plots...")
+            evaluator.generate_radar_plots([args.model])
+        else:
+            logger.info("Skipping radar plot generation...")
 
         # Print individual task results
         agg_result = evaluator.aggregate_results(model.model_name)

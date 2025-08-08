@@ -1,6 +1,6 @@
 {
   "model_name": "gpt-5-nano",
-  "timestamp": "2025-08-08T15:32:29.591692",
+  "timestamp": "2025-08-08T19:42:57.490589",
   "task_summaries": {
     "math_convexity": {
       "total_samples": 512,
@@ -18,6 +18,7 @@
           "accuracy": 0.98828125
         }
       },
+      "gap": 0.0078125,
       "log_file": "math_convexity.json"
     },
     "math_parity": {
@@ -36,6 +37,7 @@
           "accuracy": 0.71875
         }
       },
+      "gap": 0.265625,
       "log_file": "math_parity.json"
     },
     "math_breakpoint": {
@@ -54,6 +56,7 @@
           "accuracy": 0.9453125
         }
       },
+      "gap": 0.04296875,
       "log_file": "math_breakpoint.json"
     },
     "chemistry": {
@@ -72,6 +75,7 @@
           "accuracy": 0.9066666666666666
         }
       },
+      "gap": 0.06666666666666676,
       "log_file": "chemistry.json"
     },
     "physics": {
@@ -90,6 +94,7 @@
           "accuracy": 0.8
         }
       },
+      "gap": 0.06666666666666665,
       "log_file": "physics.json"
     },
     "graph_connectivity": {
@@ -108,6 +113,7 @@
           "accuracy": 0.953125
         }
       },
+      "gap": 0.046875,
       "log_file": "graph_connectivity.json"
     },
     "graph_maxflow": {
@@ -126,6 +132,7 @@
           "accuracy": 0.6015625
         }
       },
+      "gap": 0.3984375,
       "log_file": "graph_maxflow.json"
     },
     "graph_isomorphism": {
@@ -144,6 +151,7 @@
           "accuracy": 0.5625
         }
       },
+      "gap": 0.3984375,
       "log_file": "graph_isomorphism.json"
     },
     "winner_id": {
@@ -162,6 +170,7 @@
           "accuracy": 0.7587548638132295
         }
       },
+      "gap": 0.1712062256809339,
       "log_file": "winner_id.json"
     },
     "puzzle": {
@@ -180,7 +189,55 @@
           "accuracy": 0.0
         }
       },
+      "gap": 0.1,
       "log_file": "puzzle.json"
     }
+  },
+  "macro_task_summaries": {
+    "Math": {
+      "text_accuracy": 0.9888392857142857,
+      "image_accuracy": 0.8604910714285714,
+      "gap": 0.1283482142857143,
+      "total_text_samples": 896,
+      "total_image_samples": 896,
+      "correct_text_samples": 886,
+      "correct_image_samples": 771
+    },
+    "Science": {
+      "text_accuracy": 0.92,
+      "image_accuracy": 0.8533333333333334,
+      "gap": 0.06666666666666665,
+      "total_text_samples": 150,
+      "total_image_samples": 150,
+      "correct_text_samples": 138,
+      "correct_image_samples": 128
+    },
+    "Algorithm": {
+      "text_accuracy": 0.9869791666666666,
+      "image_accuracy": 0.7057291666666666,
+      "gap": 0.28125,
+      "total_text_samples": 384,
+      "total_image_samples": 384,
+      "correct_text_samples": 379,
+      "correct_image_samples": 271
+    },
+    "Game": {
+      "text_accuracy": 0.9299610894941635,
+      "image_accuracy": 0.7587548638132295,
+      "gap": 0.1712062256809339,
+      "total_text_samples": 257,
+      "total_image_samples": 257,
+      "correct_text_samples": 239,
+      "correct_image_samples": 195
+    }
+  },
+  "overall_summary": {
+    "text_accuracy": 0.8807631160572337,
+    "image_accuracy": 0.7233704292527822,
+    "gap": 0.1573926868044515,
+    "total_text_samples": 1887,
+    "total_image_samples": 1887,
+    "correct_text_samples": 1662,
+    "correct_image_samples": 1365
   }
 }

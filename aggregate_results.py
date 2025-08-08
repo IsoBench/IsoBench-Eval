@@ -23,6 +23,19 @@ from typing import List, Optional, Dict, Any
 import pandas as pd
 import numpy as np
 
+# Import radar plot generator
+try:
+    import sys
+    from src.radar_plots import RadarPlotGenerator
+
+    RADAR_PLOTS_AVAILABLE = True
+except ImportError:
+    RADAR_PLOTS_AVAILABLE = False
+    logger = logging.getLogger(__name__)
+    logger.warning(
+        "Radar plot functionality not available. Install matplotlib to enable."
+    )
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -111,14 +124,14 @@ class ResultsAggregator:
     def generate_table1_report(
         self, models: Optional[List[str]] = None
     ) -> pd.DataFrame:
-        """Generate comprehensive Table 1 report for multiple models"""
+        """Generate comprehensive Table 1 report with macro-task breakdown"""
         if models is None:
             models = self.discover_models()
-
         if not models:
             raise ValueError("No models found with evaluation results")
 
         report_data = []
+        macro_task_names = ["Math", "Science", "Algorithm", "Game"]
 
         for model_name in models:
             logger.info(f"Processing results for model: {model_name}")
@@ -128,34 +141,97 @@ class ResultsAggregator:
                 logger.warning(f"Skipping model {model_name} due to missing summary")
                 continue
 
-            accuracies = self.calculate_model_accuracy(summary)
+            # Add macro-task rows
+            macro_summaries = summary.get("macro_task_summaries", {})
+            for macro_task in macro_task_names:
+                if macro_task in macro_summaries:
+                    data = macro_summaries[macro_task]
+                    text_accuracy = data.get("text_accuracy", 0)
+                    image_accuracy = data.get("image_accuracy", 0)
+                    gap = text_accuracy - image_accuracy
 
-            # Calculate performance gap
-            gap = accuracies["text_accuracy"] - accuracies["image_accuracy"]
+                    report_data.append(
+                        {
+                            "Model": model_name,
+                            "Task": macro_task,
+                            "Text Accuracy": f"{text_accuracy:.1%}",
+                            "Image Accuracy": f"{image_accuracy:.1%}",
+                            "Gap (Text - Image)": f"{gap:.1%}",
+                            "Gap (Points)": f"{gap*100:.1f}",
+                            "Text Samples": data.get("total_text_samples", 0),
+                            "Text Correct": data.get("correct_text_samples", 0),
+                            "Image Samples": data.get("total_image_samples", 0),
+                            "Image Correct": data.get("correct_image_samples", 0),
+                        }
+                    )
 
-            report_data.append(
-                {
-                    "Model": model_name,
-                    "Text Accuracy": f"{accuracies['text_accuracy']:.1%}",
-                    "Image Accuracy": f"{accuracies['image_accuracy']:.1%}",
-                    "Gap (Text - Image)": f"{gap:.1%}",
-                    "Gap (Points)": f"{gap*100:.1f}",
-                    "Text Samples": accuracies["text_total"],
-                    "Text Correct": accuracies["text_correct"],
-                    "Image Samples": accuracies["image_total"],
-                    "Image Correct": accuracies["image_correct"],
-                }
-            )
+            # Add overall "All" row
+            overall_summary = summary.get("overall_summary", {})
+            if overall_summary:
+                text_accuracy = overall_summary.get("text_accuracy", 0)
+                image_accuracy = overall_summary.get("image_accuracy", 0)
+                gap = text_accuracy - image_accuracy
+
+                report_data.append(
+                    {
+                        "Model": model_name,
+                        "Task": "All",
+                        "Text Accuracy": f"{text_accuracy:.1%}",
+                        "Image Accuracy": f"{image_accuracy:.1%}",
+                        "Gap (Text - Image)": f"{gap:.1%}",
+                        "Gap (Points)": f"{gap*100:.1f}",
+                        "Text Samples": overall_summary.get("total_text_samples", 0),
+                        "Text Correct": overall_summary.get("correct_text_samples", 0),
+                        "Image Samples": overall_summary.get("total_image_samples", 0),
+                        "Image Correct": overall_summary.get(
+                            "correct_image_samples", 0
+                        ),
+                    }
+                )
+            else:
+                # Fallback to old calculation method
+                accuracies = self.calculate_model_accuracy(summary)
+                gap = accuracies["text_accuracy"] - accuracies["image_accuracy"]
+
+                report_data.append(
+                    {
+                        "Model": model_name,
+                        "Task": "All",
+                        "Text Accuracy": f"{accuracies['text_accuracy']:.1%}",
+                        "Image Accuracy": f"{accuracies['image_accuracy']:.1%}",
+                        "Gap (Text - Image)": f"{gap:.1%}",
+                        "Gap (Points)": f"{gap*100:.1f}",
+                        "Text Samples": accuracies["text_total"],
+                        "Text Correct": accuracies["text_correct"],
+                        "Image Samples": accuracies["image_total"],
+                        "Image Correct": accuracies["image_correct"],
+                    }
+                )
 
         df = pd.DataFrame(report_data)
+
+        # Reorder columns for better readability
+        column_order = [
+            "Model",
+            "Task",
+            "Text Accuracy",
+            "Image Accuracy",
+            "Gap (Text - Image)",
+            "Gap (Points)",
+            "Text Samples",
+            "Text Correct",
+            "Image Samples",
+            "Image Correct",
+        ]
+        df = df[column_order]
 
         # Save the comprehensive report
         output_file = self.output_dir / "table1_comprehensive_report.csv"
         df.to_csv(output_file, index=False)
         logger.info(f"Comprehensive Table 1 report saved to: {output_file}")
 
-        # Also save a simplified version (just the main columns)
-        simple_df = df[
+        # Also save a simplified version (just the main columns for "All" rows)
+        simple_df = df[df["Task"] == "All"][
             [
                 "Model",
                 "Text Accuracy",
@@ -243,6 +319,24 @@ class ResultsAggregator:
 
         return df
 
+    def generate_radar_plots(self, models: Optional[List[str]] = None):
+        """Generate radar plots for multiple models"""
+        if not RADAR_PLOTS_AVAILABLE:
+            logger.warning("Radar plots not available. Skipping radar plot generation.")
+            return
+
+        if models is None:
+            models = self.discover_models()
+
+        logger.info(f"Generating radar plots for models: {models}")
+
+        try:
+            radar_generator = RadarPlotGenerator(str(self.output_dir))
+            radar_generator.generate_all_plots(models)
+            logger.info("Radar plots generated successfully")
+        except Exception as e:
+            logger.error(f"Error generating radar plots: {e}")
+
 
 def parse_arguments():
     """Parse command line arguments"""
@@ -282,6 +376,20 @@ Examples:
         help="Generate detailed task-by-task breakdown report",
     )
 
+    parser.add_argument(
+        "--generate-radar-plots",
+        action="store_true",
+        default=True,
+        help="Generate radar plots for model comparison (default: True)",
+    )
+
+    parser.add_argument(
+        "--no-radar-plots",
+        dest="generate_radar_plots",
+        action="store_false",
+        help="Disable radar plot generation",
+    )
+
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
 
     return parser.parse_args()
@@ -298,6 +406,7 @@ def main():
     logger.info(f"Output directory: {args.output_dir}")
     logger.info(f"Models: {args.models or 'auto-discover'}")
     logger.info(f"Include task breakdown: {args.include_task_breakdown}")
+    logger.info(f"Generate radar plots: {args.generate_radar_plots}")
 
     try:
         aggregator = ResultsAggregator(args.output_dir)
@@ -305,7 +414,6 @@ def main():
         # Generate main Table 1 report
         logger.info("Generating Table 1 comprehensive report...")
         df = aggregator.generate_table1_report(args.models)
-
         print("\n=== Table 1 Report ===")
         print(
             df[
@@ -328,6 +436,13 @@ def main():
             print(
                 f"Generated breakdown for {len(breakdown_df)} model-task combinations"
             )
+
+        # Generate radar plots
+        if args.generate_radar_plots:
+            logger.info("Generating radar plots...")
+            aggregator.generate_radar_plots(args.models)
+        else:
+            logger.info("Skipping radar plot generation...")
 
         logger.info("Aggregation completed successfully!")
 
