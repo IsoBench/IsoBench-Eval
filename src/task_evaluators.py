@@ -255,8 +255,28 @@ class IsoBenchTaskEvaluator:
                     unique_labels.add(str(label))
 
         if unique_labels:
-            # Sort for consistency
-            self._dataset_choices = sorted(list(unique_labels))
+            # Convert to list for sorting
+            labels_list = list(unique_labels)
+
+            # Try to sort numerically if all labels can be converted to numbers
+            try:
+                # Check if all labels can be converted to numbers
+                numeric_labels = []
+                for label in labels_list:
+                    # Try to convert to int first, then float
+                    try:
+                        numeric_labels.append(int(label))
+                    except ValueError:
+                        numeric_labels.append(float(label))
+
+                # If we get here, all labels are numeric - sort and convert back to strings
+                numeric_labels.sort()
+                self._dataset_choices = [str(label) for label in numeric_labels]
+
+            except (ValueError, TypeError):
+                # If numeric conversion fails, fall back to alphabetical sorting
+                self._dataset_choices = sorted(labels_list)
+
             return self._dataset_choices
         return None
 
@@ -636,6 +656,25 @@ Carefully examine the plot and count each point where the function changes direc
 class ScienceTaskEvaluator(IsoBenchTaskEvaluator):
     """Evaluator for science tasks (chemistry, physics)"""
 
+    def process_ground_truth(
+        self, sample: Dict[str, Any], choices: Optional[List[str]] = None
+    ) -> Union[int, str, bool]:
+        """Process ground truth value - for science tasks, convert label index to choice text"""
+        gt = sample.get("label", sample.get("answer"))
+
+        # For chemistry and physics, the ground truth is an index into the choices list
+        if choices and gt is not None and isinstance(gt, int):
+            if 0 <= gt < len(choices):
+                return choices[gt]
+            else:
+                logger.warning(
+                    f"Ground truth index {gt} out of range for choices {choices}"
+                )
+                return str(gt)
+
+        # Handle other cases using parent logic
+        return super().process_ground_truth(sample, choices)
+
     def _create_short_text_prompt(self, sample: Dict[str, Any]) -> str:
         """Create science-specific text prompt"""
         if "question" in sample:
@@ -660,26 +699,12 @@ class ScienceTaskEvaluator(IsoBenchTaskEvaluator):
 
 Please read the problem statement and any provided context carefully. Use your knowledge of chemical principles, molecular structure, chemical reactions, and laboratory procedures to solve the problem.
 
-Consider the following when analyzing:
-- Molecular structures and bonding
-- Chemical properties and reactions
-- Stoichiometry and chemical equations
-- Laboratory techniques and measurements
-- Physical and chemical changes
-
 Problem: """
 
         elif self.task_name == "physics":
             base_prompt = """You are presented with a physics problem that requires systematic analysis.
 
 Please read the problem statement and any provided context carefully. Use your knowledge of physical principles, mathematical relationships, and scientific reasoning to solve the problem.
-
-Consider the following when analyzing:
-- Physical laws and principles
-- Mathematical relationships and equations
-- Units and dimensional analysis
-- Graphical representations
-- Experimental setup and measurements
 
 Problem: """
 
@@ -699,44 +724,12 @@ Problem: """
         if self.task_name == "chemistry":
             base_prompt = """You are shown a chemistry diagram, molecular structure, experimental setup, or chemical representation.
 
-Your task is to carefully analyze the visual information and answer the associated question.
-
-When examining the image, consider:
-- Molecular structures, bonds, and geometry
-- Chemical symbols, formulas, and notation
-- Laboratory equipment and experimental setups
-- Reaction mechanisms and pathways
-- Physical and chemical properties
-- Measurements, graphs, and data representations
-
-Look carefully at all visual elements including:
-- Colors, shapes, and symbols
-- Labels, numbers, and text
-- Spatial relationships and arrangements
-- Any legends, keys, or reference information
-
-"""
+Your task is to carefully analyze the visual information and answer the associated question."""
 
         elif self.task_name == "physics":
             base_prompt = """You are shown a physics diagram, experimental setup, graph, or physical representation.
 
-Your task is to carefully analyze the visual information and answer the associated question.
-
-When examining the image, consider:
-- Physical systems and their components
-- Forces, motion, and energy relationships
-- Graphs, charts, and data representations
-- Experimental apparatus and measurements
-- Geometric relationships and spatial arrangements
-- Physical quantities and their units
-
-Look carefully at all visual elements including:
-- Shapes, directions, and orientations
-- Numbers, scales, and measurements
-- Labels, symbols, and notation
-- Any legends, axes, or reference information
-
-"""
+Your task is to carefully analyze the visual information and answer the associated question."""
 
         if "question" in sample:
             base_prompt += f"Question: {sample['question']}"
@@ -811,9 +804,7 @@ In this matrix:
 
 Query: Determine if node {node1} and node {node2} are connected.
 
-Two nodes are connected if there exists a path (sequence of edges) that connects them, either directly or through intermediate nodes.
-
-Analyze the adjacency matrix systematically to trace possible paths between the query nodes."""
+Two nodes are connected if there exists a path (sequence of edges) that connects them, either directly or through intermediate nodes."""
 
         elif self.task_name == "graph_maxflow":
             adj_matrix = sample.get("adjacency_matrix", "")
@@ -835,12 +826,7 @@ In this matrix:
 Source node: {source}
 Sink node: {sink}
 
-Your task is to find the maximum flow from the source to the sink.
-
-Consider using algorithms like Ford-Fulkerson, and think about:
-- Finding augmenting paths from source to sink
-- The bottleneck capacity along each path
-- The total maximum flow possible"""
+Your task is to find the maximum flow from the source to the sink."""
 
         elif self.task_name == "graph_isomorphism":
             adj_g = sample.get("adjacency_matrix_G", "")
@@ -862,13 +848,7 @@ In both matrices:
 Two graphs are isomorphic if:
 - They have the same number of vertices and edges
 - There exists a bijection (one-to-one mapping) between their vertices that preserves adjacency relationships
-- In other words, you can relabel the vertices of one graph to make it identical to the other
-
-When checking for isomorphism, consider:
-- Degree sequences (must be identical)
-- Number of vertices and edges
-- Structural properties like cycles, paths, connectivity
-- Try to find a vertex mapping that preserves all edge relationships"""
+- In other words, you can relabel the vertices of one graph to make it identical to the other"""
 
         base_prompt += "\n\nAnalyze the problem systematically and provide your answer with clear reasoning."
         return base_prompt
@@ -889,12 +869,6 @@ Your task is to determine whether two specific nodes are connected by analyzing 
 Query nodes are colored {node_color}.
 Note: Node indexing starts from 0.
 
-When examining the graph:
-- Look for direct edges between the query nodes
-- Trace possible paths through intermediate nodes
-- Pay attention to node labels and colors
-- Consider that connections might be through multiple hops
-
 Two nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.
 
 Carefully trace the graph structure to determine connectivity."""
@@ -907,13 +881,6 @@ Carefully trace the graph structure to determine connectivity."""
 Your task is to determine the maximum flow from the source (color: {source_node_color}) to the sink (color: {sink_node_color}) by analyzing the visual representation.
 
 Note: Node indexing starts from 0.
-
-When examining the network:
-- Identify the source node (usually specially marked or colored)
-- Identify the sink node (usually specially marked or colored)  
-- Look at edge capacities (numbers on edges)
-- Consider multiple paths from source to sink
-- The maximum flow is limited by bottleneck edges
 
 Find all possible paths from source to sink and determine the maximum total flow that can be achieved. Remember that the flow through any edge cannot exceed its capacity.
 
@@ -931,13 +898,6 @@ Two graphs are isomorphic if:
 - You can relabel the vertices of one graph to make it look identical to the other
 - They have the same structural properties
 
-When comparing the graphs:
-- Count vertices and edges in both graphs
-- Compare degree sequences (how many edges each vertex has)
-- Look for similar structural patterns
-- Check if vertices with the same degree have the same connectivity patterns
-- Try to mentally map vertices from one graph to the other
-
 Examine both graphs carefully and determine if they represent the same underlying structure."""
 
         base_prompt += "\n\nLook carefully at the visual representation and provide your answer based on systematic analysis."
@@ -946,6 +906,26 @@ Examine both graphs carefully and determine if they represent the same underlyin
 
 class GameTaskEvaluator(IsoBenchTaskEvaluator):
     """Evaluator for game tasks"""
+
+    def get_choices(self, sample: Dict[str, Any]) -> Optional[List[str]]:
+        """Override choices for puzzle tasks to provide simplified binary choice"""
+        if self.task_name == "puzzle":
+            # For puzzle tasks, we only care about the correct move vs no-move
+            return ["A move in Algebraic Coordinate Notation", "no-move"]
+
+        # For other game tasks, use default behavior
+        return super().get_choices(sample)
+
+    def process_ground_truth(
+        self, sample: Dict[str, Any], choices: Optional[List[str]] = None
+    ) -> Union[int, str, bool]:
+        """Process ground truth value for game tasks"""
+        if self.task_name == "puzzle":
+            # For puzzle tasks, the ground truth is the correct move from the label
+            return sample.get("label", "no-move")
+
+        # For other game tasks, use parent logic
+        return super().process_ground_truth(sample, choices)
 
     def _create_short_text_prompt(self, sample: Dict[str, Any]) -> str:
         """Create short game-specific text prompt"""
@@ -966,28 +946,22 @@ class GameTaskEvaluator(IsoBenchTaskEvaluator):
         if self.task_name == "winner_id":
             base_prompt = """You are presented with a game scenario that requires strategic analysis.
 
-Your task is to analyze the game state and determine the winner or optimal outcome.
+Your task is to analyze the game state and determine the winner.
 
-When analyzing the game:
-- Consider the rules and objectives
-- Evaluate the current positions and advantages
-- Think about possible moves and strategies
-- Determine who has the winning position or advantage
-
-Game scenario: """
+Game scenario: 
+"""
 
         elif self.task_name == "puzzle":
-            base_prompt = """You are presented with a puzzle that requires logical reasoning and problem-solving.
+            base_prompt = """You are given a board of a chess puzzle for which a sequence of unique best moves is determinable (e.g.
+sequences of moves leading to a forced checkmate).
+- Definition of the Chess Puzzle: In a chess puzzle, you are required to make a series of optimal moves leading to
+checkmate, starting from the given position.
+- YOUR TASK is to predict THE FIRST MOVE that should be played given this board setup.
+- Your answer should first specify the move (e.g., "d2d1", "e5a1", "c4f4"). Afterward,
+provide your reasoning for why you chose that as your first move.
 
-Your task is to analyze the puzzle systematically and find the correct solution.
-
-When solving the puzzle:
-- Identify the constraints and rules
-- Look for patterns and relationships
-- Consider different approaches and strategies
-- Apply logical reasoning step by step
-
-Puzzle: """
+Board:
+"""
 
         if "question" in sample:
             base_prompt += sample["question"]
@@ -1003,28 +977,18 @@ Puzzle: """
             base_prompt = """You are shown a game board or game situation.
 
 Your task is to analyze the visual game state and determine the winner or optimal outcome.
-
-When examining the game image:
-- Identify the game type and rules
-- Analyze piece positions and player advantages
-- Consider possible moves and strategies
-- Look for winning conditions or decisive positions
-- Pay attention to any highlighted or special elements
-
 """
 
         elif self.task_name == "puzzle":
-            base_prompt = """You are shown a visual puzzle that requires logical analysis.
+            base_prompt = """You are given a board of a chess puzzle for which a sequence of unique best moves is determinable (e.g.
+sequences of moves leading to a forced checkmate).
+- Definition of the Chess Puzzle: In a chess puzzle, you are required to make a series of optimal moves leading to
+checkmate, starting from the given position.
+- YOUR TASK is to predict THE FIRST MOVE that should be played given this board setup.
+- Your answer should first specify the move (e.g., "d2d1", "e5a1", "c4f4"). Afterward,
+provide your reasoning for why you chose that as your first move.
 
-Your task is to examine the puzzle image carefully and find the correct solution.
-
-When analyzing the puzzle image:
-- Identify all visual elements and their relationships
-- Look for patterns, sequences, or logical connections  
-- Consider spatial arrangements and orientations
-- Apply systematic reasoning to find the solution
-- Pay attention to colors, shapes, numbers, or symbols
-
+Board:
 """
 
         if "question" in sample:

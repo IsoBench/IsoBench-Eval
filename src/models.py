@@ -63,7 +63,34 @@ class BaseModel(ABC):
         try:
             client = self._get_parser_client()
 
-            parsing_prompt = f"""You are a response parser. Given a model's response to a multiple choice question, extract the answer and reasoning.
+            # Check if this is a chess puzzle task (binary choice with chess moves)
+            is_chess_puzzle = (
+                len(choices) == 2
+                and "no-move" in choices
+                and any(len(choice) >= 4 and choice != "no-move" for choice in choices)
+            )
+
+            if is_chess_puzzle:
+                parsing_prompt = f"""You are a chess move parser. Given a model's response to a chess puzzle, extract the chess move.
+
+Model Response: "{response}"
+
+Available Choices: {choices}
+
+Your task:
+1. Look for chess moves in Algebraic Coordinate Notation (e.g., "d2d1", "e5a1", "c4f4") in the response
+2. If you find a chess move, select it
+3. If no valid chess move is found or mentioned, select "no-move"
+
+Respond with valid JSON in this exact format:
+{{
+    "answer": "<exact_choice_value>",
+    "reasoning": "<brief explanation of how you identified the chess move>"
+}}
+
+The answer must be one of these exact values: {choices}"""
+            else:
+                parsing_prompt = f"""You are a response parser. Given a model's response to a multiple choice question, extract the answer and reasoning.
 
 Model Response: "{response}"
 
@@ -80,7 +107,6 @@ Respond with valid JSON in this exact format:
 }}
 
 The answer must be one of these exact values: {choices}"""
-
             parsing_response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": parsing_prompt}],
@@ -99,7 +125,7 @@ The answer must be one of these exact values: {choices}"""
                 logger.info(f"Parsed choice: {choice_value}, Reasoning: {reasoning}")
 
                 # Validate choice value
-                if choice_value in choices:
+                if choice_value in choices or "no-move" in choices:
                     return choice_value
                 else:
                     logger.warning(
@@ -121,6 +147,37 @@ The answer must be one of these exact values: {choices}"""
         """Fallback simple choice parsing when GPT-3.5 parser fails"""
         response_upper = response.upper().strip()
         response_lower = response.lower().strip()
+
+        # Special handling for chess puzzle tasks
+        is_chess_puzzle = (
+            len(choices) == 2
+            and "no-move" in choices
+            and any(len(choice) >= 4 and choice != "no-move" for choice in choices)
+        )
+
+        if is_chess_puzzle:
+            # Find the chess move in choices (not "no-move")
+            chess_move = next(
+                (choice for choice in choices if choice != "no-move"), None
+            )
+            if chess_move:
+                # Look for chess move pattern in response (4+ characters like "e6e7")
+                import re
+
+                # Match patterns like e6e7, a1h8, etc.
+                chess_pattern = r"[a-h][1-8][a-h][1-8]"
+                matches = re.findall(chess_pattern, response_lower)
+
+                for match in matches:
+                    if match == chess_move.lower():
+                        return chess_move
+
+                # Also check for exact match
+                if chess_move.lower() in response_lower:
+                    return chess_move
+
+            # If no chess move found, default to "no-move"
+            return "no-move"
 
         # First, try to find exact matches (case insensitive)
         for choice in choices:
@@ -158,8 +215,6 @@ class OpenAIModel(BaseModel):
     def predict_text(self, prompt: str, choices: List[str] = None) -> Union[str, int]:
         """Make prediction with text input"""
         try:
-            if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.chat.completions.create(
                 model=self.model_name,
@@ -188,9 +243,6 @@ class OpenAIModel(BaseModel):
             buffered = io.BytesIO()
             image.save(buffered, format="PNG")
             img_str = base64.b64encode(buffered.getvalue()).decode()
-
-            if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.chat.completions.create(
                 model=self.model_name,
@@ -251,8 +303,6 @@ class GeminiModel(BaseModel):
     def predict_text(self, prompt: str, choices: List[str] = None) -> Union[str, int]:
         """Make prediction with text input"""
         try:
-            if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.gemini_client.models.generate_content(
                 model=self.model_name, contents=prompt, config=self.config
@@ -287,9 +337,6 @@ class GeminiModel(BaseModel):
     ) -> Union[str, int]:
         """Make prediction with image + text input"""
         try:
-            if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
-
             # Convert PIL image to format Gemini expects
             buffered = io.BytesIO()
             image.save(buffered, format="PNG")
@@ -347,8 +394,6 @@ class ClaudeModel(BaseModel):
     def predict_text(self, prompt: str, choices: List[str] = None) -> Union[str, int]:
         """Make prediction with text input"""
         try:
-            if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.messages.create(
                 model=self.model_name,
@@ -376,9 +421,6 @@ class ClaudeModel(BaseModel):
             buffered = io.BytesIO()
             image.save(buffered, format="PNG")
             img_str = base64.b64encode(buffered.getvalue()).decode()
-
-            if choices:
-                prompt += f"\n\nChoices: {choices}\nPlease provide your reasoning and then clearly state your final answer as one of the given choices."
 
             response = self.client.messages.create(
                 model=self.model_name,
