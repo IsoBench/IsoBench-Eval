@@ -8397,5 +8397,1078 @@
       "is_correct": true,
       "prompt_type": "long"
     }
+  },
+  {
+    "sample_index": 99,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:26:02.107468",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored red.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "I can determine connectivity, but I need to know which two nodes are the query nodes (the ones colored red). In this image, several nodes have red borders/fill, so I can’t confidently identify the exact pair without clarification.\n\nPlease specify the two node indices (0–14) that are the red query nodes. Once I have them, I’ll state whether there exists a path between them and describe the path if applicable.",
+      "parsed_prediction": "no",
+      "ground_truth": "yes",
+      "is_correct": false,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 100,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:26:12.735365",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Not connected.\n\nReason: The blue query nodes are 13 and 1. Node 1 is connected to nodes 0 and 9 (forming a small chain 0-1-9), but node 13 is isolated with no edges attached. There is no path from 13 to any other node, so there is no connection between 13 and 1.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 101,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:26:19.753949",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored green.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path between them: 3 → 4 → 2 → 6 → 7, so they are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 102,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:26:29.689956",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored green.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. Node 3 is isolated (has no edges), while node 0 belongs to the large connected component. Since there is no path from 0 to 3, they are not connected.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 103,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:26:37.542358",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored red.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path between the red nodes 4 and 5: 4 is connected to 12, and 12 is connected to 5, giving the path 4 → 12 → 5.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 104,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:26:48.059414",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored red.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. The red nodes are 4 and 7, and there is no path between them.\n\nReasoning:\n- Edges present: 3–4, and 5–6, 5–10.\n- This yields components: {3,4}, {5,6,10}, and isolated nodes {0}, {1}, {2}, {7}, {8}, {9}.\n- Node 7 has no edges, so it is isolated; thus there is no path from 4 to 7.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 105,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:26:56.548406",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored green.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path from node 0 to node 5: 0 -> 7 -> 5, with edges 0-7 and 7-5 present.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 106,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:27:03.220605",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored red.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. The red nodes 3 and 6 belong to different components: {3,1,7} and {9,6}, with no path between them.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 107,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:27:09.273483",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. The blue nodes 3 and 1 are connected via a path: 3 -> 8 -> 1.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 108,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:27:16.380830",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored gray.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. The gray nodes 7 and 4 belong to different connected components: {1, 9, 0, 7} and {5, 3, 4}. There are no edges connecting these components, so there is no path between 7 and 4.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 109,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:27:24.276078",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a direct edge between node 0 and node 4 (0-4), so they are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 110,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:27:38.804310",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. The blue nodes are 0 and 10, and they lie in different connected components. Node 10 is connected only to 9 (forming the component {9,10}), while node 0 lies in a different cluster with other nodes but there is no path from that cluster to 9/10. Therefore, there is no path between 0 and 10.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 111,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:27:48.492393",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored green.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path from node 9 to node 8, for example: 9 → 7 → 4 → 8. (Another possible path is 9 → 6 → 4 → 8.)",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 112,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:27:55.137348",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a direct edge between node 6 and node 1, so they are connected (path: 6 → 1).",
+      "parsed_prediction": "yes",
+      "ground_truth": "no",
+      "is_correct": false,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 113,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:28:04.678343",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored red.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a direct edge between nodes 6 and 2, so they are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 114,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:28:14.328220",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored green.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a direct edge between node 3 and node 6, so they are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "no",
+      "is_correct": false,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 115,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:28:23.504998",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored green.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path from node 7 to node 4, e.g., 7 → 5 → 8 → 4.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 116,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:28:32.083307",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored red.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. Node 5 and Node 2 are not connected.\n\nReason:\n- The only connected component with edges is {0, 3, 4, 6, 7} forming an X-shape around node 6.\n- Nodes 1, 2, and 5 are isolated (no edges connecting them to any other node).\n- Therefore there is no path between node 5 and node 2.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 117,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:28:41.062431",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. The two blue nodes are 8 and 5, and there is a direct edge between them (8-5), so they are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 118,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:28:47.814509",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored red.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. The red query nodes are 6 and 8. Node 6 is isolated (no edges), while node 8 is connected to 7 and 2. There is no path linking 6 to 8, so they are not connected.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 119,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:28:54.895154",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored gray.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. The two gray nodes (8 and 14) are directly connected by an edge, so there exists a path between them (length 1).",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 120,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:29:04.843661",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored gray.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. The two gray query nodes are isolated (no edges incident to them), so there is no path between them and they are not connected.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 121,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:29:15.638290",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path connecting the two blue nodes (1 and 2): 1 is connected to 4, 4 is connected to 7, and 7 is connected to 2. Therefore, 1 and 2 are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 122,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:29:26.617413",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored gray.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No.\n\nReason: The gray nodes are 0 and 4. Node 0 lies in the large central component {0,1,2,3,5,6,8,9,10}, which is connected to many nodes. Node 4 (together with 7) forms a separate small component disconnected from the rest. Therefore, there is no path between 0 and 4.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 123,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:29:36.968837",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored gray.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path from node 2 to node 9: 2 -> 7 -> 10 -> 9.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 124,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:29:45.758063",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored gray.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. Node 1 and Node 4 are in different connected components.\n\n- Component A: {0, 4, 9}\n- Component B: {1, 5}\n- Component C: {2, 6, 8, 7, 3}\n\nThere is no path from 1 to 4.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 125,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:29:56.006088",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored gray.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a path: 7 -> 5 -> 0 -> 6, so the two gray query nodes are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 126,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:30:04.269942",
+    "dataset_sample": {
+      "label": false,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored blue.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "No. The blue nodes 1 and 3 are in different components: 1 is connected to 11, while 3 is connected to 7 and 4. There is no path between node 1 and node 3.",
+      "parsed_prediction": "no",
+      "ground_truth": "no",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
+  },
+  {
+    "sample_index": 127,
+    "task_name": "graph_connectivity",
+    "modality": "image",
+    "timestamp": "2025-08-08T04:30:11.844392",
+    "dataset_sample": {
+      "label": true,
+      "answer": null,
+      "question": null,
+      "latex": null,
+      "code": null,
+      "domain": null,
+      "description": null,
+      "image_available": true,
+      "raw_sample_keys": [
+        "image",
+        "query_nodes_color",
+        "adjacency_matrix",
+        "query_node_1",
+        "query_node_2",
+        "label",
+        "id"
+      ]
+    },
+    "evaluation": {
+      "choices": [
+        "no",
+        "yes"
+      ],
+      "input_prompt": "You are shown a graph visualization.\n\nYour task is to determine whether two specific nodes are connected by analyzing the visual representation.\n\nQuery nodes are colored green.\nNote: Node indexing starts from 0.\n\nTwo nodes are connected if there exists any path (sequence of edges) between them, either directly or through intermediate vertices.\n\nCarefully trace the graph structure to determine connectivity.\n\nLook carefully at the visual representation and provide your answer based on systematic analysis.",
+      "model_response": "Yes. There is a direct edge between node 3 and node 0 (a red line connects them), so they are connected.",
+      "parsed_prediction": "yes",
+      "ground_truth": "yes",
+      "is_correct": true,
+      "prompt_type": "long"
+    }
   }
 ]
