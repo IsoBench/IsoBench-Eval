@@ -509,22 +509,3 @@ If you use this evaluation framework, please cite:
       year={2024}
 }
 ```
-
-## Acknowledgments
-
-- IsoBench dataset creators for the comprehensive benchmark
-- OpenAI, Google, and Anthropic for providing foundation model APIs
-- The open-source community for supporting libraries
-
-## Support
-
-For issues and questions:
-
-1. Check the [troubleshooting](#troubleshooting) section
-2. Review existing GitHub issues
-3. Create a new issue with detailed information
-4. Include log files and configuration details
-
----
-
-**Happy Evaluating! 🚀**
