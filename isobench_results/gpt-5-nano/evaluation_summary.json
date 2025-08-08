@@ -1,0 +1,186 @@
+{
+  "model_name": "gpt-5-nano",
+  "timestamp": "2025-08-08T15:32:29.591692",
+  "task_summaries": {
+    "math_convexity": {
+      "total_samples": 512,
+      "correct_samples": 508,
+      "overall_accuracy": 0.9921875,
+      "modality_breakdown": {
+        "text": {
+          "total": 256,
+          "correct": 255,
+          "accuracy": 0.99609375
+        },
+        "image": {
+          "total": 256,
+          "correct": 253,
+          "accuracy": 0.98828125
+        }
+      },
+      "log_file": "math_convexity.json"
+    },
+    "math_parity": {
+      "total_samples": 768,
+      "correct_samples": 654,
+      "overall_accuracy": 0.8515625,
+      "modality_breakdown": {
+        "text": {
+          "total": 384,
+          "correct": 378,
+          "accuracy": 0.984375
+        },
+        "image": {
+          "total": 384,
+          "correct": 276,
+          "accuracy": 0.71875
+        }
+      },
+      "log_file": "math_parity.json"
+    },
+    "math_breakpoint": {
+      "total_samples": 512,
+      "correct_samples": 495,
+      "overall_accuracy": 0.966796875,
+      "modality_breakdown": {
+        "text": {
+          "total": 256,
+          "correct": 253,
+          "accuracy": 0.98828125
+        },
+        "image": {
+          "total": 256,
+          "correct": 242,
+          "accuracy": 0.9453125
+        }
+      },
+      "log_file": "math_breakpoint.json"
+    },
+    "chemistry": {
+      "total_samples": 150,
+      "correct_samples": 141,
+      "overall_accuracy": 0.94,
+      "modality_breakdown": {
+        "text": {
+          "total": 75,
+          "correct": 73,
+          "accuracy": 0.9733333333333334
+        },
+        "image": {
+          "total": 75,
+          "correct": 68,
+          "accuracy": 0.9066666666666666
+        }
+      },
+      "log_file": "chemistry.json"
+    },
+    "physics": {
+      "total_samples": 150,
+      "correct_samples": 125,
+      "overall_accuracy": 0.8333333333333334,
+      "modality_breakdown": {
+        "text": {
+          "total": 75,
+          "correct": 65,
+          "accuracy": 0.8666666666666667
+        },
+        "image": {
+          "total": 75,
+          "correct": 60,
+          "accuracy": 0.8
+        }
+      },
+      "log_file": "physics.json"
+    },
+    "graph_connectivity": {
+      "total_samples": 256,
+      "correct_samples": 250,
+      "overall_accuracy": 0.9765625,
+      "modality_breakdown": {
+        "text": {
+          "total": 128,
+          "correct": 128,
+          "accuracy": 1.0
+        },
+        "image": {
+          "total": 128,
+          "correct": 122,
+          "accuracy": 0.953125
+        }
+      },
+      "log_file": "graph_connectivity.json"
+    },
+    "graph_maxflow": {
+      "total_samples": 256,
+      "correct_samples": 205,
+      "overall_accuracy": 0.80078125,
+      "modality_breakdown": {
+        "text": {
+          "total": 128,
+          "correct": 128,
+          "accuracy": 1.0
+        },
+        "image": {
+          "total": 128,
+          "correct": 77,
+          "accuracy": 0.6015625
+        }
+      },
+      "log_file": "graph_maxflow.json"
+    },
+    "graph_isomorphism": {
+      "total_samples": 256,
+      "correct_samples": 195,
+      "overall_accuracy": 0.76171875,
+      "modality_breakdown": {
+        "text": {
+          "total": 128,
+          "correct": 123,
+          "accuracy": 0.9609375
+        },
+        "image": {
+          "total": 128,
+          "correct": 72,
+          "accuracy": 0.5625
+        }
+      },
+      "log_file": "graph_isomorphism.json"
+    },
+    "winner_id": {
+      "total_samples": 514,
+      "correct_samples": 434,
+      "overall_accuracy": 0.8443579766536965,
+      "modality_breakdown": {
+        "text": {
+          "total": 257,
+          "correct": 239,
+          "accuracy": 0.9299610894941635
+        },
+        "image": {
+          "total": 257,
+          "correct": 195,
+          "accuracy": 0.7587548638132295
+        }
+      },
+      "log_file": "winner_id.json"
+    },
+    "puzzle": {
+      "total_samples": 400,
+      "correct_samples": 20,
+      "overall_accuracy": 0.05,
+      "modality_breakdown": {
+        "text": {
+          "total": 200,
+          "correct": 20,
+          "accuracy": 0.1
+        },
+        "image": {
+          "total": 200,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      },
+      "log_file": "puzzle.json"
+    }
+  }
+}
