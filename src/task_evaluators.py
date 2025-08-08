@@ -564,8 +564,6 @@ Recall the definitions:
 - A function is CONVEX if its second derivative f''(x) ≥ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies above the graph.
 - A function is CONCAVE if its second derivative f''(x) ≤ 0 throughout the domain, or equivalently, if the line segment between any two points on the graph lies below the graph.
 
-Analyze the given function by computing its second derivative and determining its sign{domain_info}.
-
 Please read the problem carefully and provide your answer. Think step by step about the mathematical properties involved."""
             elif "code" in sample:
                 base_prompt = f"""You are given a mathematical function defined as: {sample['code']}.
