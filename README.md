@@ -15,15 +15,19 @@ IsoBench is a benchmark dataset designed to evaluate multimodal reasoning capabi
 ## Features
 
 - ✅ **Multiple Foundation Models**: OpenAI GPT (including GPT-5 default), Google Gemini, Anthropic Claude
-- ✅ **Complete Task Coverage**: All IsoBench tasks across 4 domains
+- ✅ **Complete Task Coverage**: All IsoBench tasks across 4 domains  
 - ✅ **Dual Modality**: Text and image representation evaluation
+- ✅ **Enhanced Reporting**: Macro-task summaries with detailed performance breakdowns
+- ✅ **Professional Visualizations**: Radar plots with dual-modality comparisons
 - ✅ **Flexible Configuration**: Command-line arguments for customization
-- ✅ **Results Export**: JSON and CSV output formats
-- ✅ **Table 1 Reproduction**: Generate reports similar to the original paper
+- ✅ **Results Export**: Enhanced JSON and CSV output formats
+- ✅ **Table 1 Reproduction**: Generate detailed reports similar to the original paper
 - ✅ **Resume Functionality**: Skip completed evaluations with intelligent caching
 - ✅ **Comprehensive Logging**: Detailed JSON logs with full evaluation traces
 - ✅ **Multi-Model Aggregation**: Compare multiple models with dedicated aggregation script
 - ✅ **Long Prompt Support**: Use detailed prompts from paper appendix for better results
+
+**Important**: Currently only GPT models have been thoroughly tested. Gemini and Anthropic implementations are included but not fully validated.
 
 ## Installation
 
@@ -77,6 +81,14 @@ Options:
   --modalities {text,image}  Modalities to evaluate (default: text image)
   --max-samples N       Maximum samples per task (default: all samples)
   --output-dir DIR      Output directory for results (default: isobench_results)
+  --long-prompts        Use detailed prompts from paper appendix (default: short prompts)
+  --short-prompts       Use concise prompts for faster evaluation
+  --save-detailed-results   Save detailed results to JSON file
+  --generate-radar-plots    Generate radar plot visualizations (default: True)
+  --no-radar-plots      Disable radar plot generation
+  --resume              Resume from cached results if available (default: True)
+  --no-resume           Don't resume from cached results
+  --fresh-start         Override cached results and start fresh evaluation
   --api-key KEY         API key for the model (can also use env vars)
   --verbose             Enable verbose logging
   --help               Show help message
@@ -123,6 +135,48 @@ python eval.py --model gpt-4 --fresh-start
 ```bash
 python eval.py --model claude-3-opus-20240229 --tasks math_parity graph_connectivity --long-prompts --max-samples 100 --verbose
 ```
+
+## Enhanced Functionality
+
+### 🎯 Comprehensive Evaluation Summaries
+The framework now generates enhanced evaluation summaries with:
+- **Macro-task groupings**: Results organized by Math, Science, Algorithm, and Game categories
+- **Detailed modality breakdown**: Per-task and per-modality accuracy reporting
+- **Performance gap analysis**: Text vs. Image modality performance gaps
+- **Sample count tracking**: Total and correct sample counts for transparency
+
+### 📊 Enhanced Table 1 Reports
+Individual and aggregate reports now include:
+- **Task column**: Separate rows for each macro-task category plus an "All" summary
+- **Comprehensive metrics**: Text/Image accuracy, gaps, and sample counts
+- **Multi-format output**: Both detailed and simplified report versions
+
+Example enhanced report:
+```csv
+Model,Task,Text Accuracy,Image Accuracy,Gap (Text - Image),Gap (Points),Text Samples,Text Correct,Image Samples,Image Correct
+gpt-5-nano,Math,88.5%,76.2%,12.3%,12.3,768,679,768,585
+gpt-5-nano,Science,89.1%,71.8%,17.3%,17.3,384,342,384,276
+gpt-5-nano,Algorithm,85.7%,68.5%,17.2%,17.2,576,494,576,395
+gpt-5-nano,Game,92.3%,78.4%,13.9%,13.9,159,147,159,125
+gpt-5-nano,All,88.1%,72.3%,15.8%,15.8,1887,1662,1887,1381
+```
+
+### 📈 Advanced Radar Plot Visualizations
+Generate professional radar plots with:
+- **Dual-modality comparison**: Blue for image, red for text modality
+- **Two detail levels**: 
+  - Detailed plots: Individual task performance
+  - Macro plots: Performance by task category
+- **Multi-model comparison**: Compare up to 4 models on the same plot
+- **Professional styling**: Serif fonts, bold labels, optimized spacing
+- **High-resolution output**: 300 DPI PNG files ready for publications
+
+### 🔄 Intelligent Caching & Resume
+- **Automatic result caching**: Skip already evaluated samples
+- **Resume functionality**: Continue interrupted evaluations
+- **Fresh start option**: Override cache for complete re-evaluation
+
+**Note**: Currently, only GPT models have been thoroughly tested. Gemini and Anthropic model implementations are included but not fully validated.
 
 ## Available Tasks
 
@@ -201,23 +255,61 @@ IsoBench-Eval/
 - **`src/task_evaluators.py`**: Specialized evaluators for different task categories with caching and detailed logging
 - **`src/data_structures.py`**: Data classes for structured result storage and type safety
 
-## Output Structure
+## Enhanced Output Structure
 
-The framework generates a structured output directory with comprehensive logging and reporting:
+The framework generates a comprehensive output directory with detailed logging, enhanced reporting, and professional visualizations:
 
 ```
 isobench_results/
-├── model_name/                    # e.g., gpt-5, gpt-4, gemini-1.5-pro
-│   ├── math_parity.json          # Detailed task logs with predictions
-│   ├── math_convexity.json       # Full evaluation data per task
-│   ├── chemistry.json            
-│   ├── ...                       # One JSON file per evaluated task
-│   ├── evaluation_summary.json   # Aggregated statistics and accuracies
-│   └── individual_report.csv     # Table 1 format for this model only
-├── table1_report.csv             # Combined report (multi-model only)
-├── table1_comprehensive_report.csv # Detailed aggregation (via aggregate script)
-├── task_breakdown_report.csv     # Task-by-task analysis (via aggregate script)  
-└── isobench_evaluation.log       # Execution log
+├── model_name/                           # e.g., gpt-5, gpt-4, gemini-1.5-pro
+│   ├── math_parity.json                 # Detailed task logs with predictions
+│   ├── math_convexity.json              # Full evaluation data per task
+│   ├── chemistry.json                   
+│   ├── ...                              # One JSON file per evaluated task
+│   ├── evaluation_summary.json          # Enhanced statistics with macro-task summaries
+│   ├── individual_report.csv            # Enhanced Table 1 format for this model
+│   ├── model_name_detailed_radar.png    # Individual task radar plot
+│   └── model_name_macro_radar.png       # Macro-task radar plot
+├── table1_report.csv                    # Simplified combined report (All rows only)
+├── table1_comprehensive_report.csv      # Enhanced format with macro-task breakdown
+├── task_breakdown_report.csv            # Task-by-task analysis (via aggregate script)
+├── models_detailed_comparison_radar.png # Multi-model detailed comparison
+├── models_macro_comparison_radar.png    # Multi-model macro-task comparison
+└── isobench_evaluation.log              # Execution log
+```
+
+### Enhanced Files Generated
+
+1. **Task-level JSON logs** (`{task_name}.json`): Complete evaluation results with:
+   - Dataset samples and ground truth
+   - Model inputs and outputs  
+   - Parsing results and correctness
+   - Timestamps and metadata
+
+2. **Enhanced evaluation summary** (`evaluation_summary.json`): Comprehensive statistics with:
+   - Overall and per-task accuracies
+   - Text vs image modality breakdown with gaps
+   - Macro-task summaries (Math, Science, Algorithm, Game)
+   - Sample counts and performance metrics
+   - Performance gap analysis
+
+3. **Enhanced individual report** (`individual_report.csv`): Table 1 format with macro-task rows
+4. **Professional radar plots** (`.png`): High-resolution visualizations showing:
+   - Dual-modality performance comparison (text vs image)
+   - Individual task and macro-task views
+   - Multi-model comparisons
+5. **Execution log** (`isobench_evaluation.log`): Detailed run information
+
+### Enhanced Report Format
+
+**Macro-Task Breakdown Example:**
+```csv
+Model,Task,Text Accuracy,Image Accuracy,Gap (Text - Image),Gap (Points),Text Samples,Text Correct,Image Samples,Image Correct
+gpt-5,Math,88.5%,76.2%,12.3%,12.3,768,679,768,585
+gpt-5,Science,89.1%,71.8%,17.3%,17.3,384,342,384,276
+gpt-5,Algorithm,85.7%,68.5%,17.2%,17.2,576,494,576,395
+gpt-5,Game,92.3%,78.4%,13.9%,13.9,159,147,159,125
+gpt-5,All,88.1%,72.3%,15.8%,15.8,1887,1662,1887,1381
 ```
 
 ### Files Generated
@@ -237,79 +329,18 @@ isobench_results/
 4. **Combined reports**: Multi-model Table 1 comparison (when applicable)
 5. **Execution log** (`isobench_evaluation.log`): Detailed run information
 
-### Result Format
-
-**Summary Report Example:**
-```
-Model          Text Accuracy  Image Accuracy  Gap (Text - Image)  Gap (Points)
-GPT-5          85.2%          78.9%           6.3%                6.3
-GPT-4          82.1%          75.4%           6.7%                6.7
-Gemini-Pro     79.8%          73.2%           6.6%                6.6
-```
-
-**Task-level Results Example:**
-```
-=== Task-level Results for GPT-5 ===
-
-math_parity:
-  Text: 0.892
-  Image: 0.834
-
-math_convexity:
-  Text: 0.876
-  Image: 0.812
-  
-chemistry:
-  Text: 0.823
-  Image: 0.756
-```
-
-## Supported Models
-
-### OpenAI GPT Models
-- **GPT-5** (default): Latest GPT model (currently maps to GPT-4o)
-- **GPT-4**: GPT-4 Turbo with vision capabilities
-- **GPT-3.5**: GPT-3.5 Turbo
-
-### Google Gemini Models  
-- **Gemini 2.0 Flash Experimental**: Latest experimental model with fast response times
-- **Gemini 1.5 Pro**: Advanced multimodal capabilities and long context
-- **Gemini Ultra**: Most capable model (when available)
-
-### Anthropic Claude Models
-- **Claude-3 Opus**: Most capable Claude model
-- **Claude-3 Sonnet**: Balanced performance/cost
-- **Claude-3 Haiku**: Fast and efficient
-
-## Configuration
-
-### Environment Variables
-
-Set API keys using environment variables:
-```bash
-# OpenAI
-export OPENAI_API_KEY="sk-..."
-
-# Google Gemini  
-export GEMINI_API_KEY="AI..."
-# Alternative: GOOGLE_API_KEY also supported for backward compatibility
-
-# Anthropic Claude
-export ANTHROPIC_API_KEY="sk-ant-..."
-```
-
 ### Rate Limiting
 
 The framework includes built-in rate limiting (1 second delay between API calls) to respect API limits. Modify `rate_limit_delay` in model classes if needed.
 
 ## Multi-Model Analysis
 
-### Aggregating Results from Multiple Models
+### Enhanced Aggregating Results from Multiple Models
 
-When you've evaluated multiple models separately, use the aggregation script to combine results:
+When you've evaluated multiple models separately, use the enhanced aggregation script to combine results:
 
 ```bash
-# Aggregate all models in the output directory
+# Aggregate all models with full enhancements (radar plots, detailed reports)
 python aggregate_results.py --output-dir isobench_results
 
 # Aggregate specific models only  
@@ -317,12 +348,32 @@ python aggregate_results.py --models gpt-5 gpt-4 gemini-1.5-pro
 
 # Include detailed task-by-task breakdown
 python aggregate_results.py --include-task-breakdown --verbose
+
+# Generate without radar plots (if matplotlib not available)
+python aggregate_results.py --no-radar-plots
 ```
 
-This generates:
-- **`table1_comprehensive_report.csv`**: Full comparison with sample counts
-- **`table1_report.csv`**: Clean summary (Model, Text Accuracy, Image Accuracy, Gap)  
+### Enhanced Output Files
+
+The aggregation now generates:
+- **`table1_comprehensive_report.csv`**: Enhanced format with macro-task breakdown:
+  ```csv
+  Model,Task,Text Accuracy,Image Accuracy,Gap (Text - Image),Gap (Points),Text Samples,Text Correct,Image Samples,Image Correct
+  gpt-5,Math,88.5%,76.2%,12.3%,12.3,768,679,768,585
+  gpt-5,Science,89.1%,71.8%,17.3%,17.3,384,342,384,276
+  gpt-5,All,88.1%,72.3%,15.8%,15.8,1887,1662,1887,1381
+  ```
+- **`table1_report.csv`**: Simplified summary with "All" rows only
 - **`task_breakdown_report.csv`**: Per-task performance analysis (optional)
+- **Radar plots**: Professional visualizations comparing models across tasks
+  - `models_macro_comparison_radar.png`: Macro-task comparison
+  - `models_detailed_comparison_radar.png`: Individual task comparison
+
+### Radar Plot Features
+- **Dual modality visualization**: Text (red) vs Image (blue) performance
+- **Professional styling**: Serif fonts, bold labels, high-resolution output
+- **Multi-model comparison**: Up to 4 models on the same plot
+- **Two detail levels**: Macro-tasks and individual tasks
 
 ### Resume Functionality
 

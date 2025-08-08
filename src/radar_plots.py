@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 import matplotlib.patches as patches
 
+plt.rcParams["font.family"] = "serif"
 logger = logging.getLogger(__name__)
 
 
@@ -198,26 +199,26 @@ class RadarPlotGenerator:
 
         # Set labels
         ax.set_xticks(angles[:-1])
-        ax.set_xticklabels(labels, fontsize=14, fontweight="bold")
+        ax.set_xticklabels(labels, fontsize=18, fontweight="bold")
 
         # Move labels further from the circle to avoid overlap
-        ax.tick_params(axis="x", pad=20)
+        ax.tick_params(axis="x", pad=30)
 
         # Set y-axis limits (0-100 for percentages)
         ax.set_ylim(0, 100)
         # ax.set_yticks([20, 40, 60, 80, 100])
         ax.set_yticks([25, 50, 75, 100])
-        ax.set_yticklabels(["25%", "50%", "75%", "100%"], fontsize=12)
+        ax.set_yticklabels(["25%", "50%", "75%", "100%"], fontsize=15)
         ax.grid(True, alpha=0.3)
 
         # Add title and legend
         plt.title(title, size=18, fontweight="bold", pad=20)
-        plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.0), fontsize=14)
+        plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1), fontsize=15)
 
         # Save the plot
         output_file = self.output_dir / filename
         plt.tight_layout()
-        plt.savefig(output_file, dpi=300, bbox_inches="tight")
+        plt.savefig(output_file, dpi=300, bbox_inches="tight", pad_inches=0.01)
         plt.close()
 
         logger.info(f"Radar plot saved to: {output_file}")
@@ -266,6 +267,9 @@ class RadarPlotGenerator:
 
         # Create the figure
         fig, ax = plt.subplots(figsize=(12, 12), subplot_kw=dict(projection="polar"))
+
+        # Set font family to Sans Serif
+        plt.rcParams["font.family"] = "serif"
 
         # Number of variables
         num_vars = len(labels)
@@ -317,7 +321,7 @@ class RadarPlotGenerator:
 
         # Set labels
         ax.set_xticks(angles[:-1])
-        ax.set_xticklabels(labels, fontsize=14, fontweight="bold")
+        ax.set_xticklabels(labels, fontsize=18, fontweight="bold")
 
         # Move labels further from the circle to avoid overlap
         # ax.tick_params(axis="both", pad=0)
@@ -325,17 +329,17 @@ class RadarPlotGenerator:
         # Set y-axis
         ax.set_ylim(0, 100)
         ax.set_yticks([25, 50, 75, 100])
-        ax.set_yticklabels(["25%", "50%", "75%", "100%"], fontsize=12)
+        ax.set_yticklabels(["25%", "50%", "75%", "100%"], fontsize=15)
         ax.grid(True, alpha=0.3)
 
         # Add title and legend
         plt.title(title, size=18, fontweight="bold", pad=20)
-        plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.0), fontsize=14)
+        plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.0), fontsize=15)
 
         # Save the plot
         output_file = self.output_dir / filename
         plt.tight_layout()
-        plt.savefig(output_file, dpi=300, bbox_inches="tight")
+        plt.savefig(output_file, dpi=300, bbox_inches="tight", pad_inches=0.01)
         plt.close()
 
         logger.info(f"Comparison radar plot saved to: {output_file}")
