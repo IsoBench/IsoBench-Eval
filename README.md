@@ -1,4 +1,4 @@
-# IsoBench Evaluation Framework
+# IsoBench: Benchmarking Multimodal Foundation Models on Isomorphic Representations
 
 A comprehensive evaluation framework for the IsoBench dataset supporting multiple foundation models (OpenAI GPT, Google Gemini, Anthropic Claude) across all tasks and modalities (image and text representations).
 
