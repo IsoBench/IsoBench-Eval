@@ -944,15 +944,17 @@ class GameTaskEvaluator(IsoBenchTaskEvaluator):
         base_prompt = ""
 
         if self.task_name == "winner_id":
-            base_prompt = """You are presented with a game scenario that requires strategic analysis.
+            board = sample.get("pgn", "")
+            base_prompt = f"""You are presented with a game scenario that requires strategic analysis.
 
 Your task is to analyze the game state and determine the winner.
 
-Game scenario: 
+Board in PGN format: {board}
 """
 
         elif self.task_name == "puzzle":
-            base_prompt = """You are given a board of a chess puzzle for which a sequence of unique best moves is determinable (e.g.
+            board = sample.get("pgn", "")
+            base_prompt = f"""You are given a board of a chess puzzle for which a sequence of unique best moves is determinable (e.g.
 sequences of moves leading to a forced checkmate).
 - Definition of the Chess Puzzle: In a chess puzzle, you are required to make a series of optimal moves leading to
 checkmate, starting from the given position.
@@ -960,11 +962,8 @@ checkmate, starting from the given position.
 - Your answer should first specify the move (e.g., "d2d1", "e5a1", "c4f4"). Afterward,
 provide your reasoning for why you chose that as your first move.
 
-Board:
+Board in PGN format: {board}
 """
-
-        if "question" in sample:
-            base_prompt += sample["question"]
 
         base_prompt += "\n\nAnalyze the problem carefully and provide your answer with clear reasoning."
         return base_prompt
