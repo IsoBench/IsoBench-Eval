@@ -1,6 +1,6 @@
 {
   "model_name": "gpt-5-nano",
-  "timestamp": "2025-08-08T19:42:57.490589",
+  "timestamp": "2025-08-09T03:24:06.540350",
   "task_summaries": {
     "math_convexity": {
       "total_samples": 512,
@@ -172,25 +172,6 @@
       },
       "gap": 0.1712062256809339,
       "log_file": "winner_id.json"
-    },
-    "puzzle": {
-      "total_samples": 400,
-      "correct_samples": 20,
-      "overall_accuracy": 0.05,
-      "modality_breakdown": {
-        "text": {
-          "total": 200,
-          "correct": 20,
-          "accuracy": 0.1
-        },
-        "image": {
-          "total": 200,
-          "correct": 0,
-          "accuracy": 0.0
-        }
-      },
-      "gap": 0.1,
-      "log_file": "puzzle.json"
     }
   },
   "macro_task_summaries": {
@@ -232,12 +213,12 @@
     }
   },
   "overall_summary": {
-    "text_accuracy": 0.8807631160572337,
-    "image_accuracy": 0.7233704292527822,
-    "gap": 0.1573926868044515,
-    "total_text_samples": 1887,
-    "total_image_samples": 1887,
-    "correct_text_samples": 1662,
+    "text_accuracy": 0.973325429756965,
+    "image_accuracy": 0.8091286307053942,
+    "gap": 0.1641967990515708,
+    "total_text_samples": 1687,
+    "total_image_samples": 1687,
+    "correct_text_samples": 1642,
     "correct_image_samples": 1365
   }
 }

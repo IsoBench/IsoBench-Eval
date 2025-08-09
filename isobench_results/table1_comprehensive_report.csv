@@ -1,6 +1,11 @@
 Model,Task,Text Accuracy,Image Accuracy,Gap (Text - Image),Gap (Points),Text Samples,Text Correct,Image Samples,Image Correct
+gemini-2.5-flash-lite,Math,98.3%,80.9%,17.4%,17.4,896,881,896,725
+gemini-2.5-flash-lite,Science,94.0%,86.7%,7.3%,7.3,150,141,150,130
+gemini-2.5-flash-lite,Algorithm,92.2%,62.5%,29.7%,29.7,384,354,384,240
+gemini-2.5-flash-lite,Game,78.2%,48.2%,30.0%,30.0,257,201,257,124
+gemini-2.5-flash-lite,All,93.5%,72.3%,21.2%,21.2,1687,1577,1687,1219
 gpt-5-nano,Math,98.9%,86.0%,12.8%,12.8,896,886,896,771
 gpt-5-nano,Science,92.0%,85.3%,6.7%,6.7,150,138,150,128
 gpt-5-nano,Algorithm,98.7%,70.6%,28.1%,28.1,384,379,384,271
 gpt-5-nano,Game,93.0%,75.9%,17.1%,17.1,257,239,257,195
-gpt-5-nano,All,88.1%,72.3%,15.7%,15.7,1887,1662,1887,1365
+gpt-5-nano,All,97.3%,80.9%,16.4%,16.4,1687,1642,1687,1365

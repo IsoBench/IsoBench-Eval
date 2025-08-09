@@ -1,2 +1,3 @@
 Model,Text Accuracy,Image Accuracy,Gap (Text - Image),Gap (Points)
-gpt-5-nano,88.1%,72.3%,15.7%,15.7
+gemini-2.5-flash-lite,93.5%,72.3%,21.2%,21.2
+gpt-5-nano,97.3%,80.9%,16.4%,16.4
