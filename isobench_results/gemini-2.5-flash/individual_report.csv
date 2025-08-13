@@ -1,0 +1,6 @@
+Model,Task,Text Accuracy,Image Accuracy,Gap (Text - Image),Gap (Points),Text Samples,Text Correct,Image Samples,Image Correct
+gemini-2.5-flash,Math,94.2%,91.5%,2.7%,2.7,896,844,896,820
+gemini-2.5-flash,Science,92.7%,90.7%,2.0%,2.0,150,139,150,136
+gemini-2.5-flash,Algorithm,99.5%,80.5%,19.0%,19.0,384,382,384,309
+gemini-2.5-flash,Game,79.0%,70.0%,8.9%,8.9,257,203,257,180
+gemini-2.5-flash,All,92.9%,85.7%,7.3%,7.3,1687,1568,1687,1445
