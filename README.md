@@ -9,11 +9,20 @@ Evaluating multimodal foundation models on isomorphic representations - the same
 
 ## Results Preview
 
-### GPT-5-nano Performance Across Task Categories
+### GPT-5-nano and Gemini-2.5-Flash Performance Across Task Categories
 
-![GPT-5-nano Macro Results](isobench_results/gpt-5-nano_detailed_radar.png)
+<div style="display: flex; justify-content: space-between;">
+   <div style="flex: 1; text-align: center;">
+      <img src="isobench_results/gpt-5-nano_detailed_radar.png" alt="GPT-5-nano IsoBench Results" width="100%">
+      <p>GPT-5-nano</p>
+   </div>
+   <div style="flex: 1; text-align: center;">
+      <img src="isobench_results/gemini-2.5-flash_detailed_radar.png" alt="Gemini-2.5-Flash IsoBench Results" width="100%">
+      <p>Gemini-2.5-Flash</p>
+   </div>
+</div>
 
-*GPT-5-nano performance on IsoBench macro-task categories. Red indicates text modality performance, blue indicates image modality performance. The framework reveals consistent gaps between text and image reasoning across all task domains.*
+*GPT-5-nano and Gemini-2.5-F;ash performance on IsoBench macro-task categories. Red indicates text modality performance, blue indicates image modality performance. The framework reveals consistent gaps between text and image reasoning across all task domains.*
 
 ## Overview
 
